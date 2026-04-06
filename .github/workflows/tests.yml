@@ -1,0 +1,34 @@
+name: 🧪 Tests unitaires KYC
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-architecture:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📥 Récupération du code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Installation de Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: 📦 Installation des dépendances (Backend + Frontend)
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r backend/requirements.txt
+        pip install -r frontend/requirements.txt
+        pip install pytest httpx
+
+    - name: 🚀 Lancement des tests du Backend (API)
+      run: |
+        pytest -v test_main.py
+
+    - name: 🖥️ Vérification du Frontend (Compilation UI)
+      run: |
+        # On vérifie que l'interface Dash s'initialise sans erreur de dépendances ou de syntaxe
+        python -c "import sys; sys.path.append('frontend'); import UI"
