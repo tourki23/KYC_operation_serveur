@@ -1,0 +1,41 @@
+{
+  "auc_roc": 0.9536,
+  "average_precision": 0.9496,
+  "classification_report": {
+    "Bas risque": {
+      "precision": 0.8991596638655462,
+      "recall": 0.9067796610169492,
+      "f1-score": 0.9029535864978903,
+      "support": 118.0
+    },
+    "Haut risque": {
+      "precision": 0.8641975308641975,
+      "recall": 0.8536585365853658,
+      "f1-score": 0.8588957055214724,
+      "support": 82.0
+    },
+    "accuracy": 0.885,
+    "macro avg": {
+      "precision": 0.8816785973648719,
+      "recall": 0.8802190988011576,
+      "f1-score": 0.8809246460096813,
+      "support": 200.0
+    },
+    "weighted avg": {
+      "precision": 0.8848251893349932,
+      "recall": 0.885,
+      "f1-score": 0.8848898552975589,
+      "support": 200.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      107,
+      11
+    ],
+    [
+      12,
+      70
+    ]
+  ]
+}

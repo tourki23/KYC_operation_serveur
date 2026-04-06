@@ -1,0 +1,8 @@
+dash>=2.13.0
+dash-bootstrap-components>=1.5.0
+plotly>=5.17.0
+pandas>=2.0.0
+requests>=2.31.0
+# Optionnel mais recommandé si l'UI importe l'ORM pour une lecture directe :
+SQLAlchemy==2.0.49
+psycopg2-binary>=2.9.9

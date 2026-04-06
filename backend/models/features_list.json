@@ -1,0 +1,22 @@
+[
+  "age",
+  "revenu_annuel",
+  "solde_moyen",
+  "anciennete_compte",
+  "nb_comptes_lies",
+  "montant_moyen",
+  "montant_max",
+  "montant_std",
+  "montant_median",
+  "velocite_tx_par_jour",
+  "ratio_international",
+  "ratio_smurfing",
+  "ratio_crypto",
+  "ratio_intl_risque",
+  "nb_smurfing",
+  "pays_risque",
+  "litige_anterieur",
+  "kyc_valide",
+  "secteur_encode",
+  "type_compte_encode"
+]

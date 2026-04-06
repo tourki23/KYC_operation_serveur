@@ -1,0 +1,21 @@
+# --- Environnements virtuels et Cache ---
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Dossiers de sauvegarde ---
+backups/
+
+# --- Sécurité et Secrets ---
+.env
+*.log
+
+# --- Docker ---
+postgres_data/
+
+# --- OS ---
+.DS_Store
+Thumbs.db

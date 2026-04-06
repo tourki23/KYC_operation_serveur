@@ -1,0 +1,49 @@
+services:
+  # 1. LA BASE DE DONNÉES
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: dryres1
+      POSTGRES_DB: kyc_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. LE BACKEND (API)
+  api:
+    build: ./backend
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dryres1
+      - POSTGRES_DB=kyc_db
+      - POSTGRES_HOST=db
+    # On force bien API en majuscules ici
+    command: uvicorn API:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  # 3. LE FRONTEND (Dashboard)
+  ui:
+    build: ./frontend
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=dryres1
+      - POSTGRES_DB=kyc_db
+      - POSTGRES_HOST=db
+      - API_URL=http://api:8000
+    # Note: Assure-toi que dans UI.py, app.run_server a host='0.0.0.0'
+    command: python UI.py
+    ports:
+      - "8053:8053"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:

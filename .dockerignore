@@ -1,0 +1,28 @@
+# Environnements virtuels (Docker installe ses propres dépendances)
+.venv/
+venv/
+env/
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Fichiers secrets
+.env
+
+# Fichiers Git
+.git/
+.gitignore
+
+# Base de données locale de test
+data/transactions_history.csv
+
+# Fichiers Docker eux-mêmes (Optionnel mais propre)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Fichiers Markdown/Doc
+README.md

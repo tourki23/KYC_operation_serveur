@@ -1,0 +1,1001 @@
+client_id,age,sexe,pays_residence,nationalite,secteur_activite,type_compte,revenu_annuel,solde_moyen,anciennete_compte,est_ppe,pays_risque,profil_risque,score_risque_reel,date_ouverture,nb_comptes_lies,litige_anterieur,kyc_valide
+04EC2F588A9E,53,M,Maroc,France,Commerce,Courant,41775,31109,8,True,True,ppe,2,2018-04-04,2,True,True
+23D39D9E6B48,67,F,Colombie,Turquie,Sans emploi,Professionnel,12669,15256,23,True,True,ppe,2,2003-04-08,1,False,True
+A47E2843B8AD,31,M,Suède,Mexique,Arts,Courant,24747,14599,11,False,False,normal,0,2015-04-05,1,False,True
+7BAC38B6AFA6,80,F,Pays-Bas,Turquie,Défense,Épargne,22919,27047,13,False,True,vigilance,1,2013-04-05,2,False,True
+E4343D2AD084,73,F,Japon,Turquie,Technologie,Épargne,49103,11543,13,False,False,normal,0,2013-04-05,2,False,False
+8C8082C1E1B7,50,M,Égypte,Vietnam,Agriculture,Professionnel,45356,43437,24,False,False,ppe,2,2002-04-08,0,False,True
+80DF25B1B35C,32,F,Maroc,Syrie,Conseil,Épargne,42339,40233,2,False,False,suspect,2,2024-04-02,0,False,True
+3616C2538B61,27,F,Inde,Brésil,Industrie,Joint,35197,41496,5,False,False,vigilance,1,2021-04-03,0,False,True
+1E0BC919EC3B,27,F,Mexique,Afghanistan,Sans emploi,Joint,10555,16264,6,False,False,suspect,2,2020-04-03,0,False,False
+444E5AD7B7A9,64,F,Iran,Russie,Technologie,Professionnel,53596,42758,22,False,True,suspect,2,2004-04-07,2,False,True
+D88E67617487,33,M,Brésil,Mexique,Agriculture,Professionnel,31253,504,25,True,False,fraudeur,3,2001-04-08,8,True,True
+03EE35CD5351,76,F,Colombie,France,Santé,Courant,39909,6652,20,False,False,normal,0,2006-04-07,2,False,True
+7135A4C80D36,23,M,Royaume-Uni,Suède,Indépendant,Joint,44886,4254,16,False,False,normal,0,2010-04-06,0,False,True
+3CDCD437EE62,49,F,Vietnam,Yémen,Indépendant,Professionnel,46889,54161,23,True,False,fraudeur,3,2003-04-08,3,True,True
+4700AF2B34F9,32,M,Égypte,Allemagne,Retraité,Épargne,16760,20780,8,True,True,normal,0,2018-04-04,0,False,True
+D0C8429CAD91,31,F,Vietnam,Japon,Agriculture,Joint,23361,7510,5,False,False,normal,0,2021-04-03,4,False,True
+5D3A59B31E88,73,M,Inde,Allemagne,Indépendant,Joint,50172,56104,2,False,False,vigilance,1,2024-04-02,3,True,True
+D130916F3AF6,45,M,Suède,Royaume-Uni,Finance,Joint,59817,46397,9,False,False,vigilance,1,2017-04-04,0,True,True
+12E43C163A5F,80,M,France,Brésil,Technologie,Joint,61044,41534,30,False,False,vigilance,1,1996-04-09,1,False,True
+48E37C7474BD,34,F,Mexique,Brésil,Défense,Joint,45891,43268,26,False,False,normal,0,2000-04-08,2,False,True
+FDEAE37588BF,21,M,Tunisie,Allemagne,Santé,Courant,47878,30127,19,False,True,vigilance,1,2007-04-07,0,True,False
+8B8D877537BB,55,M,Japon,Brésil,Retraité,Professionnel,28393,26448,2,False,False,vigilance,1,2024-04-02,1,False,True
+57A129DF81F8,47,M,Maroc,Inde,Immobilier,Courant,59126,70209,30,True,False,vigilance,1,1996-04-09,3,False,False
+42EFFD70A415,41,F,Brésil,Afghanistan,Industrie,Courant,36863,7910,6,False,False,suspect,2,2020-04-03,2,False,True
+6E83CC28AEFF,74,M,Syrie,Syrie,Technologie,Épargne,28137,26398,24,False,True,suspect,2,2002-04-08,1,True,False
+05FB7C1A4C39,34,M,Vietnam,Brésil,Défense,Professionnel,52348,38401,30,True,False,normal,0,1996-04-09,2,False,False
+E050A23E48B4,53,M,Inde,Pays-Bas,Indépendant,Courant,44163,34015,14,False,False,normal,0,2012-04-05,2,False,True
+3B523CF3C51B,27,F,Égypte,Turquie,Transport,Courant,27492,11078,5,False,False,vigilance,1,2021-04-03,0,False,True
+7ED182877EF9,44,M,Brésil,Mexique,Retraité,Épargne,24289,43363,24,False,True,suspect,2,2002-04-08,0,False,True
+A7B48194B886,52,F,Tunisie,Myanmar,Indépendant,Courant,46013,32042,26,True,True,fraudeur,3,2000-04-08,2,False,True
+56BACFFFD5C1,51,M,Soudan,Iran,Arts,Épargne,34399,37865,28,True,True,fraudeur,3,1998-04-09,4,True,True
+BDED7419A45D,50,F,Soudan,Vietnam,Transport,Courant,28835,23954,22,False,True,suspect,2,2004-04-07,2,False,False
+5ED4AEF8859F,44,F,Iran,Afghanistan,Transport,Courant,35697,21368,12,True,True,fraudeur,3,2014-04-05,1,False,True
+E11B46311532,74,M,Maroc,Brésil,Arts,Courant,19316,15982,18,False,False,ppe,2,2008-04-06,1,False,True
+D06FF9D5DDF2,50,F,Maroc,Mexique,Industrie,Professionnel,32644,46353,22,False,False,normal,0,2004-04-07,1,False,True
+D2452F532C56,63,M,Turquie,Brésil,Industrie,Épargne,33733,22640,13,True,False,ppe,2,2013-04-05,3,False,True
+BB68A0922799,50,M,Australie,Maroc,Éducation,Professionnel,37637,49788,26,False,False,vigilance,1,2000-04-08,1,False,True
+C6AC4E3A43A5,20,M,Corée du Nord,Yémen,Commerce,Épargne,39975,44481,16,False,True,suspect,2,2010-04-06,1,False,True
+0D615A4B9E6F,75,F,France,Japon,Arts,Épargne,30922,28410,28,False,False,normal,0,1998-04-09,3,False,True
+1F5C4C5474EE,29,F,Corée du Nord,Colombie,Arts,Joint,29641,15243,15,True,True,fraudeur,3,2011-04-06,0,False,False
+D240998D8CC3,75,F,Afghanistan,Syrie,Finance,Épargne,67272,21073,24,False,True,suspect,2,2002-04-08,2,False,False
+B45095DD832E,35,M,Japon,Suisse,Éducation,Professionnel,28982,32310,3,False,False,vigilance,1,2023-04-03,2,False,True
+7914045255DF,47,F,Allemagne,Inde,Transport,Épargne,37971,44662,14,True,False,ppe,2,2012-04-05,1,False,False
+818A390DC6CE,48,F,Mexique,Brésil,Santé,Épargne,36301,17834,12,False,False,normal,0,2014-04-05,2,False,True
+95135EDD347F,68,M,Pays-Bas,Suisse,Finance,Courant,68596,77573,27,False,False,ppe,2,1999-04-09,3,False,True
+42D1BD947D1F,29,F,Inde,Australie,Santé,Joint,56256,25716,9,False,False,vigilance,1,2017-04-04,1,False,True
+6FAFD7DE8B80,23,M,Syrie,Égypte,Éducation,Professionnel,28289,28090,1,False,True,suspect,2,2025-04-02,4,True,False
+C7D897CAA41A,78,M,France,Japon,Commerce,Épargne,37056,40618,7,False,False,normal,0,2019-04-04,4,False,True
+712DB1B90847,28,M,Turquie,Maroc,Retraité,Courant,21856,24971,20,False,False,normal,0,2006-04-07,1,False,False
+DD457690385F,22,M,Australie,Pays-Bas,Retraité,Professionnel,24831,23691,23,False,False,vigilance,1,2003-04-08,1,False,False
+BF194B38A7E9,45,F,Soudan,Iran,Sans emploi,Joint,12139,4161,12,False,True,suspect,2,2014-04-05,4,True,False
+54A27D34C0B1,67,F,Suède,Égypte,Finance,Joint,76766,42869,14,True,False,ppe,2,2012-04-05,4,False,True
+62E4FF5BB598,35,F,Royaume-Uni,Mexique,Défense,Professionnel,53480,67076,15,True,False,normal,0,2011-04-06,4,False,True
+EC4D4713D217,74,M,Soudan,Libye,Retraité,Épargne,24792,11345,23,False,True,suspect,2,2003-04-08,0,False,True
+1B483B3BEFA4,59,M,Venezuela,Corée du Nord,Indépendant,Épargne,61443,3262,16,False,True,suspect,2,2010-04-06,2,True,False
+98E9D3FD8306,51,F,Égypte,Turquie,Immobilier,Joint,47639,31731,14,False,False,vigilance,1,2012-04-05,2,False,True
+F98E04243210,78,M,Égypte,Australie,Arts,Joint,23909,21197,23,False,False,normal,0,2003-04-08,0,False,True
+80A1C6B47CD2,34,F,Turquie,Iran,Commerce,Épargne,56156,86332,12,True,False,fraudeur,3,2014-04-05,6,False,False
+EC2857DA591A,24,F,Vietnam,Vietnam,Conseil,Joint,46282,34901,1,False,False,normal,0,2025-04-02,0,False,False
+B09BDDB6FBC8,43,M,Royaume-Uni,Suède,Éducation,Épargne,30442,44582,3,False,False,vigilance,1,2023-04-03,1,True,True
+10F657B93BE1,56,M,Brésil,Colombie,Retraité,Joint,25525,3959,26,False,False,vigilance,1,2000-04-08,2,False,False
+B6BF9404AD75,57,M,Allemagne,Suisse,Indépendant,Courant,59826,72568,4,False,False,normal,0,2022-04-03,1,False,True
+88E9D4C6CA6C,36,F,Vietnam,Inde,Santé,Courant,62669,32395,8,False,False,vigilance,1,2018-04-04,0,False,True
+AD3B668C5FFD,58,M,Japon,Australie,Technologie,Épargne,57151,88515,18,True,False,ppe,2,2008-04-06,0,False,False
+3C179E25F0E8,46,F,Maroc,Suisse,Technologie,Joint,21104,8235,15,False,False,vigilance,1,2011-04-06,1,False,True
+A905107E65BD,52,M,Maroc,Suisse,Sans emploi,Professionnel,15917,3628,27,True,False,ppe,2,1999-04-09,1,False,True
+797EEAB1AB5A,29,F,Suisse,Royaume-Uni,Retraité,Joint,30918,6976,14,False,False,vigilance,1,2012-04-05,3,False,False
+2A40EE531486,36,M,Vietnam,Inde,Sans emploi,Courant,12477,6986,13,False,False,normal,0,2013-04-05,0,False,True
+E803B597B721,60,F,France,Allemagne,Conseil,Épargne,62118,52827,18,False,False,vigilance,1,2008-04-06,2,False,True
+BB5C927EC45A,53,F,Suisse,Vietnam,Finance,Courant,92729,1777,30,True,False,normal,0,1996-04-09,4,False,True
+79F9B7DCF67A,53,M,France,Inde,Transport,Courant,31594,27898,3,False,False,normal,0,2023-04-03,2,False,True
+40C7DCBD89DA,60,M,Inde,Inde,Éducation,Épargne,31756,36196,8,False,False,ppe,2,2018-04-04,0,False,True
+A56152A62463,51,F,Libye,Mexique,Santé,Joint,59520,82198,10,True,True,fraudeur,3,2016-04-04,4,True,False
+0F91B3943A62,77,M,Inde,Mexique,Immobilier,Épargne,66668,69611,28,False,False,vigilance,1,1998-04-09,2,False,True
+7F2A3B56F9AB,46,M,Soudan,Libye,Arts,Courant,24252,30673,27,True,True,fraudeur,3,1999-04-09,5,False,True
+341C8E56828A,24,M,Inde,Suède,Agriculture,Joint,30072,35255,30,False,False,normal,0,1996-04-09,3,False,True
+4EC43042ECE5,59,F,Mexique,Tunisie,Technologie,Joint,56747,31481,28,False,True,normal,0,1998-04-09,4,False,True
+04A8CBA03AA4,48,M,Égypte,Yémen,Technologie,Professionnel,47927,15064,14,False,True,fraudeur,3,2012-04-05,4,False,True
+D85B2B26E44F,33,M,Suède,Canada,Agriculture,Épargne,25805,20552,14,True,False,vigilance,1,2012-04-05,3,False,True
+B3AB7490894B,39,F,Corée du Nord,Venezuela,Sans emploi,Joint,13473,18096,9,False,True,fraudeur,3,2017-04-04,1,False,True
+119CB0AB9721,55,F,Turquie,Inde,Industrie,Professionnel,36533,32204,21,False,False,vigilance,1,2005-04-07,2,False,True
+BCDA1A789DB1,62,F,Maroc,Suisse,Industrie,Courant,28415,6734,1,False,False,vigilance,1,2025-04-02,5,False,True
+C602EC207F23,73,F,Vietnam,Turquie,Défense,Épargne,50984,70875,10,True,False,ppe,2,2016-04-04,2,False,True
+4550EE77426C,75,F,Venezuela,Maroc,Sans emploi,Courant,11274,8998,21,False,True,suspect,2,2005-04-07,1,False,True
+BE4EDBAB6302,29,F,Brésil,Colombie,Commerce,Professionnel,47660,52823,5,False,False,normal,0,2021-04-03,3,False,True
+77E5AC2626AC,39,M,Russie,Corée du Nord,Arts,Épargne,26078,25636,4,False,True,suspect,2,2022-04-03,1,False,False
+65D4A175B371,36,M,Tunisie,Syrie,Technologie,Courant,60835,72600,26,True,False,fraudeur,3,2000-04-08,4,False,False
+8D486B72116E,24,M,Vietnam,Venezuela,Sans emploi,Professionnel,15482,18326,8,False,False,suspect,2,2018-04-04,3,True,False
+987A8DDB31D3,38,M,Syrie,Syrie,Technologie,Joint,86277,41126,5,True,True,fraudeur,3,2021-04-03,2,True,False
+2D8D95EAE553,60,F,Turquie,Suède,Indépendant,Joint,50673,3848,23,False,False,vigilance,1,2003-04-08,0,False,False
+92F4680CBAFA,31,F,Turquie,Pays-Bas,Éducation,Professionnel,38460,59631,15,False,False,normal,0,2011-04-06,3,False,True
+24F8DC155F15,78,M,Pays-Bas,Australie,Conseil,Courant,40477,62034,27,True,False,normal,0,1999-04-09,2,False,True
+C541B3A2D199,31,F,Égypte,Suède,Retraité,Courant,23646,16247,7,False,False,normal,0,2019-04-04,2,False,True
+4E0746292FF8,73,F,Corée du Nord,Maroc,Santé,Épargne,32868,44094,5,False,True,suspect,2,2021-04-03,4,True,True
+A84C641F7AE7,51,F,Brésil,Inde,Technologie,Professionnel,58696,45654,24,False,False,normal,0,2002-04-08,8,False,False
+DDEF2D4B43DD,37,M,Colombie,Vietnam,Éducation,Joint,28313,21037,21,False,False,normal,0,2005-04-07,2,False,True
+048E6B2118EB,27,F,Soudan,Soudan,Technologie,Professionnel,72725,103018,5,False,True,suspect,2,2021-04-03,1,False,True
+E4CAD36AE93E,65,M,Canada,Inde,Défense,Épargne,50326,81475,25,True,False,ppe,2,2001-04-08,4,False,False
+94EAD3279738,60,F,Tunisie,Royaume-Uni,Industrie,Courant,38008,45177,12,False,False,normal,0,2014-04-05,0,False,True
+9CD8F8D85AB9,55,M,Afghanistan,Yémen,Agriculture,Joint,38934,44818,18,False,True,suspect,2,2008-04-06,1,False,False
+55A98FB590DA,63,F,Brésil,Mexique,Agriculture,Courant,19614,27022,7,True,False,ppe,2,2019-04-04,2,True,True
+CD86CDAD4081,72,M,Brésil,Suisse,Agriculture,Courant,39014,32367,25,False,False,normal,0,2001-04-08,4,False,True
+1A4F5D01A2D5,54,M,Suède,France,Sans emploi,Courant,11964,13382,13,False,False,normal,0,2013-04-05,1,False,True
+B515B910A967,67,M,Tunisie,Suède,Retraité,Épargne,23970,23041,20,False,True,vigilance,1,2006-04-07,2,True,True
+BF03586FFE98,44,M,Inde,Turquie,Industrie,Joint,42932,18205,7,False,False,vigilance,1,2019-04-04,1,False,True
+EB3A7F7FA935,43,M,Japon,Maroc,Retraité,Épargne,23699,28013,2,False,False,normal,0,2024-04-02,1,False,True
+8DBD5826E159,29,M,Brésil,Colombie,Finance,Professionnel,58106,28056,13,True,False,vigilance,1,2013-04-05,1,True,True
+0EA4EA642EBB,43,F,Mexique,Syrie,Transport,Joint,34250,13217,19,True,False,fraudeur,3,2007-04-07,3,False,False
+FB29A165E4DB,23,M,Inde,Yémen,Transport,Joint,30101,26657,28,False,False,suspect,2,1998-04-09,2,False,True
+0232DF082319,22,M,Canada,Turquie,Agriculture,Professionnel,35108,19374,21,False,False,normal,0,2005-04-07,1,False,True
+E122B4A2AD20,29,M,Australie,Canada,Retraité,Joint,21373,6599,5,False,False,normal,0,2021-04-03,2,False,True
+A8124216B86A,57,F,Venezuela,Corée du Nord,Immobilier,Courant,77081,53986,28,False,True,suspect,2,1998-04-09,0,False,False
+803BF9471B6F,50,F,Turquie,Allemagne,Technologie,Courant,70216,28425,10,False,False,vigilance,1,2016-04-04,3,False,False
+DE8A7BED511B,42,M,Colombie,Inde,Éducation,Épargne,46971,0,19,False,False,normal,0,2007-04-07,1,False,True
+74D026F56B64,80,M,Tunisie,Allemagne,Indépendant,Épargne,40429,31570,3,False,False,normal,0,2023-04-03,1,False,True
+D6EB98ADD910,42,M,Maroc,Tunisie,Transport,Courant,29587,19518,25,False,False,vigilance,1,2001-04-08,4,False,True
+EAEBFEAC6A9A,56,M,Colombie,Afghanistan,Conseil,Épargne,55851,25439,5,False,False,suspect,2,2021-04-03,3,False,False
+77CFE9CCC3B8,37,F,Royaume-Uni,Suède,Agriculture,Courant,24746,6109,13,False,False,normal,0,2013-04-05,2,False,True
+37776F312FEE,39,M,Australie,Suède,Arts,Épargne,28155,23958,16,True,False,normal,0,2010-04-06,1,False,True
+16A539DCD90D,20,M,Brésil,Afghanistan,Sans emploi,Épargne,10900,5990,11,False,False,suspect,2,2015-04-05,0,False,False
+98110EF2FD52,20,M,Inde,Inde,Transport,Professionnel,30853,14019,12,False,False,normal,0,2014-04-05,1,False,True
+BB67589DB89B,53,F,Maroc,Libye,Conseil,Professionnel,55533,25968,7,True,False,fraudeur,3,2019-04-04,3,False,True
+31FD7B6EDCB0,73,F,Suède,Turquie,Industrie,Courant,35385,38999,2,False,False,normal,0,2024-04-02,1,False,True
+1A1143852521,75,M,Inde,Japon,Agriculture,Joint,30595,33671,5,False,False,normal,0,2021-04-03,1,False,True
+D9E01C8A85FF,23,F,Mexique,Pays-Bas,Immobilier,Professionnel,50313,51733,8,False,False,vigilance,1,2018-04-04,1,False,False
+CFF4E2A72CE2,67,M,Tunisie,Australie,Éducation,Courant,24281,19891,15,True,False,ppe,2,2011-04-06,0,False,False
+BF6B2981DE3D,67,M,Pays-Bas,Allemagne,Industrie,Épargne,27805,31116,8,False,False,vigilance,1,2018-04-04,1,False,True
+61DE533C53D8,25,M,Afghanistan,Russie,Sans emploi,Professionnel,18681,2906,17,True,True,fraudeur,3,2009-04-06,1,False,True
+61E9D3B2959A,51,M,Royaume-Uni,Mexique,Immobilier,Joint,51017,56327,3,True,False,vigilance,1,2023-04-03,3,False,True
+8C07B833169C,40,M,Royaume-Uni,Tunisie,Commerce,Épargne,24546,9498,24,True,False,vigilance,1,2002-04-08,3,False,True
+F229ED23C03F,62,M,Libye,Iran,Éducation,Joint,37222,31108,21,True,True,suspect,2,2005-04-07,1,True,False
+5FF4820F4C41,37,F,Soudan,Syrie,Agriculture,Épargne,32928,47154,13,False,True,suspect,2,2013-04-05,1,False,True
+6651CDE69770,70,F,Mexique,Australie,Immobilier,Joint,51103,52908,14,True,False,ppe,2,2012-04-05,0,False,True
+D9C73F215DAD,23,F,Syrie,Afghanistan,Indépendant,Épargne,45313,28619,14,False,True,suspect,2,2012-04-05,2,False,True
+73A54E606436,64,F,Brésil,Brésil,Indépendant,Courant,39730,46843,14,True,False,ppe,2,2012-04-05,2,False,True
+FD6194E69BB9,46,F,Pays-Bas,Brésil,Technologie,Épargne,37550,24760,22,False,False,ppe,2,2004-04-07,2,False,False
+24683B0BEAD7,33,F,Royaume-Uni,Mexique,Arts,Courant,26660,30105,21,False,False,normal,0,2005-04-07,3,False,True
+0F437CF7A3E4,51,F,Afghanistan,Syrie,Immobilier,Courant,59916,61568,13,True,True,suspect,2,2013-04-05,1,True,True
+DF1FF42B1E9E,49,M,Corée du Nord,Égypte,Industrie,Professionnel,44075,57250,23,True,True,fraudeur,3,2003-04-08,4,False,True
+FD19C31FD6AC,46,M,Royaume-Uni,Tunisie,Finance,Professionnel,75794,34680,29,False,False,normal,0,1997-04-09,0,False,True
+993129649241,68,M,Canada,Australie,Immobilier,Épargne,75513,72553,17,False,False,normal,0,2009-04-06,3,False,True
+EF35C733295B,26,M,Égypte,Maroc,Retraité,Joint,30177,18774,29,False,False,vigilance,1,1997-04-09,0,False,True
+946A7D7EFFD9,80,F,Iran,Libye,Immobilier,Professionnel,66781,28791,21,False,True,suspect,2,2005-04-07,4,False,False
+7CADB00B9C60,45,M,Suède,Colombie,Agriculture,Épargne,23649,14067,30,False,False,vigilance,1,1996-04-09,3,False,True
+6826CA173BA6,34,M,Libye,Venezuela,Conseil,Professionnel,56985,105845,3,True,True,fraudeur,3,2023-04-03,1,True,False
+21C2C4A9C8DB,55,F,Canada,Allemagne,Retraité,Courant,32554,33729,5,False,False,vigilance,1,2021-04-03,2,False,True
+B944E19474AB,57,F,Brésil,Maroc,Sans emploi,Joint,16516,22101,1,False,False,normal,0,2025-04-02,4,False,True
+5ACAE523A5D0,58,F,Turquie,Égypte,Éducation,Professionnel,54278,54798,15,False,False,ppe,2,2011-04-06,1,False,True
+DAC0D24490E9,50,M,Turquie,Inde,Agriculture,Courant,36425,20648,4,False,False,vigilance,1,2022-04-03,0,True,True
+96F2E11D83D1,33,F,Brésil,Tunisie,Conseil,Épargne,43866,6056,29,False,False,vigilance,1,1997-04-09,3,False,True
+3DA18AA88FB3,23,M,France,Australie,Transport,Professionnel,32649,47915,17,True,False,normal,0,2009-04-06,1,False,True
+259F8E7E9220,45,M,Mexique,Canada,Conseil,Professionnel,52296,36131,4,True,False,ppe,2,2022-04-03,3,False,True
+3E71F61606CD,36,F,Égypte,Égypte,Technologie,Professionnel,82187,102785,13,False,False,normal,0,2013-04-05,0,False,True
+EFBDFAA536A8,68,M,Turquie,Australie,Immobilier,Joint,46200,46508,18,False,True,normal,0,2008-04-06,1,False,True
+852451721078,27,M,Inde,Tunisie,Retraité,Professionnel,20164,14804,29,False,False,vigilance,1,1997-04-09,3,False,True
+7C375A60784C,52,F,Colombie,Vietnam,Éducation,Courant,30365,32481,23,False,False,normal,0,2003-04-08,2,False,True
+A9D54DDABE3C,62,F,Russie,Syrie,Sans emploi,Épargne,11921,6945,1,False,True,suspect,2,2025-04-02,1,False,True
+F1198CCB784D,71,M,Égypte,Maroc,Transport,Courant,33215,46554,5,True,False,ppe,2,2021-04-03,2,False,True
+08D064B8EF19,67,M,Colombie,Suède,Retraité,Épargne,18347,16172,30,False,False,normal,0,1996-04-09,1,False,True
+5BC072F6095A,42,F,Yémen,Afghanistan,Immobilier,Épargne,56261,56885,18,False,True,fraudeur,3,2008-04-06,3,True,True
+17F938272026,49,F,Égypte,Soudan,Industrie,Professionnel,43882,21543,23,True,False,fraudeur,3,2003-04-08,1,False,True
+2E5F4A6FDC35,42,M,Égypte,Maroc,Défense,Courant,41237,20976,13,False,False,vigilance,1,2013-04-05,1,False,True
+42A8B31547C1,31,F,Vietnam,Égypte,Commerce,Professionnel,38750,28979,27,False,False,normal,0,1999-04-09,1,False,True
+8EFAAF467AD3,65,F,Colombie,Brésil,Commerce,Joint,35334,25027,2,True,False,ppe,2,2024-04-02,2,True,True
+B6377EA1E00F,54,F,Yémen,Venezuela,Défense,Professionnel,44534,56279,29,True,True,fraudeur,3,1997-04-09,4,False,False
+6C2EA70753A5,52,M,Japon,Brésil,Indépendant,Épargne,27973,42123,24,False,True,normal,0,2002-04-08,3,False,True
+E6E07394B585,74,M,Maroc,Tunisie,Santé,Professionnel,63157,6237,1,False,False,normal,0,2025-04-02,2,False,False
+E486F4E3AB8F,47,F,Colombie,Canada,Industrie,Joint,23344,34516,7,False,False,normal,0,2019-04-04,3,True,True
+A52829C16D09,29,F,Australie,Brésil,Retraité,Professionnel,23819,29567,28,False,False,normal,0,1998-04-09,3,False,True
+330754F3B693,18,F,Japon,Suisse,Industrie,Professionnel,42462,4922,13,False,False,normal,0,2013-04-05,1,True,True
+FDDCE54FD3A6,48,F,Maroc,France,Éducation,Professionnel,37230,27044,10,True,False,ppe,2,2016-04-04,2,False,True
+C6D77E53D4F8,48,F,Suède,Brésil,Finance,Joint,43815,44723,15,False,False,normal,0,2011-04-06,3,False,True
+0D3497C28C71,70,F,Égypte,Tunisie,Technologie,Courant,79446,113464,17,True,False,ppe,2,2009-04-06,1,False,True
+186AC4B192F0,72,M,Tunisie,Vietnam,Agriculture,Courant,29051,32613,15,False,False,normal,0,2011-04-06,2,False,True
+596238122882,53,M,Allemagne,Mexique,Éducation,Professionnel,39727,20248,22,False,False,vigilance,1,2004-04-07,0,False,True
+A6F7FBA8F3BB,52,F,Royaume-Uni,Allemagne,Santé,Professionnel,35656,36811,30,False,False,normal,0,1996-04-09,1,False,False
+AC3C2A2B259A,73,F,Inde,Tunisie,Transport,Épargne,44389,19819,15,True,False,ppe,2,2011-04-06,2,False,True
+DA1D0E283B50,71,F,Japon,Inde,Santé,Joint,54933,48007,25,False,False,vigilance,1,2001-04-08,1,False,True
+4249BB3A2EBD,20,M,Pays-Bas,Japon,Arts,Épargne,24776,21029,22,True,False,normal,0,2004-04-07,2,False,True
+3CFA372F79E3,20,M,Syrie,Russie,Transport,Courant,32534,29183,15,False,True,suspect,2,2011-04-06,0,False,True
+D2290EDD152E,43,F,Afghanistan,Syrie,Retraité,Épargne,23832,35946,25,False,True,fraudeur,3,2001-04-08,6,False,True
+2DCCA1162555,78,F,Égypte,Égypte,Retraité,Joint,15538,19541,29,True,False,normal,0,1997-04-09,0,False,True
+38ABEE5C418A,44,M,Brésil,Égypte,Finance,Joint,64032,67122,10,False,False,vigilance,1,2016-04-04,1,False,True
+4DE848592B94,53,M,Allemagne,Mexique,Transport,Épargne,37661,39326,14,False,False,vigilance,1,2012-04-05,4,True,True
+25261FA7F3BC,64,F,Égypte,Mexique,Conseil,Courant,38207,29680,7,False,False,vigilance,1,2019-04-04,2,False,True
+88610CBFD6CA,31,F,Vietnam,France,Conseil,Épargne,59725,52741,30,False,False,vigilance,1,1996-04-09,1,True,False
+0822D80A7A10,62,F,Japon,Japon,Retraité,Professionnel,18810,22971,23,False,False,vigilance,1,2003-04-08,6,False,True
+B4303E3285A3,74,F,Colombie,Tunisie,Éducation,Épargne,25882,25892,15,False,False,normal,0,2011-04-06,0,False,True
+AD4FF6BC40C0,53,F,Suisse,Maroc,Défense,Épargne,50132,30505,19,False,False,normal,0,2007-04-07,2,False,True
+26C2C6E60FFF,34,F,Tunisie,Inde,Arts,Épargne,30310,852,27,False,False,vigilance,1,1999-04-09,2,False,True
+BFB113C1F2BF,59,M,Égypte,Allemagne,Santé,Courant,52670,60878,17,False,False,normal,0,2009-04-06,1,False,True
+BEEFC9F90B27,47,F,Colombie,Vietnam,Immobilier,Courant,58954,72288,2,True,False,normal,0,2024-04-02,5,True,True
+3E1E5A1E7909,19,F,Maroc,Canada,Agriculture,Courant,43793,28678,27,False,False,normal,0,1999-04-09,4,False,True
+CB2DA8AE0AA9,35,F,Turquie,Mexique,Arts,Joint,23113,25827,13,False,False,normal,0,2013-04-05,0,False,True
+1EB801915981,72,M,Venezuela,Yémen,Sans emploi,Joint,8773,3794,25,False,True,suspect,2,2001-04-08,1,True,True
+B5278957C20A,72,M,Vietnam,Colombie,Transport,Courant,34757,31061,21,False,False,normal,0,2005-04-07,2,False,True
+52B510E6D362,61,M,Royaume-Uni,Canada,Défense,Professionnel,46409,21801,9,True,False,normal,0,2017-04-04,4,False,True
+EC3919BB5D3C,37,F,Vietnam,Venezuela,Finance,Professionnel,67163,66960,19,False,False,suspect,2,2007-04-07,2,False,False
+629E67D3BC57,21,M,Turquie,Tunisie,Technologie,Joint,53789,30144,14,False,False,normal,0,2012-04-05,1,False,True
+55C0C3CFF16B,40,M,Japon,Mexique,Agriculture,Courant,27024,19801,13,False,False,vigilance,1,2013-04-05,4,False,True
+9D2F95304301,63,F,Mexique,Tunisie,Arts,Professionnel,35954,20554,21,False,True,normal,0,2005-04-07,1,False,True
+12C6754A0D12,23,F,Suède,Pays-Bas,Finance,Courant,57821,60895,14,False,False,normal,0,2012-04-05,1,False,True
+E1EDB99A4177,44,M,Iran,Afghanistan,Transport,Épargne,45832,69589,25,False,True,suspect,2,2001-04-08,0,True,True
+E0E196FCF81A,22,F,Suède,Maroc,Finance,Joint,60287,62307,14,False,False,normal,0,2012-04-05,0,False,True
+63A4E5A85E39,47,M,Australie,Mexique,Technologie,Professionnel,63430,59229,5,False,False,vigilance,1,2021-04-03,2,False,True
+ABE056D84FED,37,F,Suède,Tunisie,Immobilier,Épargne,37716,11204,20,False,False,vigilance,1,2006-04-07,2,False,True
+8DC78E256D11,38,F,Japon,Pays-Bas,Transport,Épargne,31376,27909,9,False,False,vigilance,1,2017-04-04,3,False,True
+9A9D05BF6EA0,47,M,Libye,Tunisie,Commerce,Joint,34280,41741,15,True,True,fraudeur,3,2011-04-06,8,True,True
+529D54865AD2,63,M,Suède,Inde,Transport,Joint,38516,44022,26,False,False,normal,0,2000-04-08,3,False,True
+D74867A966B3,68,M,Allemagne,Pays-Bas,Immobilier,Épargne,53704,25057,23,False,False,vigilance,1,2003-04-08,1,False,True
+2CD5D9BA202E,37,M,Venezuela,Iran,Arts,Professionnel,30342,29133,11,True,True,fraudeur,3,2015-04-05,1,False,False
+188C984D4A4C,56,M,Turquie,Brésil,Transport,Courant,40724,8317,15,True,False,ppe,2,2011-04-06,2,False,True
+90E59F9C3901,40,M,Russie,Libye,Industrie,Professionnel,45163,75210,11,False,True,suspect,2,2015-04-05,1,False,False
+7EF4773A3FBB,20,M,Maroc,Tunisie,Arts,Courant,29396,42065,23,False,False,normal,0,2003-04-08,4,False,True
+D7474FB131A8,39,M,Canada,Mexique,Agriculture,Épargne,31053,29916,14,False,False,normal,0,2012-04-05,0,False,True
+E55E239EADDC,45,M,Yémen,Syrie,Transport,Courant,42515,16555,1,False,True,suspect,2,2025-04-02,0,False,True
+4428E9B1F479,47,F,Australie,Colombie,Technologie,Professionnel,38280,45400,9,False,False,vigilance,1,2017-04-04,1,False,True
+7343E19C79F2,70,M,Venezuela,Venezuela,Sans emploi,Professionnel,12881,7595,23,False,True,suspect,2,2003-04-08,0,False,True
+32EF6EE75F7B,58,F,Vietnam,Inde,Retraité,Joint,31514,24382,5,True,False,ppe,2,2021-04-03,2,False,False
+89CFD44BFA4E,36,F,Vietnam,Allemagne,Finance,Professionnel,49011,35724,6,False,False,vigilance,1,2020-04-03,2,False,True
+0C60CB57FEFF,44,F,Vietnam,Vietnam,Sans emploi,Épargne,12585,7228,16,False,True,vigilance,1,2010-04-06,3,False,True
+FCD259371582,36,F,Égypte,Égypte,Finance,Courant,73452,55847,25,False,False,normal,0,2001-04-08,2,False,False
+C4C053B82459,66,M,Allemagne,Brésil,Indépendant,Courant,49542,35540,15,False,False,vigilance,1,2011-04-06,1,False,False
+3F3EA45C66DD,40,F,Suisse,Pays-Bas,Conseil,Épargne,55816,39531,27,False,False,normal,0,1999-04-09,2,False,True
+0E0A451ADD23,64,M,Inde,Pays-Bas,Finance,Professionnel,69455,68253,26,True,False,ppe,2,2000-04-08,4,False,False
+324B767A0083,78,M,Suisse,Suède,Conseil,Joint,68741,68504,17,False,False,normal,0,2009-04-06,1,False,True
+A8640BF5DE68,63,F,Syrie,Libye,Immobilier,Professionnel,62349,30989,27,False,True,suspect,2,1999-04-09,1,False,True
+9042DA81FA8C,43,F,Russie,Yémen,Agriculture,Joint,25555,20297,24,False,True,suspect,2,2002-04-08,1,True,False
+7C4FC7F3A210,59,M,Allemagne,Pays-Bas,Sans emploi,Joint,10476,12553,22,True,False,ppe,2,2004-04-07,1,False,True
+055AB97A716E,54,F,Soudan,Brésil,Finance,Courant,62750,32927,19,True,True,suspect,2,2007-04-07,2,False,False
+C0D0A1D20956,46,M,Canada,Suède,Éducation,Professionnel,41657,40414,1,False,False,normal,0,2025-04-02,1,False,True
+192254C3CC04,60,M,Turquie,Mexique,Défense,Professionnel,38717,30234,21,False,False,normal,0,2005-04-07,2,False,True
+9C14CBB33742,48,M,Australie,Colombie,Technologie,Joint,88824,70256,5,True,False,normal,0,2021-04-03,2,False,False
+D507AF87D293,48,M,Suède,Pays-Bas,Technologie,Courant,62500,0,8,False,False,vigilance,1,2018-04-04,0,False,True
+769FB42B2AC0,61,M,Corée du Nord,Afghanistan,Finance,Épargne,61500,47080,3,False,True,suspect,2,2023-04-03,0,False,False
+80468195A8F0,57,M,Brésil,Pays-Bas,Sans emploi,Épargne,9596,6597,15,False,False,normal,0,2011-04-06,3,False,False
+B3B51CEFC556,33,M,Suède,Égypte,Industrie,Professionnel,51194,59889,21,False,False,normal,0,2005-04-07,0,False,True
+71BDFB76A5CF,56,F,Colombie,Allemagne,Agriculture,Épargne,40871,38548,7,False,False,normal,0,2019-04-04,4,False,True
+708A0B023836,41,F,France,Brésil,Défense,Professionnel,60646,53310,11,False,False,vigilance,1,2015-04-05,2,False,False
+7B239260645F,18,M,Royaume-Uni,Mexique,Industrie,Professionnel,37043,32665,7,False,False,normal,0,2019-04-04,0,False,True
+9572CB174270,52,M,Égypte,Maroc,Retraité,Courant,20873,12658,5,False,False,normal,0,2021-04-03,3,False,True
+4F964DC50075,37,M,Royaume-Uni,Japon,Indépendant,Courant,46391,26466,14,False,False,vigilance,1,2012-04-05,3,False,True
+32DA4760A20A,50,M,Égypte,Turquie,Technologie,Professionnel,60456,51267,1,True,False,ppe,2,2025-04-02,1,False,True
+E3F8ADEC4357,64,F,Suisse,Brésil,Défense,Professionnel,45529,6035,4,False,False,normal,0,2022-04-03,4,False,True
+A682F30ADF35,41,M,Colombie,Turquie,Santé,Épargne,34381,55033,16,False,False,vigilance,1,2010-04-06,4,False,True
+3E64C64CDFAB,18,M,Colombie,Allemagne,Santé,Joint,56523,9577,28,False,False,normal,0,1998-04-09,2,False,False
+6FA5144EE5BE,32,F,Brésil,Suisse,Immobilier,Courant,73970,82166,8,False,False,normal,0,2018-04-04,0,False,True
+514D99A96178,80,F,Colombie,Maroc,Santé,Professionnel,54940,49680,13,False,False,normal,0,2013-04-05,1,True,True
+2A50CEE1341B,65,F,Maroc,Vietnam,Retraité,Épargne,23877,30302,8,False,False,vigilance,1,2018-04-04,2,False,True
+7E2B12874357,42,F,Iran,Iran,Immobilier,Joint,32080,28682,21,True,True,fraudeur,3,2005-04-07,4,False,True
+4D3421ECCFDF,44,F,Japon,Royaume-Uni,Éducation,Courant,26678,33729,2,False,False,vigilance,1,2024-04-02,1,False,True
+5AEE93906E8E,55,F,Royaume-Uni,Royaume-Uni,Technologie,Courant,59436,58890,17,False,False,vigilance,1,2009-04-06,1,False,True
+565B120CB771,62,F,Mexique,Inde,Conseil,Professionnel,55845,16016,24,False,False,normal,0,2002-04-08,2,False,True
+6C4BF6EE8C93,28,F,Pays-Bas,Pays-Bas,Éducation,Professionnel,40672,9891,15,False,False,normal,0,2011-04-06,1,False,True
+22AFB47ED8CB,69,M,Canada,Australie,Sans emploi,Professionnel,14032,18087,10,False,False,normal,0,2016-04-04,4,False,True
+08F62D5AB60F,34,F,Maroc,Inde,Conseil,Épargne,52150,37624,6,False,False,normal,0,2020-04-03,1,False,True
+D781BD9DA6C7,26,F,Japon,Royaume-Uni,Commerce,Professionnel,43529,35727,27,False,True,normal,0,1999-04-09,0,False,True
+D5E99B6DC2A4,47,M,Pays-Bas,Maroc,Défense,Joint,46743,18043,28,True,False,ppe,2,1998-04-09,2,False,False
+84BABB617C6F,61,M,Mexique,Canada,Transport,Professionnel,41414,38870,6,False,False,vigilance,1,2020-04-03,2,True,True
+6F59C221E8E8,49,F,Maroc,Allemagne,Transport,Courant,28902,27785,29,False,False,normal,0,1997-04-09,0,False,False
+CA6D63FE2983,68,F,Égypte,Égypte,Santé,Joint,61081,23457,13,False,False,vigilance,1,2013-04-05,1,False,True
+D7F5AC35F294,19,M,Japon,Vietnam,Défense,Professionnel,42011,65772,26,False,False,normal,0,2000-04-08,1,False,True
+5AE7F83D72CA,71,M,Mexique,Colombie,Arts,Joint,32872,32815,30,True,False,ppe,2,1996-04-09,5,False,True
+4BBDA9CCB02C,76,M,Turquie,Australie,Retraité,Joint,29306,37359,1,False,False,vigilance,1,2025-04-02,1,True,True
+54349E81273D,60,M,Maroc,Pays-Bas,Santé,Professionnel,66334,22650,11,True,False,ppe,2,2015-04-05,0,False,True
+D7D5EF4E1516,67,F,Suède,Royaume-Uni,Technologie,Professionnel,72061,50374,28,False,False,normal,0,1998-04-09,4,False,True
+8785F537CFBC,64,F,Canada,Tunisie,Transport,Épargne,43326,13385,26,False,False,normal,0,2000-04-08,5,False,True
+1D772290DE38,42,M,Canada,Canada,Industrie,Courant,38615,31132,24,False,False,vigilance,1,2002-04-08,1,False,False
+2DC52328874C,44,M,Iran,Venezuela,Immobilier,Courant,76496,35281,30,False,True,fraudeur,3,1996-04-09,3,True,False
+043C10613510,28,F,Tunisie,Inde,Sans emploi,Courant,15940,19190,29,False,False,normal,0,1997-04-09,2,False,True
+AE7CEA8A21B0,21,M,France,Brésil,Transport,Joint,35413,44282,15,False,False,normal,0,2011-04-06,1,False,True
+0229CF1B1165,66,F,Afghanistan,Iran,Sans emploi,Courant,9223,1723,8,False,True,suspect,2,2018-04-04,2,False,False
+6402358FFEB7,74,M,Canada,Tunisie,Transport,Joint,44689,45831,6,False,False,normal,0,2020-04-03,3,False,True
+F14B40D61020,24,F,Allemagne,Égypte,Immobilier,Professionnel,66803,60956,7,False,False,vigilance,1,2019-04-04,2,True,True
+990A2672EE42,27,F,Vietnam,Royaume-Uni,Santé,Professionnel,48111,49132,12,False,False,vigilance,1,2014-04-05,0,False,True
+E0BA8927C9AE,80,F,Maroc,Mexique,Technologie,Joint,39684,30186,16,False,False,normal,0,2010-04-06,1,False,True
+40C26D5E75D9,41,F,Mexique,Inde,Finance,Joint,67338,91364,15,False,False,normal,0,2011-04-06,2,False,True
+B5005E616151,66,F,Tunisie,Suisse,Immobilier,Épargne,51001,8429,26,True,False,ppe,2,2000-04-08,0,False,True
+50EA749A9354,54,F,Vietnam,Royaume-Uni,Défense,Joint,53280,21986,8,False,False,vigilance,1,2018-04-04,1,False,False
+141B7A843C5F,57,M,Venezuela,Colombie,Finance,Épargne,57182,53059,4,False,True,suspect,2,2022-04-03,1,False,True
+58B64FCED63E,30,F,Brésil,Tunisie,Conseil,Courant,54783,55933,21,False,False,vigilance,1,2005-04-07,2,False,False
+A6411C52BF5A,68,F,France,Pays-Bas,Indépendant,Joint,45964,39330,20,False,False,vigilance,1,2006-04-07,3,False,False
+9E92385FF1D0,54,F,Pays-Bas,Brésil,Arts,Professionnel,30797,8667,4,False,False,normal,0,2022-04-03,3,False,True
+9F023D60F183,57,M,Suède,Mexique,Retraité,Professionnel,27586,14335,22,False,True,normal,0,2004-04-07,2,False,True
+511A9848C690,70,F,Tunisie,Vietnam,Arts,Courant,24228,22086,10,False,False,vigilance,1,2016-04-04,3,False,True
+5FB7C9ECC9E4,64,M,Soudan,Myanmar,Transport,Épargne,39436,38076,20,False,True,suspect,2,2006-04-07,1,False,True
+62F6D66BFAD3,70,M,Turquie,Maroc,Santé,Joint,50438,37384,17,False,False,vigilance,1,2009-04-06,2,False,True
+EB2053697488,71,F,Australie,Allemagne,Santé,Professionnel,64594,8130,8,False,False,normal,0,2018-04-04,2,False,True
+AF6647D33085,45,F,Tunisie,Turquie,Commerce,Joint,31892,46423,12,True,False,ppe,2,2014-04-05,4,False,False
+702FC728466C,54,M,France,Canada,Santé,Épargne,53026,31091,13,False,False,ppe,2,2013-04-05,1,False,True
+2EBCD1CE4571,73,M,France,Vietnam,Arts,Épargne,21835,11255,25,False,False,vigilance,1,2001-04-08,1,True,True
+C975F6F1E0C1,79,F,Syrie,Brésil,Indépendant,Professionnel,35624,28975,21,False,True,suspect,2,2005-04-07,2,True,True
+0ABBF02F5D39,55,F,Mexique,Égypte,Technologie,Professionnel,63970,72504,1,False,False,vigilance,1,2025-04-02,2,True,False
+48A8479898F9,53,F,Canada,Turquie,Sans emploi,Épargne,13667,21574,23,False,False,ppe,2,2003-04-08,2,False,True
+1D4E03DC6AAA,68,F,France,Mexique,Santé,Joint,55583,46156,21,True,False,ppe,2,2005-04-07,1,False,False
+826EE5C79E44,63,F,Soudan,Inde,Commerce,Professionnel,39287,9213,22,False,True,suspect,2,2004-04-07,0,False,False
+E20FB6A5275A,24,M,Myanmar,Vietnam,Éducation,Professionnel,47400,32103,5,False,True,suspect,2,2021-04-03,4,True,True
+C7BBAE948D37,74,F,Yémen,Libye,Immobilier,Courant,45329,30526,12,False,True,suspect,2,2014-04-05,5,False,False
+9DDEAC28BBDC,53,F,Iran,Libye,Commerce,Joint,39459,26688,17,True,True,fraudeur,3,2009-04-06,4,False,True
+2E65D7F1B1EA,54,M,Brésil,Tunisie,Défense,Épargne,37722,16752,30,False,False,normal,0,1996-04-09,1,False,True
+04294BBEB421,53,M,Maroc,Vietnam,Commerce,Courant,38662,41880,25,True,False,ppe,2,2001-04-08,1,False,True
+ECE4E52D555C,20,M,France,Tunisie,Agriculture,Épargne,42934,14916,7,True,True,vigilance,1,2019-04-04,5,False,True
+203B1BBA27EE,24,F,Soudan,Myanmar,Transport,Courant,31929,40438,17,False,True,suspect,2,2009-04-06,4,False,False
+BD06211BE712,45,F,Tunisie,Vietnam,Défense,Professionnel,46320,23053,22,False,False,vigilance,1,2004-04-07,1,False,False
+26651B4B1DD7,64,M,Japon,Pays-Bas,Finance,Professionnel,65366,52054,7,False,False,normal,0,2019-04-04,2,False,True
+A750C08E9352,56,M,Venezuela,Iran,Santé,Courant,74648,50756,22,False,True,suspect,2,2004-04-07,1,False,True
+35935090C0A5,31,M,Suède,Maroc,Indépendant,Joint,20783,17158,22,False,False,vigilance,1,2004-04-07,0,False,True
+802AACD9F377,50,F,Pays-Bas,Pays-Bas,Indépendant,Courant,36880,26745,20,False,False,normal,0,2006-04-07,0,False,True
+7671AF7D70B8,38,F,Soudan,Inde,Industrie,Joint,44062,36201,6,True,True,fraudeur,3,2020-04-03,3,True,False
+D50B7BB25907,46,M,Turquie,Russie,Éducation,Courant,38039,18360,5,False,False,fraudeur,3,2021-04-03,3,False,False
+49A40745EF38,24,F,Allemagne,Turquie,Conseil,Professionnel,47424,36750,6,False,False,normal,0,2020-04-03,1,False,False
+C9BBE63CBD2A,60,F,Suède,Inde,Sans emploi,Professionnel,10647,6767,6,False,False,normal,0,2020-04-03,0,False,True
+E983185FDF37,35,F,Inde,Canada,Conseil,Courant,48252,32763,13,False,False,vigilance,1,2013-04-05,1,False,False
+5596E0DF13D6,69,M,Vietnam,Mexique,Retraité,Professionnel,24770,19846,22,False,False,normal,0,2004-04-07,2,False,True
+F6174EE6EE98,49,F,Libye,Iran,Technologie,Professionnel,65994,113210,29,False,True,suspect,2,1997-04-09,1,True,False
+6669ECF26027,80,M,Japon,Brésil,Sans emploi,Épargne,11691,13979,28,False,False,vigilance,1,1998-04-09,1,False,True
+E2C50921F669,57,M,Brésil,Libye,Santé,Joint,62078,41799,1,False,False,suspect,2,2025-04-02,2,True,True
+E317340E4822,21,F,Suisse,Mexique,Agriculture,Épargne,26540,0,8,True,False,normal,0,2018-04-04,0,False,True
+6EC043ED20C0,25,M,Tunisie,Pays-Bas,Éducation,Joint,42214,20322,24,False,False,vigilance,1,2002-04-08,0,True,True
+C4C95ABC985A,54,M,Égypte,Égypte,Défense,Joint,33802,29520,17,False,False,ppe,2,2009-04-06,0,True,True
+A7072F588C38,67,F,Égypte,Inde,Retraité,Courant,19228,15144,20,False,False,vigilance,1,2006-04-07,3,True,True
+7F63AF8BDA3F,62,M,Pays-Bas,Australie,Agriculture,Joint,22841,17906,12,True,False,ppe,2,2014-04-05,2,False,True
+EB6C799FD091,74,F,Turquie,Suède,Conseil,Épargne,39909,6168,13,True,False,ppe,2,2013-04-05,5,False,False
+1D09E90DDD40,67,M,Afghanistan,Colombie,Défense,Courant,42186,64561,15,False,True,suspect,2,2011-04-06,2,True,False
+4ADC53EF690A,50,M,Libye,Russie,Arts,Épargne,27505,32140,30,False,True,suspect,2,1996-04-09,4,False,False
+78B629966D77,44,F,Mexique,Mexique,Retraité,Professionnel,24153,12043,30,False,False,normal,0,1996-04-09,0,False,True
+41F8AB4C608F,54,F,Royaume-Uni,Allemagne,Conseil,Épargne,55975,83338,23,True,False,ppe,2,2003-04-08,1,False,True
+90F2886A9200,65,F,Suisse,Allemagne,Finance,Professionnel,68080,42078,17,True,False,ppe,2,2009-04-06,0,False,False
+D985E99FEAA9,62,M,Australie,Colombie,Industrie,Courant,29222,12020,29,True,True,ppe,2,1997-04-09,3,True,True
+5483B758659E,61,F,Égypte,Myanmar,Industrie,Courant,49485,53818,5,False,False,suspect,2,2021-04-03,1,False,False
+076064E4167D,65,M,Japon,Colombie,Sans emploi,Professionnel,14390,7155,18,False,True,vigilance,1,2008-04-06,2,False,True
+B0A08EF7389F,79,F,Venezuela,Myanmar,Agriculture,Joint,31687,13617,2,False,True,suspect,2,2024-04-02,3,False,False
+567539CC1EDA,62,M,Royaume-Uni,Mexique,Indépendant,Épargne,54227,82409,20,False,True,ppe,2,2006-04-07,3,False,False
+892B631B2481,45,M,Allemagne,Canada,Industrie,Professionnel,44454,31822,18,True,False,normal,0,2008-04-06,1,False,True
+F6676A9513EC,49,F,Afghanistan,Libye,Défense,Professionnel,31317,652,21,True,True,fraudeur,3,2005-04-07,3,False,False
+1BF1E49E6D57,50,F,Libye,Corée du Nord,Agriculture,Épargne,31262,22951,6,False,True,fraudeur,3,2020-04-03,6,False,True
+232CFF12B864,48,M,Colombie,Pays-Bas,Agriculture,Professionnel,28507,41133,27,False,False,normal,0,1999-04-09,4,False,True
+07B22D64F740,35,F,Venezuela,Syrie,Transport,Professionnel,37283,30278,30,True,True,fraudeur,3,1996-04-09,2,False,False
+4B20D0BA3559,46,M,Colombie,Tunisie,Éducation,Courant,38877,20972,2,False,False,vigilance,1,2024-04-02,2,False,True
+C192B7AE2C3B,31,F,Royaume-Uni,Pays-Bas,Sans emploi,Épargne,13186,14365,21,False,False,normal,0,2005-04-07,2,False,True
+7A6A9E0DF86E,68,F,Japon,Allemagne,Sans emploi,Courant,13357,1278,5,True,True,ppe,2,2021-04-03,4,False,True
+D16FA3CA086D,76,F,Japon,Mexique,Industrie,Joint,37996,30098,14,False,False,vigilance,1,2012-04-05,3,True,True
+0E9D51B62882,68,F,Maroc,Japon,Retraité,Courant,30182,19041,2,True,False,ppe,2,2024-04-02,1,False,True
+A6CBB5662402,51,M,Soudan,Libye,Sans emploi,Épargne,13727,18924,1,True,True,fraudeur,3,2025-04-02,3,False,False
+0FB5A665C7C3,37,F,Suède,France,Sans emploi,Épargne,8520,3045,29,False,True,normal,0,1997-04-09,0,False,True
+DB068306C427,48,M,Syrie,Yémen,Indépendant,Épargne,48068,31285,29,True,True,fraudeur,3,1997-04-09,6,True,False
+B2E503ACF928,60,F,Canada,Égypte,Arts,Courant,37414,18693,19,False,True,normal,0,2007-04-07,0,False,True
+C4B79B1BA07F,40,M,Tunisie,Pays-Bas,Finance,Professionnel,45166,58943,22,False,False,vigilance,1,2004-04-07,1,False,True
+D4FEBA70A09B,63,F,Brésil,Pays-Bas,Finance,Joint,57825,105431,19,True,False,ppe,2,2007-04-07,1,False,False
+5C38DBD14A52,56,F,Mexique,Vietnam,Finance,Professionnel,85047,136282,22,True,False,ppe,2,2004-04-07,4,True,True
+E1F93C56E9EC,72,M,Suisse,Suisse,Conseil,Courant,54922,72769,5,False,False,normal,0,2021-04-03,0,False,True
+6B7083B60CD3,67,F,Afghanistan,Afghanistan,Retraité,Joint,23183,14343,7,False,True,suspect,2,2019-04-04,4,True,True
+19DA6D31D5AE,72,M,Afghanistan,Yémen,Industrie,Courant,36545,16283,5,False,True,suspect,2,2021-04-03,1,False,False
+951A404DD858,61,M,Turquie,Colombie,Finance,Épargne,71240,18081,15,True,False,ppe,2,2011-04-06,5,False,True
+A4ACF37AC559,34,M,Royaume-Uni,Colombie,Immobilier,Professionnel,53944,48801,8,False,False,vigilance,1,2018-04-04,2,False,True
+0953D150DDCB,75,F,Tunisie,Colombie,Agriculture,Épargne,41307,58544,21,True,False,ppe,2,2005-04-07,1,False,False
+508EC04BA128,42,F,Suisse,Turquie,Défense,Professionnel,49352,4571,8,False,False,normal,0,2018-04-04,2,False,True
+EE03CAB58665,32,F,Canada,Australie,Technologie,Épargne,72395,52270,17,False,False,normal,0,2009-04-06,1,False,True
+CB8A4E486CE2,64,F,Tunisie,Vietnam,Technologie,Épargne,57694,78244,16,False,False,normal,0,2010-04-06,1,False,True
+D31D5AD69163,26,M,Canada,Allemagne,Sans emploi,Épargne,12493,8103,17,False,False,normal,0,2009-04-06,2,False,True
+DEDCB1AF723E,74,F,France,Royaume-Uni,Indépendant,Épargne,36941,36479,24,False,False,vigilance,1,2002-04-08,1,False,True
+61293B370B5B,68,F,Afghanistan,Myanmar,Retraité,Professionnel,27677,35724,27,False,True,suspect,2,1999-04-09,1,False,True
+A1F68DE436AC,24,F,Suède,Suède,Santé,Courant,48998,35206,7,False,False,vigilance,1,2019-04-04,1,False,False
+D5F7F7787538,23,M,Pays-Bas,Brésil,Éducation,Joint,34369,32545,22,False,True,vigilance,1,2004-04-07,2,False,True
+0D22FF8AE080,42,M,Maroc,Yémen,Immobilier,Professionnel,51897,41226,19,False,False,suspect,2,2007-04-07,0,False,True
+E1ACED729AD4,30,M,Yémen,Libye,Santé,Joint,25757,29713,23,False,True,suspect,2,2003-04-08,2,False,True
+E9559CC08DD4,45,F,Suède,Égypte,Sans emploi,Joint,12592,10513,19,False,False,vigilance,1,2007-04-07,2,False,True
+A3A77578C99F,68,F,Égypte,Égypte,Agriculture,Joint,20624,12134,16,False,False,normal,0,2010-04-06,3,False,True
+2DE9F0D0839E,66,F,Canada,Pays-Bas,Technologie,Épargne,63522,16348,24,True,False,ppe,2,2002-04-08,3,False,False
+E1D85C73A1AB,46,M,France,Pays-Bas,Finance,Épargne,55450,26388,13,True,False,ppe,2,2013-04-05,3,True,True
+21664EEB15F9,64,F,Allemagne,Allemagne,Transport,Épargne,38001,40936,30,False,False,vigilance,1,1996-04-09,0,False,True
+163EE2FBEE67,20,M,Syrie,Afghanistan,Arts,Courant,30125,45928,20,False,True,suspect,2,2006-04-07,0,False,False
+DF6786DFACAD,67,F,Suisse,Mexique,Transport,Épargne,27495,0,12,False,False,normal,0,2014-04-05,1,False,True
+C489B0ED51F8,76,F,Égypte,Japon,Retraité,Épargne,26095,30311,12,False,False,normal,0,2014-04-05,2,True,True
+F97F9BADC8B8,22,M,Égypte,Colombie,Agriculture,Professionnel,25735,21347,10,False,False,vigilance,1,2016-04-04,3,False,True
+7F37A6EFFA6E,49,F,Afghanistan,Venezuela,Commerce,Courant,33223,34584,25,True,True,fraudeur,3,2001-04-08,2,True,True
+19ECAA923BFE,62,F,Myanmar,Colombie,Commerce,Courant,38932,56446,26,False,True,suspect,2,2000-04-08,2,False,True
+0A7F93FBC98D,22,F,Tunisie,Tunisie,Agriculture,Professionnel,27837,27964,30,False,False,vigilance,1,1996-04-09,3,False,True
+FFCE906FCE96,48,F,Myanmar,Myanmar,Commerce,Épargne,37536,18980,8,True,True,fraudeur,3,2018-04-04,3,False,True
+174E7B4A8544,23,M,Corée du Nord,Russie,Sans emploi,Courant,14492,14523,22,False,True,suspect,2,2004-04-07,3,False,True
+36720AB3B13E,54,M,Brésil,Égypte,Conseil,Professionnel,34861,30686,9,False,False,suspect,2,2017-04-04,4,True,True
+C6406A736141,20,M,Égypte,Inde,Agriculture,Courant,30407,34697,12,False,False,vigilance,1,2014-04-05,0,False,True
+7F224E5CFBC2,38,M,Pays-Bas,Égypte,Immobilier,Professionnel,69397,73737,20,False,False,normal,0,2006-04-07,3,False,True
+4CA24E78D68B,44,F,Australie,Mexique,Indépendant,Professionnel,37409,22210,25,False,False,vigilance,1,2001-04-08,2,False,True
+8A24AD2892E0,69,F,Russie,Myanmar,Commerce,Épargne,53675,20020,18,False,True,suspect,2,2008-04-06,0,True,True
+2840BE3AF5E2,52,F,Colombie,Suisse,Indépendant,Courant,43608,39094,11,False,False,normal,0,2015-04-05,4,False,True
+DDE6D074D6D1,46,F,Pays-Bas,Turquie,Indépendant,Professionnel,33075,32126,11,False,False,vigilance,1,2015-04-05,2,False,True
+B6E24A9B2DD8,65,F,Colombie,Brésil,Sans emploi,Joint,12078,8372,18,True,False,ppe,2,2008-04-06,3,True,True
+B201D7A11001,73,F,Suède,Mexique,Finance,Courant,54530,56633,21,True,False,vigilance,1,2005-04-07,4,False,True
+6A0E9C9B1257,57,F,Égypte,Royaume-Uni,Industrie,Joint,50536,38042,29,True,False,ppe,2,1997-04-09,1,True,False
+DEDEFF22DF91,67,M,Japon,Inde,Indépendant,Courant,52894,41831,3,True,False,ppe,2,2023-04-03,1,False,True
+C3D82FD443A1,24,M,Royaume-Uni,Mexique,Industrie,Professionnel,46724,47597,20,False,False,vigilance,1,2006-04-07,0,False,True
+5138808C798C,19,F,Canada,Vietnam,Santé,Joint,44347,28192,22,False,False,vigilance,1,2004-04-07,1,False,True
+C3DC8FE34F3C,30,F,Russie,Libye,Retraité,Professionnel,27665,36042,20,False,True,fraudeur,3,2006-04-07,6,False,True
+E8ABE9DCF467,41,F,Maroc,France,Transport,Courant,26746,34103,9,False,False,normal,0,2017-04-04,1,False,True
+46CD77CC4486,78,M,Vietnam,Brésil,Arts,Professionnel,29586,20604,16,False,False,vigilance,1,2010-04-06,2,False,True
+23FC61A56F35,33,F,Yémen,Turquie,Finance,Épargne,82886,99879,23,False,True,suspect,2,2003-04-08,1,False,True
+E478D90F3878,69,F,Inde,Venezuela,Indépendant,Professionnel,50640,13839,22,False,False,suspect,2,2004-04-07,5,True,True
+FBC1E4023A91,53,M,Égypte,Brésil,Indépendant,Épargne,44290,46954,20,True,False,ppe,2,2006-04-07,1,False,True
+3895478E8EA5,64,M,Inde,France,Santé,Joint,32951,0,8,False,False,normal,0,2018-04-04,4,False,True
+6D07F65E26C5,39,M,Allemagne,Suisse,Technologie,Joint,53576,40920,27,True,False,vigilance,1,1999-04-09,3,False,False
+37A9AF0D750C,25,F,Turquie,Maroc,Arts,Joint,30873,21493,23,False,False,suspect,2,2003-04-08,2,True,False
+3FDA17A19690,48,F,Australie,Canada,Transport,Courant,41220,24290,22,False,False,normal,0,2004-04-07,2,False,True
+F98694507878,74,M,Turquie,Pays-Bas,Santé,Épargne,53672,82401,28,False,False,normal,0,1998-04-09,0,False,True
+A6A856A475FB,18,M,Japon,Turquie,Santé,Courant,31147,21226,19,False,False,normal,0,2007-04-07,2,False,True
+8BFE1198919B,26,M,Russie,Russie,Santé,Courant,59503,88317,12,True,True,fraudeur,3,2014-04-05,2,True,False
+F4A120773A6B,69,M,Russie,Venezuela,Défense,Professionnel,55049,29741,15,False,True,suspect,2,2011-04-06,0,False,True
+339F5042A2A3,62,M,Colombie,Colombie,Indépendant,Professionnel,42588,53863,16,True,False,ppe,2,2010-04-06,0,False,False
+7E00BDB7CF5C,51,F,Royaume-Uni,Égypte,Finance,Professionnel,69517,87967,15,False,False,vigilance,1,2011-04-06,0,False,True
+F4011C273F30,41,F,Venezuela,Russie,Arts,Joint,33461,33475,20,False,True,suspect,2,2006-04-07,3,False,False
+72A11DF68895,38,M,Maroc,Pays-Bas,Transport,Courant,30421,2060,21,True,False,normal,0,2005-04-07,4,False,True
+F94A8330A7DC,24,F,Australie,Vietnam,Santé,Professionnel,62218,93316,19,True,False,normal,0,2007-04-07,2,False,True
+6657AA6CC1F2,54,F,Venezuela,Tunisie,Défense,Courant,45637,21116,27,True,True,fraudeur,3,1999-04-09,7,False,False
+7A5833817DA4,21,M,Maroc,Russie,Conseil,Professionnel,46832,12737,20,True,False,suspect,2,2006-04-07,1,False,True
+5A0D337A3A4E,30,M,Mexique,Canada,Commerce,Joint,34737,18168,17,False,False,normal,0,2009-04-06,2,False,True
+F1DC2E0D37F4,48,F,Inde,Vietnam,Finance,Épargne,70876,21544,26,True,False,ppe,2,2000-04-08,1,False,False
+4A4E15F13EDC,72,F,Tunisie,Tunisie,Immobilier,Épargne,55622,44650,14,False,False,vigilance,1,2012-04-05,0,False,False
+727F42712827,46,F,Inde,France,Transport,Épargne,32835,16389,1,False,False,normal,0,2025-04-02,3,False,True
+FA7FACDD3119,70,M,Iran,Corée du Nord,Indépendant,Joint,40654,43440,27,False,True,suspect,2,1999-04-09,0,True,True
+A8A137DFA51A,34,F,Japon,Australie,Arts,Courant,23037,20905,10,False,False,vigilance,1,2016-04-04,2,False,False
+5D925A31F194,74,F,Colombie,Maroc,Technologie,Joint,82814,64241,20,True,True,ppe,2,2006-04-07,1,False,True
+909BDDA1DD96,73,M,Yémen,Venezuela,Technologie,Joint,51499,10017,28,True,True,suspect,2,1998-04-09,2,False,True
+189B11C7E67E,50,M,Tunisie,Mexique,Indépendant,Joint,48484,68485,8,False,False,vigilance,1,2018-04-04,4,True,True
+798FFD3E6FEC,39,M,Corée du Nord,Afghanistan,Technologie,Professionnel,54203,46545,16,False,True,suspect,2,2010-04-06,1,False,False
+7D070B164708,48,F,Suède,Australie,Agriculture,Épargne,39673,45970,7,False,False,normal,0,2019-04-04,0,False,True
+97A5A869E8DB,60,F,Pays-Bas,Australie,Transport,Professionnel,29173,0,14,False,False,vigilance,1,2012-04-05,1,False,True
+8B8142C25C64,57,M,Inde,Australie,Finance,Professionnel,84778,51174,15,False,False,normal,0,2011-04-06,0,False,True
+11D219303E76,73,M,Suède,Tunisie,Conseil,Courant,52526,28363,27,False,False,normal,0,1999-04-09,3,False,True
+21E831C5E52B,51,F,Égypte,Suède,Arts,Courant,27447,22164,9,False,False,normal,0,2017-04-04,5,False,True
+9EE2B9BFB9F8,68,M,Australie,Inde,Indépendant,Courant,32392,27320,20,True,False,normal,0,2006-04-07,0,False,False
+2A1816717E44,19,F,Pays-Bas,Japon,Industrie,Joint,26423,14315,28,False,False,vigilance,1,1998-04-09,2,False,True
+0EDBCB3CE5A1,29,M,Royaume-Uni,Allemagne,Commerce,Épargne,39214,15251,17,False,False,vigilance,1,2009-04-06,2,False,True
+CD6530808A3D,40,F,Turquie,Allemagne,Sans emploi,Professionnel,13130,14945,10,False,False,normal,0,2016-04-04,2,False,True
+0712CD39AE11,32,M,Suisse,Royaume-Uni,Finance,Joint,78007,41480,11,False,False,vigilance,1,2015-04-05,5,False,True
+F0B4D84266AC,45,F,Suède,Inde,Industrie,Épargne,46347,4661,30,False,False,vigilance,1,1996-04-09,2,False,False
+B65AED724CC0,63,F,Soudan,Égypte,Défense,Épargne,38526,53659,17,False,True,suspect,2,2009-04-06,1,False,True
+72BD3A363E60,78,F,Égypte,Suède,Indépendant,Courant,33899,21286,4,False,False,normal,0,2022-04-03,0,False,True
+422541F97044,27,M,Suisse,Canada,Arts,Courant,35337,47997,7,False,False,vigilance,1,2019-04-04,1,False,True
+77F17AAD55B9,32,M,Japon,Vietnam,Sans emploi,Épargne,7959,3801,1,False,False,normal,0,2025-04-02,2,False,True
+F97A1B257B0C,26,M,Libye,Yémen,Finance,Courant,89588,55111,7,False,True,suspect,2,2019-04-04,0,False,True
+877A9258B7E3,51,F,Turquie,France,Technologie,Joint,54313,43136,6,False,False,ppe,2,2020-04-03,3,False,True
+C64B1CC81C91,43,M,Russie,Libye,Retraité,Joint,23575,15370,24,False,True,suspect,2,2002-04-08,0,False,False
+ECF7A599081F,43,F,Égypte,Colombie,Indépendant,Courant,26848,17666,2,False,False,normal,0,2024-04-02,1,False,True
+CE1D61FE2294,45,M,Canada,Inde,Industrie,Joint,39252,34996,20,False,False,normal,0,2006-04-07,4,False,True
+A94B1AB9DD72,43,M,Afghanistan,Myanmar,Transport,Épargne,34248,33531,11,False,True,suspect,2,2015-04-05,1,True,True
+ED37804295DA,50,M,Allemagne,Tunisie,Indépendant,Joint,31971,27404,24,True,False,ppe,2,2002-04-08,4,False,False
+842AF0BFF30C,30,M,Afghanistan,Russie,Transport,Professionnel,27556,12417,18,True,True,fraudeur,3,2008-04-06,1,False,True
+EADB732A930D,63,F,Myanmar,Russie,Santé,Joint,37385,16972,14,False,True,suspect,2,2012-04-05,3,True,False
+E5BFA1EA8BBE,49,F,Iran,Mexique,Industrie,Courant,38625,13778,1,True,True,fraudeur,3,2025-04-02,7,False,True
+D650F6817B30,59,M,Vietnam,Mexique,Technologie,Professionnel,54625,15823,20,True,False,ppe,2,2006-04-07,0,False,True
+F836FC57F1D7,20,F,Turquie,Tunisie,Finance,Courant,99376,19757,28,True,False,normal,0,1998-04-09,3,False,True
+AF9F0941D5E2,64,M,France,Suisse,Retraité,Professionnel,29211,24513,26,False,False,ppe,2,2000-04-08,0,False,True
+4ED6233C9F20,66,M,Royaume-Uni,Maroc,Transport,Joint,32467,29611,27,False,False,vigilance,1,1999-04-09,4,False,True
+0326479136D5,57,M,Australie,Vietnam,Santé,Professionnel,53771,42387,4,False,False,vigilance,1,2022-04-03,3,False,True
+9EABBFF436D6,64,F,Japon,Vietnam,Retraité,Épargne,19652,10582,16,False,False,ppe,2,2010-04-06,2,False,True
+FC856A901EA3,58,F,Inde,Brésil,Arts,Courant,43209,29905,4,False,False,normal,0,2022-04-03,5,False,True
+528DE7594930,34,F,Maroc,Colombie,Arts,Professionnel,34528,24798,3,False,False,normal,0,2023-04-03,1,False,True
+534F52AD45D0,71,F,France,Vietnam,Finance,Joint,63241,75979,7,False,False,vigilance,1,2019-04-04,3,False,True
+0D43A0C51394,39,M,Libye,Turquie,Éducation,Professionnel,50090,35235,26,False,True,suspect,2,2000-04-08,2,False,False
+34A2B62E2306,69,M,Tunisie,Suède,Défense,Professionnel,38672,9596,29,False,False,normal,0,1997-04-09,2,False,True
+314815E96482,29,F,Mexique,Allemagne,Retraité,Professionnel,21429,24485,4,False,False,normal,0,2022-04-03,0,False,True
+EFABFE061905,34,M,Myanmar,Maroc,Finance,Courant,74426,74907,4,True,True,fraudeur,3,2022-04-03,6,True,False
+38752853C6BB,39,F,Australie,Tunisie,Défense,Épargne,40636,35951,16,False,False,vigilance,1,2010-04-06,1,False,True
+7F21D12F3BC8,26,M,Myanmar,Iran,Éducation,Courant,24190,3555,13,True,True,fraudeur,3,2013-04-05,1,False,True
+82214CDE66A1,24,F,Allemagne,France,Agriculture,Professionnel,30640,22860,25,False,False,vigilance,1,2001-04-08,1,False,True
+3DC9E844C60A,60,M,Inde,Suisse,Technologie,Courant,60362,62984,9,True,False,vigilance,1,2017-04-04,1,False,True
+C28EB63C4F06,35,M,Tunisie,Canada,Finance,Courant,83915,67235,23,False,False,vigilance,1,2003-04-08,1,False,True
+2D4B8A35ADA5,24,F,Allemagne,Mexique,Transport,Épargne,33870,17482,2,False,False,normal,0,2024-04-02,1,False,True
+C624CC26B80E,37,M,Turquie,Inde,Immobilier,Épargne,68125,37335,27,False,False,vigilance,1,1999-04-09,3,False,True
+0F9F81856080,48,F,Inde,Turquie,Commerce,Joint,26289,19637,8,False,False,normal,0,2018-04-04,3,False,True
+AAFAFB3EA6D2,19,F,Vietnam,Vietnam,Technologie,Joint,49743,46460,16,False,False,normal,0,2010-04-06,3,False,True
+CB70E7837673,70,F,Mexique,Égypte,Indépendant,Courant,36549,32003,26,False,False,vigilance,1,2000-04-08,1,False,True
+428C98DFEE14,60,M,Colombie,Pays-Bas,Transport,Joint,40903,41875,3,True,False,ppe,2,2023-04-03,3,False,True
+BB8554063CF1,65,F,Royaume-Uni,Pays-Bas,Défense,Joint,40907,47287,23,False,False,normal,0,2003-04-08,1,False,True
+C08DB7BC62D9,61,F,Pays-Bas,Vietnam,Conseil,Courant,58687,24707,20,False,False,vigilance,1,2006-04-07,0,False,False
+8FD15709F817,49,F,Maroc,Inde,Sans emploi,Joint,10026,12516,5,True,False,ppe,2,2021-04-03,0,False,True
+EBFC12225163,55,M,Syrie,Afghanistan,Défense,Joint,41988,33848,14,True,True,fraudeur,3,2012-04-05,2,False,True
+BDCF441D6155,25,M,Colombie,Mexique,Indépendant,Courant,48930,22172,18,True,False,fraudeur,3,2008-04-06,2,True,True
+F0E2AC185EDD,45,M,Mexique,Vietnam,Agriculture,Épargne,34372,20785,7,False,False,vigilance,1,2019-04-04,3,False,False
+0FEB89F566EA,26,M,Suède,Suède,Santé,Joint,47737,52626,3,False,False,normal,0,2023-04-03,1,False,True
+5770EEBEFB6E,75,F,Mexique,Venezuela,Arts,Joint,27632,44008,23,False,False,suspect,2,2003-04-08,3,False,True
+07646C48C31A,54,F,France,Brésil,Éducation,Professionnel,39760,18823,28,True,True,normal,0,1998-04-09,5,False,True
+BD9E58F31B83,27,F,Royaume-Uni,Inde,Indépendant,Courant,43707,29988,24,False,False,vigilance,1,2002-04-08,1,False,True
+FEF99BA81E79,66,F,France,Égypte,Sans emploi,Professionnel,12979,9734,18,True,True,ppe,2,2008-04-06,2,False,False
+94D7F5B1A342,44,F,Tunisie,Canada,Immobilier,Courant,51613,16088,26,False,False,vigilance,1,2000-04-08,1,False,True
+CA48210E5C52,55,F,Vietnam,France,Finance,Professionnel,59107,81625,19,False,False,normal,0,2007-04-07,2,False,True
+38FD3ED3189C,35,M,Suisse,Canada,Conseil,Épargne,50923,83591,9,False,False,normal,0,2017-04-04,2,False,True
+D73909F75E63,69,F,Canada,Royaume-Uni,Agriculture,Épargne,20677,23306,28,False,False,normal,0,1998-04-09,0,False,True
+F72C61A608C8,33,M,Mexique,Australie,Sans emploi,Professionnel,15059,16926,15,True,False,vigilance,1,2011-04-06,2,False,True
+07348864112B,37,M,Vietnam,Mexique,Éducation,Joint,29515,31148,24,False,False,vigilance,1,2002-04-08,2,False,True
+CFE76174033A,46,M,Yémen,Corée du Nord,Immobilier,Professionnel,37771,32014,17,False,True,fraudeur,3,2009-04-06,1,False,False
+0DCFD2F93947,35,F,Soudan,Yémen,Arts,Épargne,19458,6741,4,False,True,suspect,2,2022-04-03,0,False,True
+A785C1DB93CB,38,M,Canada,Royaume-Uni,Agriculture,Courant,28628,11515,1,False,False,normal,0,2025-04-02,2,False,True
+E6C17B703F1D,46,M,Mexique,Japon,Santé,Épargne,49226,39676,20,False,False,ppe,2,2006-04-07,3,False,True
+E9C1BC52E919,60,M,Corée du Nord,Brésil,Arts,Épargne,33900,17309,29,False,True,suspect,2,1997-04-09,3,False,False
+3CAD2AE7642B,53,F,Australie,Mexique,Arts,Courant,26668,23385,14,True,True,ppe,2,2012-04-05,1,False,False
+87B46EA46A6D,29,M,Suisse,Mexique,Éducation,Épargne,43062,21664,3,False,False,normal,0,2023-04-03,2,False,True
+644ED508E7E5,59,M,Tunisie,Maroc,Indépendant,Professionnel,43383,35589,9,True,True,ppe,2,2017-04-04,1,False,True
+7739A6253447,60,F,Allemagne,Mexique,Transport,Courant,36213,32504,9,False,False,normal,0,2017-04-04,2,False,True
+7D3A33765858,68,M,Maroc,Soudan,Technologie,Joint,55250,40230,18,False,False,suspect,2,2008-04-06,1,False,True
+6928B7A2765E,58,F,Allemagne,Royaume-Uni,Sans emploi,Joint,16011,12119,3,False,False,normal,0,2023-04-03,1,False,True
+FF826503CDFF,34,F,Venezuela,Libye,Indépendant,Joint,46511,38169,13,True,True,fraudeur,3,2013-04-05,1,True,True
+F97770537CDF,60,F,Égypte,Vietnam,Transport,Joint,30365,17031,3,False,True,ppe,2,2023-04-03,0,False,True
+5DB26ADC3567,51,F,Inde,Japon,Arts,Épargne,35177,35988,21,True,False,ppe,2,2005-04-07,1,True,False
+41002E132F03,48,M,France,Japon,Défense,Épargne,52782,66297,30,True,False,vigilance,1,1996-04-09,2,False,False
+FA0121FB4C17,71,M,Canada,Vietnam,Retraité,Épargne,27064,19088,3,True,False,normal,0,2023-04-03,1,False,True
+01CDAE2214F9,48,M,Inde,Brésil,Sans emploi,Épargne,12792,13405,19,True,False,ppe,2,2007-04-07,0,False,True
+5EB8AFAE096B,28,M,Brésil,Inde,Indépendant,Épargne,34984,57227,12,False,True,normal,0,2014-04-05,0,False,True
+5255032DFE66,45,M,Royaume-Uni,Maroc,Défense,Courant,48363,49999,16,True,False,ppe,2,2010-04-06,1,False,True
+9BBF8E861BDB,26,F,Libye,Libye,Commerce,Joint,33972,30229,5,False,True,suspect,2,2021-04-03,2,True,False
+CE8044DE323A,57,F,Vietnam,Brésil,Technologie,Courant,33457,47287,21,False,False,vigilance,1,2005-04-07,0,False,False
+46904EF46AFD,62,M,Canada,Mexique,Agriculture,Épargne,28795,8844,8,True,False,ppe,2,2018-04-04,1,False,False
+E98E00DDF30B,60,F,Canada,Maroc,Défense,Épargne,52299,49602,2,False,False,vigilance,1,2024-04-02,2,False,True
+113AC85F81BF,77,M,Allemagne,Vietnam,Agriculture,Courant,20411,20102,6,True,False,normal,0,2020-04-03,2,False,True
+359C205739E2,32,M,Tunisie,Pays-Bas,Arts,Épargne,28911,23607,4,False,False,vigilance,1,2022-04-03,1,False,True
+98E33B4D9A77,21,M,Vietnam,Inde,Défense,Épargne,48256,49647,14,False,False,vigilance,1,2012-04-05,2,False,True
+16E9B0D08256,29,M,Myanmar,Syrie,Santé,Courant,68043,49238,23,False,True,fraudeur,3,2003-04-08,3,False,True
+B8298CE7AA6B,56,M,Maroc,Égypte,Finance,Épargne,84293,79424,26,False,False,normal,0,2000-04-08,1,False,False
+CE4E88252D0A,35,M,Inde,Japon,Santé,Professionnel,37495,39062,24,False,False,vigilance,1,2002-04-08,3,False,False
+7E53ECF31F94,38,M,Inde,Yémen,Santé,Joint,45632,35298,2,True,False,fraudeur,3,2024-04-02,3,False,False
+D7574AA403CA,66,M,Égypte,Suède,Santé,Professionnel,57441,41788,23,False,False,normal,0,2003-04-08,1,False,True
+E686907FEEC6,72,M,Inde,Inde,Retraité,Joint,20883,27743,24,False,False,normal,0,2002-04-08,4,False,True
+BDCAD5CD9322,63,M,Inde,Mexique,Sans emploi,Professionnel,14860,8367,1,False,False,vigilance,1,2025-04-02,1,False,True
+F4887F04CB05,51,F,Colombie,Allemagne,Arts,Courant,35720,10789,22,True,False,ppe,2,2004-04-07,1,False,True
+D0379734EC08,57,M,Inde,Égypte,Santé,Courant,34737,28242,12,False,False,vigilance,1,2014-04-05,0,False,True
+48671E2D133D,65,M,Vietnam,Tunisie,Arts,Professionnel,25720,27636,19,False,False,vigilance,1,2007-04-07,3,False,True
+92FFADF2C8EF,49,F,Inde,Égypte,Agriculture,Professionnel,39703,33419,17,False,False,vigilance,1,2009-04-06,1,False,True
+A458B145F53A,31,M,Brésil,Corée du Nord,Défense,Épargne,46184,53973,29,True,False,fraudeur,3,1997-04-09,4,True,True
+2D0A81ECCD32,72,M,Vietnam,Mexique,Commerce,Épargne,33814,13170,17,True,False,ppe,2,2009-04-06,2,False,True
+2E992BB8234C,73,F,France,Brésil,Arts,Professionnel,13416,11800,8,False,False,normal,0,2018-04-04,3,False,True
+E929F668C341,46,M,Égypte,Maroc,Éducation,Épargne,40897,52225,10,False,False,vigilance,1,2016-04-04,0,False,True
+2B60D6135EB4,36,M,Corée du Nord,Russie,Éducation,Professionnel,36788,44918,6,False,True,suspect,2,2020-04-03,1,True,False
+AFEAE349C4A1,30,F,Maroc,Afghanistan,Commerce,Joint,43245,0,4,True,False,fraudeur,3,2022-04-03,2,False,True
+36683192DE8F,27,M,Turquie,Égypte,Immobilier,Professionnel,45387,16596,15,False,True,normal,0,2011-04-06,1,False,True
+43644A066FE5,29,F,Vietnam,Venezuela,Santé,Professionnel,56793,19337,24,True,False,fraudeur,3,2002-04-08,4,False,False
+819EF932B29D,69,F,Suède,Pays-Bas,Retraité,Joint,28145,29041,24,False,False,vigilance,1,2002-04-08,1,False,True
+559E2EF21703,46,M,Japon,Australie,Immobilier,Épargne,74932,8389,3,False,False,vigilance,1,2023-04-03,1,False,True
+9566B3F57749,79,M,Venezuela,Libye,Technologie,Courant,81625,77808,17,False,True,suspect,2,2009-04-06,1,False,True
+83B41400DF87,41,F,Soudan,Soudan,Santé,Joint,55684,46892,10,False,True,suspect,2,2016-04-04,0,True,False
+75B8B8235749,69,F,Brésil,Brésil,Éducation,Épargne,40683,8086,10,False,False,vigilance,1,2016-04-04,2,False,True
+987A599300F7,35,F,Libye,Corée du Nord,Technologie,Joint,60399,25218,30,True,True,fraudeur,3,1996-04-09,8,True,True
+A76ECB0E670E,30,F,Suède,Égypte,Finance,Joint,73657,71346,27,True,False,vigilance,1,1999-04-09,2,False,True
+298183376763,32,M,Inde,Suisse,Santé,Professionnel,37008,11513,26,False,False,vigilance,1,2000-04-08,6,False,True
+20A52315F274,49,M,Yémen,Iran,Défense,Professionnel,37519,24205,23,False,True,suspect,2,2003-04-08,3,False,False
+138A01AA75EF,54,F,Vietnam,Pays-Bas,Transport,Professionnel,24374,16018,28,False,False,vigilance,1,1998-04-09,4,False,True
+2A9F2AD03434,47,F,Tunisie,Canada,Défense,Courant,65464,53416,23,False,False,normal,0,2003-04-08,1,False,True
+E715FB6290E9,58,M,Colombie,Canada,Défense,Courant,50338,68193,3,False,False,normal,0,2023-04-03,1,False,True
+49DFCC581BB2,35,M,Tunisie,Libye,Sans emploi,Professionnel,9318,3682,23,False,True,suspect,2,2003-04-08,3,False,True
+20AE4B478C48,76,M,Tunisie,Suède,Défense,Épargne,58671,92341,6,False,False,vigilance,1,2020-04-03,2,False,True
+83F9F2927DE8,47,F,Turquie,Yémen,Agriculture,Courant,27784,23820,23,True,False,fraudeur,3,2003-04-08,3,True,True
+990DF9A20D03,59,F,Tunisie,Turquie,Défense,Professionnel,33385,41566,20,True,False,ppe,2,2006-04-07,2,False,False
+824030648313,37,M,Japon,Brésil,Finance,Courant,55852,65502,7,True,False,normal,0,2019-04-04,2,False,True
+86B8A56BE5E5,55,F,Colombie,Allemagne,Santé,Courant,48441,28128,16,False,True,normal,0,2010-04-06,4,False,True
+61BFB65EB124,51,M,Colombie,Tunisie,Finance,Professionnel,84764,51035,22,False,False,ppe,2,2004-04-07,0,False,True
+F63D4AF064CA,63,M,Mexique,Colombie,Technologie,Épargne,48434,20203,4,False,False,ppe,2,2022-04-03,2,False,True
+9863B2FC75DA,74,F,Australie,France,Agriculture,Épargne,22030,18306,28,True,False,ppe,2,1998-04-09,1,False,True
+83C77BD97F4E,50,F,Australie,Pays-Bas,Commerce,Joint,49503,27457,14,False,False,vigilance,1,2012-04-05,2,False,True
+1538F31979C6,23,F,Allemagne,Maroc,Immobilier,Joint,40640,21945,16,False,False,vigilance,1,2010-04-06,1,False,True
+405EF96EC0D6,72,F,Maroc,Turquie,Transport,Épargne,28546,11373,7,True,False,vigilance,1,2019-04-04,3,False,True
+4F9ED104A550,25,M,Royaume-Uni,Canada,Finance,Courant,57893,40023,13,False,False,vigilance,1,2013-04-05,3,False,False
+C7DCCF7D24DF,71,F,Japon,Suisse,Transport,Joint,40679,13859,24,False,False,vigilance,1,2002-04-08,2,False,False
+A944215AADF4,67,F,Suède,Vietnam,Éducation,Joint,40720,7549,4,False,False,vigilance,1,2022-04-03,2,True,True
+767CE3886962,19,F,Libye,Corée du Nord,Finance,Courant,72169,67567,13,False,True,suspect,2,2013-04-05,1,False,True
+2A81867D883E,30,F,Inde,Colombie,Industrie,Professionnel,48378,61335,22,False,False,vigilance,1,2004-04-07,1,False,True
+892B9B02CD92,74,F,Égypte,Soudan,Défense,Joint,33301,33490,4,False,True,suspect,2,2022-04-03,3,True,False
+D8D5F44BF03D,28,F,Brésil,Russie,Éducation,Joint,40065,15710,14,False,False,suspect,2,2012-04-05,1,False,False
+2AD706397C62,48,M,Vietnam,Mexique,Agriculture,Professionnel,29858,21804,28,False,False,vigilance,1,1998-04-09,0,False,True
+6D064E92B0D4,25,F,Soudan,Soudan,Retraité,Courant,25519,22351,2,True,True,fraudeur,3,2024-04-02,4,False,True
+D93A8E061033,44,M,Turquie,Japon,Immobilier,Épargne,78295,105900,2,False,False,vigilance,1,2024-04-02,1,False,True
+65FD72E7C600,28,M,Tunisie,Inde,Santé,Joint,44970,40715,18,False,False,normal,0,2008-04-06,2,False,True
+0111963D16BB,42,M,Tunisie,Vietnam,Retraité,Courant,20646,9327,13,False,False,vigilance,1,2013-04-05,1,False,False
+3A35CC81F740,54,F,Turquie,Égypte,Immobilier,Courant,77778,52864,14,True,False,ppe,2,2012-04-05,2,False,True
+D2A9170A75B9,32,M,Yémen,Afghanistan,Retraité,Professionnel,26398,26102,24,True,True,fraudeur,3,2002-04-08,6,False,False
+168837964C08,59,F,Royaume-Uni,Brésil,Conseil,Professionnel,52964,29245,10,False,False,normal,0,2016-04-04,3,False,True
+0C05A14C7338,19,M,Myanmar,Afghanistan,Sans emploi,Épargne,13944,9651,23,False,True,suspect,2,2003-04-08,3,False,False
+66100BE54AD0,69,M,Égypte,Colombie,Retraité,Épargne,27987,11000,28,False,False,normal,0,1998-04-09,2,False,True
+BFF0D016A36C,44,M,Brésil,Brésil,Immobilier,Professionnel,51625,59050,28,False,False,normal,0,1998-04-09,1,False,True
+5A1E3CB2CB38,27,F,Pays-Bas,Inde,Commerce,Joint,38192,1227,1,False,False,vigilance,1,2025-04-02,0,False,True
+6450B4AD6E15,19,M,Suède,Allemagne,Industrie,Joint,46345,36769,26,False,True,normal,0,2000-04-08,0,False,True
+6CDE04E21999,75,M,Royaume-Uni,Mexique,Transport,Épargne,31548,43455,29,False,False,normal,0,1997-04-09,2,False,True
+9E111B38E26A,69,F,Colombie,Canada,Défense,Épargne,53209,20456,17,True,False,ppe,2,2009-04-06,3,False,False
+5A66F126435E,68,M,Pays-Bas,Tunisie,Commerce,Épargne,30340,10715,30,True,False,ppe,2,1996-04-09,1,False,False
+3470643CEBF8,41,F,Égypte,Vietnam,Indépendant,Épargne,23983,24297,4,False,False,normal,0,2022-04-03,3,False,True
+CF75FE688C4F,45,M,Suède,Suède,Sans emploi,Courant,9250,2355,29,True,False,ppe,2,1997-04-09,3,False,True
+148494ED09DE,75,M,Turquie,Inde,Arts,Joint,33963,0,22,True,False,normal,0,2004-04-07,1,False,False
+E9B2BEBB7C18,37,F,Japon,Tunisie,Commerce,Joint,41174,46888,28,False,False,normal,0,1998-04-09,4,False,True
+2B01F9FFA254,77,M,Brésil,Canada,Conseil,Professionnel,60209,25856,11,False,False,vigilance,1,2015-04-05,1,False,False
+3D4A0BF864BA,45,M,Vietnam,Égypte,Arts,Épargne,25662,17500,2,True,False,ppe,2,2024-04-02,0,False,True
+8BFF62771961,51,M,Japon,Brésil,Indépendant,Professionnel,42941,64319,25,False,False,normal,0,2001-04-08,0,False,True
+448038A56DAB,69,F,Tunisie,Turquie,Industrie,Épargne,34323,10180,7,False,False,vigilance,1,2019-04-04,0,False,True
+ACAF03C0CAC9,77,M,France,Royaume-Uni,Agriculture,Joint,30634,5793,21,False,False,normal,0,2005-04-07,1,False,True
+E156495E1895,27,M,Suisse,France,Technologie,Joint,58246,32782,12,False,False,vigilance,1,2014-04-05,1,False,True
+71C19278D460,30,F,Australie,Vietnam,Conseil,Joint,56238,55001,27,False,False,normal,0,1999-04-09,2,False,False
+BD93D63DA2F5,44,M,Australie,Maroc,Finance,Professionnel,89322,85378,14,False,False,normal,0,2012-04-05,1,False,True
+3B9A822D4FBC,60,F,Tunisie,France,Finance,Joint,30735,24629,28,True,False,ppe,2,1998-04-09,3,False,True
+9E72BCE8AB92,77,M,Tunisie,France,Commerce,Professionnel,30966,27936,16,False,False,normal,0,2010-04-06,1,False,True
+9B672D742395,20,M,Égypte,Colombie,Retraité,Joint,19220,20381,6,False,False,normal,0,2020-04-03,2,False,True
+E75FF285FFBB,34,M,Suède,Vietnam,Technologie,Professionnel,27782,25110,11,False,False,vigilance,1,2015-04-05,0,False,False
+D042816AD360,53,M,Royaume-Uni,Brésil,Agriculture,Joint,45724,16241,11,True,False,ppe,2,2015-04-05,2,False,True
+A222E3F82ECD,27,M,Iran,Libye,Santé,Épargne,62444,53252,8,False,True,suspect,2,2018-04-04,3,False,False
+075AC34922BD,36,F,Iran,Libye,Indépendant,Épargne,39993,54872,18,True,True,fraudeur,3,2008-04-06,4,True,False
+FA7741D0F05A,65,M,Canada,France,Agriculture,Épargne,37424,23093,27,False,True,normal,0,1999-04-09,2,False,True
+00688F117676,61,F,Iran,Afghanistan,Sans emploi,Courant,11338,13336,4,False,True,suspect,2,2022-04-03,2,True,True
+BC6664BE098D,47,M,Venezuela,Soudan,Sans emploi,Courant,10543,9325,9,False,True,suspect,2,2017-04-04,2,False,True
+D5DBEADC2AB7,75,M,Allemagne,Canada,Arts,Professionnel,21963,11519,19,True,True,ppe,2,2007-04-07,1,True,False
+7D1BC30969C4,34,M,Mexique,France,Finance,Épargne,62571,34599,8,False,False,vigilance,1,2018-04-04,3,False,True
+98BD2A6C1DFB,60,M,Tunisie,Brésil,Arts,Courant,26829,44108,14,True,False,ppe,2,2012-04-05,0,False,False
+FC1F38BF99AB,23,M,Brésil,Brésil,Arts,Joint,31353,33464,14,False,False,vigilance,1,2012-04-05,1,False,True
+A00F3286B039,74,M,Allemagne,Mexique,Éducation,Joint,39292,54314,17,True,False,ppe,2,2009-04-06,4,False,False
+D124BC287DC1,52,M,Brésil,Colombie,Agriculture,Courant,36445,51404,14,True,False,ppe,2,2012-04-05,1,False,True
+E22E4CA696FF,56,M,Pays-Bas,Tunisie,Industrie,Joint,41206,31021,19,True,False,ppe,2,2007-04-07,6,False,True
+7EE161D91885,55,F,Syrie,Venezuela,Indépendant,Professionnel,33326,31965,15,False,True,suspect,2,2011-04-06,2,False,False
+AF3C5EE634E1,65,M,Royaume-Uni,Brésil,Retraité,Courant,20974,8322,9,True,False,normal,0,2017-04-04,1,False,True
+7D9825262A95,75,F,Canada,Égypte,Indépendant,Professionnel,49145,36234,20,True,False,ppe,2,2006-04-07,1,False,False
+BEEAAEC02EF3,18,M,Suède,France,Commerce,Épargne,39689,24141,4,False,False,normal,0,2022-04-03,3,False,True
+D5853B76B1B7,23,M,Afghanistan,Libye,Industrie,Courant,47412,17095,25,False,True,suspect,2,2001-04-08,2,False,False
+14FCEE82DA08,48,M,Vietnam,Australie,Santé,Professionnel,38244,16902,28,False,False,vigilance,1,1998-04-09,1,True,True
+6BA09508A9C2,58,F,Allemagne,Maroc,Conseil,Joint,60095,15212,16,True,False,ppe,2,2010-04-06,2,False,True
+7441BDE56FCE,63,F,Libye,Afghanistan,Santé,Courant,57126,63056,17,False,True,suspect,2,2009-04-06,1,False,False
+508340052739,46,M,Turquie,Maroc,Indépendant,Épargne,34024,46745,14,False,False,normal,0,2012-04-05,1,False,True
+95F6ECC45487,72,F,Australie,Tunisie,Conseil,Professionnel,51340,51166,23,True,False,ppe,2,2003-04-08,1,False,False
+3834271C3873,60,M,Brésil,Mexique,Arts,Courant,21082,26686,28,True,False,ppe,2,1998-04-09,6,False,True
+8E6A5C22E418,78,M,Brésil,Égypte,Éducation,Courant,39378,7315,10,False,False,normal,0,2016-04-04,0,False,True
+AE4AB54DF208,20,F,Colombie,Pays-Bas,Arts,Épargne,34503,16406,3,False,False,normal,0,2023-04-03,4,False,True
+01EB48F7B5DA,67,M,Allemagne,Colombie,Défense,Courant,38239,26857,18,False,False,vigilance,1,2008-04-06,0,False,True
+197979E275DA,24,M,Corée du Nord,Turquie,Arts,Courant,34802,19522,20,False,True,suspect,2,2006-04-07,2,True,True
+B6540D4BE86C,28,F,Turquie,Pays-Bas,Indépendant,Épargne,47225,62883,10,False,False,normal,0,2016-04-04,1,False,True
+40C36BD1E614,67,F,Brésil,Tunisie,Arts,Professionnel,30166,37297,1,False,False,vigilance,1,2025-04-02,4,False,True
+4B9147E741FE,27,F,Japon,Japon,Arts,Épargne,37905,22862,25,False,False,vigilance,1,2001-04-08,1,False,True
+EEFA591EDC18,41,M,Maroc,Russie,Santé,Courant,57036,49259,15,False,False,suspect,2,2011-04-06,3,False,True
+9C1451B74698,60,M,Allemagne,Colombie,Défense,Professionnel,58737,59895,21,False,False,normal,0,2005-04-07,2,False,True
+53579A3BCE37,56,M,Brésil,France,Santé,Joint,69541,41564,27,True,False,ppe,2,1999-04-09,3,False,True
+0D1FEACEF5D1,74,F,Turquie,Australie,Arts,Professionnel,38990,31249,26,False,False,vigilance,1,2000-04-08,2,False,True
+B7C2C59A7346,52,F,Libye,Libye,Industrie,Épargne,43232,16912,7,True,True,suspect,2,2019-04-04,1,False,True
+7350C96B151C,64,M,Maroc,Turquie,Transport,Professionnel,32216,49225,17,False,False,normal,0,2009-04-06,2,True,True
+4F591A0B880B,54,F,Maroc,Japon,Indépendant,Épargne,55054,62849,1,False,False,normal,0,2025-04-02,5,False,True
+E0A057D8271B,61,F,Allemagne,Vietnam,Indépendant,Épargne,44027,14951,8,True,False,ppe,2,2018-04-04,2,True,False
+BE264564D62D,21,F,Corée du Nord,Myanmar,Transport,Courant,22826,28422,29,False,True,suspect,2,1997-04-09,0,False,False
+FF842F063A21,73,F,Mexique,Inde,Industrie,Joint,39408,24406,19,False,False,vigilance,1,2007-04-07,0,False,True
+2F15DC0571B1,26,M,Inde,Australie,Indépendant,Joint,49825,45067,17,False,False,vigilance,1,2009-04-06,2,False,True
+388065517D94,38,F,Afghanistan,Iran,Technologie,Épargne,67554,32309,4,True,True,fraudeur,3,2022-04-03,3,True,True
+B222C39B8A7D,68,F,France,Allemagne,Finance,Professionnel,68291,77041,5,False,False,normal,0,2021-04-03,3,False,True
+BE9007403A9B,22,F,Turquie,Maroc,Conseil,Joint,49319,35579,2,False,False,normal,0,2024-04-02,4,False,True
+88F73D62D9BC,61,F,Royaume-Uni,Turquie,Sans emploi,Professionnel,10400,7580,15,True,False,ppe,2,2011-04-06,1,False,True
+CC201EFDD57D,26,F,Soudan,Venezuela,Sans emploi,Épargne,7848,5553,29,True,True,fraudeur,3,1997-04-09,1,False,False
+2C30028861A2,48,M,Colombie,Japon,Sans emploi,Courant,7914,4866,18,False,False,ppe,2,2008-04-06,2,False,True
+32CC3D5CBBC4,29,M,Égypte,Inde,Santé,Courant,45127,29749,9,False,False,normal,0,2017-04-04,1,False,True
+21B7B66FCB45,45,F,Iran,Soudan,Finance,Courant,59070,51542,14,False,True,suspect,2,2012-04-05,2,True,True
+23E59708CCB5,67,F,Suisse,Canada,Technologie,Courant,70574,45725,5,False,False,normal,0,2021-04-03,0,True,True
+7FE1E19028E8,27,F,Tunisie,Mexique,Transport,Courant,34779,16020,29,True,False,vigilance,1,1997-04-09,2,False,True
+2F72E0EC7481,42,F,Colombie,Inde,Technologie,Joint,62837,23550,9,True,True,vigilance,1,2017-04-04,1,False,False
+D52366C7B214,79,M,Égypte,Égypte,Retraité,Épargne,17153,19083,22,False,False,normal,0,2004-04-07,1,False,True
+C761395846D8,41,F,Suède,Égypte,Agriculture,Joint,18685,12004,6,True,False,normal,0,2020-04-03,1,False,True
+10DD5152A875,46,F,Turquie,Égypte,Défense,Joint,36615,0,30,False,False,ppe,2,1996-04-09,5,False,False
+17EC87230299,65,F,Canada,Royaume-Uni,Agriculture,Joint,37343,31918,19,False,False,normal,0,2007-04-07,3,False,False
+A5D591A214F1,50,F,Myanmar,Venezuela,Arts,Joint,37535,28905,11,False,True,suspect,2,2015-04-05,3,False,True
+BD0749EF399E,19,M,Tunisie,Vietnam,Défense,Courant,45378,55441,23,False,False,normal,0,2003-04-08,1,False,False
+F4A1FC6D767F,62,M,Royaume-Uni,Colombie,Technologie,Joint,54101,50745,26,True,False,ppe,2,2000-04-08,2,False,False
+91FE03F874B1,71,M,Canada,Inde,Arts,Professionnel,38663,56076,26,False,False,vigilance,1,2000-04-08,2,False,True
+47B15F093FF5,30,F,Turquie,Japon,Technologie,Épargne,34839,39908,27,False,False,normal,0,1999-04-09,1,True,True
+449E925B73CB,45,F,Égypte,Tunisie,Commerce,Professionnel,28184,25826,27,True,False,ppe,2,1999-04-09,1,False,True
+EA638E498336,22,M,Canada,Suisse,Retraité,Épargne,26121,16399,5,False,False,vigilance,1,2021-04-03,3,False,False
+91F2CCC082AD,57,F,Égypte,France,Industrie,Joint,37199,14938,22,False,False,normal,0,2004-04-07,2,False,False
+1F2DD12642AC,35,F,Brésil,Vietnam,Technologie,Professionnel,74156,65082,22,False,True,vigilance,1,2004-04-07,1,False,True
+004D2A9549C5,35,F,Libye,Corée du Nord,Santé,Courant,38977,41804,13,False,True,fraudeur,3,2013-04-05,3,True,False
+FB843FB74D95,31,M,Inde,Venezuela,Finance,Courant,71952,92932,11,True,False,fraudeur,3,2015-04-05,3,True,False
+7162514929BF,32,F,Turquie,Turquie,Technologie,Professionnel,59627,26004,16,True,False,fraudeur,3,2010-04-06,2,True,False
+137BC5A8238D,58,M,Pays-Bas,Allemagne,Éducation,Courant,31275,15851,19,False,False,vigilance,1,2007-04-07,3,False,True
+23AFAC07961D,21,F,Inde,Royaume-Uni,Industrie,Courant,39642,12464,20,False,False,normal,0,2006-04-07,4,False,True
+5AD329EB381B,32,M,Brésil,Inde,Conseil,Joint,50764,48388,20,False,False,normal,0,2006-04-07,0,False,True
+1BE037E3574F,45,M,France,Tunisie,Éducation,Courant,31684,11279,17,True,True,ppe,2,2009-04-06,3,False,True
+06E1F534E9BF,34,F,Colombie,Canada,Immobilier,Épargne,50450,40397,14,False,True,vigilance,1,2012-04-05,0,False,True
+5956EC2F134C,37,M,Turquie,Suède,Retraité,Joint,13996,20852,29,False,False,vigilance,1,1997-04-09,1,False,True
+CE52A0E11588,21,M,Suède,Brésil,Commerce,Professionnel,37654,23733,17,False,False,vigilance,1,2009-04-06,1,False,True
+A9A220C83292,62,F,Vietnam,Tunisie,Indépendant,Professionnel,37213,34675,15,False,False,normal,0,2011-04-06,2,False,True
+DA01047F1A33,76,M,Japon,Inde,Santé,Épargne,62212,37646,21,False,False,normal,0,2005-04-07,2,False,True
+612DB6612D73,50,M,Turquie,Maroc,Conseil,Courant,46959,51803,1,True,False,ppe,2,2025-04-02,3,False,True
+9A11CBDDCADD,25,M,Soudan,Myanmar,Commerce,Professionnel,38745,51079,7,True,True,fraudeur,3,2019-04-04,3,True,False
+1992F096F46A,29,M,France,Suède,Conseil,Joint,56009,50458,9,False,False,normal,0,2017-04-04,2,False,True
+24611AB19A4B,69,F,Turquie,Royaume-Uni,Immobilier,Courant,44401,55889,22,False,False,vigilance,1,2004-04-07,4,False,True
+89F83E9FDB46,38,M,Turquie,Allemagne,Retraité,Épargne,28205,39178,14,False,False,vigilance,1,2012-04-05,2,False,True
+49243141A606,49,F,Mexique,Turquie,Conseil,Courant,53805,25840,17,True,False,ppe,2,2009-04-06,1,False,True
+940D8D562668,41,M,Colombie,Tunisie,Éducation,Professionnel,32627,11031,17,False,False,vigilance,1,2009-04-06,1,False,True
+3FCF5630F37F,31,F,Allemagne,Japon,Commerce,Joint,29674,27280,29,False,False,vigilance,1,1997-04-09,3,False,True
+FE133D3D4E08,23,F,Syrie,Yémen,Finance,Professionnel,91983,59889,25,False,True,suspect,2,2001-04-08,6,True,True
+84C5E5F6CED0,47,F,Inde,Tunisie,Transport,Professionnel,28357,42505,14,False,False,normal,0,2012-04-05,4,False,True
+7B273E5495F5,36,M,Royaume-Uni,Suisse,Conseil,Épargne,42851,50118,17,False,True,vigilance,1,2009-04-06,1,True,True
+24BD46154378,34,F,Tunisie,Australie,Industrie,Épargne,33311,1535,24,False,False,normal,0,2002-04-08,1,False,False
+8CA47E7D761B,36,F,Maroc,France,Conseil,Joint,57522,85424,12,False,False,normal,0,2014-04-05,1,False,True
+1FAE6E7D54BA,48,F,Australie,Inde,Commerce,Professionnel,43930,6593,17,False,False,normal,0,2009-04-06,1,False,True
+DC7F4F653C21,59,F,Turquie,Tunisie,Conseil,Épargne,56351,22345,18,True,False,ppe,2,2008-04-06,3,False,True
+F5C9B24590D9,44,F,Japon,Tunisie,Transport,Courant,48365,54360,22,False,True,vigilance,1,2004-04-07,2,False,False
+BEB086032334,50,F,Afghanistan,Égypte,Retraité,Épargne,23410,19602,30,False,True,fraudeur,3,1996-04-09,4,True,True
+CA094713C8F6,54,M,Tunisie,Canada,Éducation,Courant,37072,19582,21,False,False,vigilance,1,2005-04-07,1,False,True
+24F29D322F1E,22,M,Australie,Japon,Défense,Professionnel,52064,84984,13,False,True,normal,0,2013-04-05,0,False,True
+C935E08F76E3,43,F,Brésil,Vietnam,Finance,Courant,68350,20730,4,False,False,normal,0,2022-04-03,4,False,True
+17D3F3D32174,28,M,Vietnam,Colombie,Retraité,Joint,23683,23215,19,False,True,normal,0,2007-04-07,1,False,True
+172BC7724CEC,51,F,Japon,Inde,Immobilier,Joint,59502,40422,30,False,False,vigilance,1,1996-04-09,1,False,False
+73AF025CB234,43,F,Maroc,Japon,Retraité,Épargne,17201,18255,27,False,False,vigilance,1,1999-04-09,3,False,False
+28B2D2BA87C1,43,M,Pays-Bas,Suisse,Indépendant,Professionnel,23819,15924,2,False,True,normal,0,2024-04-02,2,False,False
+F721D440229D,49,M,Yémen,Russie,Agriculture,Professionnel,20883,0,4,True,True,fraudeur,3,2022-04-03,5,True,True
+DC8712731947,22,F,France,Mexique,Sans emploi,Professionnel,7512,4842,23,False,False,normal,0,2003-04-08,1,False,True
+FB6C7BD56DBC,38,F,Suède,Inde,Sans emploi,Courant,12457,12203,24,False,False,normal,0,2002-04-08,1,False,True
+765F45F17AB7,71,M,Suisse,Canada,Finance,Professionnel,32651,17523,6,False,False,vigilance,1,2020-04-03,0,False,True
+3881CA276D53,27,M,Suisse,Allemagne,Éducation,Épargne,37156,30517,12,False,True,normal,0,2014-04-05,2,False,True
+1D7AD3D466EC,48,F,Égypte,Maroc,Transport,Courant,28260,20272,23,True,False,ppe,2,2003-04-08,3,False,True
+92E905EFDF52,25,F,Myanmar,Turquie,Transport,Courant,40002,0,1,True,True,fraudeur,3,2025-04-02,5,False,False
+843CABF72ADF,28,M,Myanmar,Tunisie,Santé,Professionnel,47114,22920,14,False,True,suspect,2,2012-04-05,3,True,True
+0B28852AE11D,25,F,Brésil,Tunisie,Commerce,Épargne,28863,18522,7,True,False,vigilance,1,2019-04-04,0,True,True
+DDFAA08F7A4E,59,M,Suisse,Australie,Retraité,Joint,18240,12459,12,False,False,normal,0,2014-04-05,2,False,True
+4D46DCCD679B,34,F,Canada,Suède,Technologie,Professionnel,81059,65443,20,False,False,vigilance,1,2006-04-07,4,False,False
+5288EE28606B,45,F,Maroc,Inde,Retraité,Épargne,30577,41945,30,True,False,ppe,2,1996-04-09,2,True,True
+3D38E31ADBE8,33,M,Corée du Nord,Iran,Indépendant,Professionnel,35842,54738,14,False,True,suspect,2,2012-04-05,2,True,True
+741ABF42EECD,68,M,Mexique,Mexique,Retraité,Courant,24729,32195,15,True,False,ppe,2,2011-04-06,2,False,True
+D5088741E4E9,39,M,Tunisie,Japon,Commerce,Épargne,36587,33806,7,False,False,normal,0,2019-04-04,3,False,True
+38C687ED4347,22,M,Vietnam,Australie,Commerce,Épargne,24183,26695,2,False,False,normal,0,2024-04-02,0,False,False
+A16652405D15,45,M,Royaume-Uni,Australie,Indépendant,Épargne,54664,28596,15,False,False,normal,0,2011-04-06,4,False,True
+1C2A11D3DD69,52,F,Myanmar,Yémen,Arts,Épargne,24041,27460,16,True,True,fraudeur,3,2010-04-06,1,False,False
+5634A7EDDF15,70,F,Suède,Brésil,Arts,Courant,37237,45736,16,False,False,vigilance,1,2010-04-06,1,False,True
+A76CF8629BF2,59,F,Mexique,Colombie,Industrie,Joint,29654,30512,15,True,False,ppe,2,2011-04-06,2,False,True
+9F07BEC80BD7,73,F,France,Mexique,Agriculture,Joint,28033,18630,24,False,False,normal,0,2002-04-08,3,False,True
+BC677B4756B7,58,F,Colombie,Japon,Défense,Épargne,39931,28355,2,True,False,ppe,2,2024-04-02,0,False,False
+A1F7F45B7C8F,60,M,Vietnam,Égypte,Sans emploi,Joint,14516,21224,23,True,False,ppe,2,2003-04-08,0,True,False
+109C8E3AF734,67,F,France,Égypte,Sans emploi,Épargne,11103,6629,21,True,False,ppe,2,2005-04-07,3,False,False
+BA2A8DA35610,59,F,Royaume-Uni,Royaume-Uni,Indépendant,Épargne,42701,25279,30,False,False,normal,0,1996-04-09,1,False,True
+7424D654355F,60,F,Égypte,Brésil,Défense,Courant,46248,37573,13,False,False,vigilance,1,2013-04-05,2,False,False
+18AEAF831264,77,M,Australie,Canada,Indépendant,Joint,27457,38384,13,True,True,normal,0,2013-04-05,2,False,True
+F0D7F8E3F586,50,M,Allemagne,Turquie,Finance,Épargne,51746,60737,12,True,False,ppe,2,2014-04-05,3,False,True
+FC10A18D2E84,69,F,Canada,Inde,Arts,Courant,34777,24079,7,False,False,normal,0,2019-04-04,2,False,True
+FC1A15512481,19,F,Tunisie,Pays-Bas,Retraité,Courant,23468,10357,8,True,False,normal,0,2018-04-04,2,True,True
+87A0B8CE0CB0,41,F,Corée du Nord,Vietnam,Arts,Joint,31793,15578,1,True,True,fraudeur,3,2025-04-02,1,False,True
+3443AD9D0F91,55,F,Brésil,Inde,Conseil,Courant,33746,17878,8,False,False,ppe,2,2018-04-04,2,False,True
+32879C61BA02,71,M,Yémen,Afghanistan,Défense,Professionnel,60754,56214,30,False,True,suspect,2,1996-04-09,1,False,True
+3F0AC251AF1C,50,M,Vietnam,Tunisie,Transport,Courant,31786,16597,22,False,False,vigilance,1,2004-04-07,1,False,True
+88214E433FBC,60,M,Mexique,Brésil,Transport,Joint,32270,27856,24,False,False,ppe,2,2002-04-08,0,False,False
+7985B1EFE62D,63,M,Australie,Suède,Finance,Joint,85381,38950,28,False,False,normal,0,1998-04-09,1,False,True
+D72E1D103C0F,46,M,Myanmar,Syrie,Technologie,Épargne,66280,44392,16,False,True,suspect,2,2010-04-06,2,False,True
+D27FDC6B67C0,28,F,France,Suisse,Défense,Épargne,33918,20331,30,False,False,vigilance,1,1996-04-09,4,False,True
+7038A1CA20F0,65,F,Australie,Canada,Indépendant,Courant,46046,24020,16,True,False,ppe,2,2010-04-06,2,False,False
+BA05135B0178,79,M,Égypte,Suisse,Conseil,Courant,64822,99297,14,False,False,vigilance,1,2012-04-05,2,False,True
+5C41839DA6F3,54,F,Pays-Bas,France,Immobilier,Professionnel,42755,64417,5,True,False,normal,0,2021-04-03,1,False,False
+F19E42283BB9,69,M,Turquie,Pays-Bas,Sans emploi,Joint,14747,13034,30,True,False,normal,0,1996-04-09,2,False,True
+9B66A9CB5FCD,49,F,Japon,Suède,Sans emploi,Courant,12533,16437,15,False,False,normal,0,2011-04-06,1,False,True
+E8D1DEC9226E,40,F,Russie,Syrie,Sans emploi,Joint,9714,5140,27,True,True,fraudeur,3,1999-04-09,3,False,True
+2810973982D5,74,M,Suède,Canada,Arts,Joint,33042,32397,8,True,False,ppe,2,2018-04-04,2,False,True
+EE5E44756F70,39,F,Mexique,Mexique,Transport,Joint,46362,54101,22,True,False,normal,0,2004-04-07,2,False,False
+BA6A8629E95E,48,M,Colombie,Suède,Finance,Professionnel,55441,60352,11,True,False,ppe,2,2015-04-05,1,True,True
+F121F3F876B1,31,M,Suède,Turquie,Commerce,Courant,48416,52196,26,False,False,normal,0,2000-04-08,1,False,False
+D77072AD01EF,77,F,Canada,Canada,Santé,Courant,52837,21391,4,False,False,vigilance,1,2022-04-03,1,False,True
+E285AD52FC80,33,F,Mexique,Vietnam,Santé,Professionnel,41531,53983,4,False,False,normal,0,2022-04-03,2,False,True
+025DD5AA13DE,66,F,Pays-Bas,Mexique,Technologie,Joint,56198,44450,25,True,False,ppe,2,2001-04-08,0,True,True
+4F0A845449C3,45,F,Vietnam,Mexique,Retraité,Courant,18859,29506,19,True,False,ppe,2,2007-04-07,1,False,True
+A856C7DCB147,24,M,Suède,Mexique,Immobilier,Courant,69686,20768,3,False,False,vigilance,1,2023-04-03,1,False,True
+80D0DFFAAF69,63,M,Égypte,Australie,Conseil,Courant,57031,67020,26,False,False,normal,0,2000-04-08,2,False,True
+03F0282F1371,26,M,Corée du Nord,Corée du Nord,Retraité,Professionnel,24942,11993,7,False,True,suspect,2,2019-04-04,2,True,False
+7B6F690A121A,79,M,Turquie,Japon,Agriculture,Professionnel,32647,16543,6,True,False,vigilance,1,2020-04-03,1,False,True
+6D0654EF8EA3,54,F,Suède,Égypte,Éducation,Épargne,40343,37085,23,False,False,vigilance,1,2003-04-08,4,True,True
+D781302BAFD7,79,M,Australie,Turquie,Finance,Professionnel,73484,25346,20,False,False,normal,0,2006-04-07,2,False,True
+4572855C3593,43,F,Canada,Suède,Éducation,Épargne,29486,37420,3,True,False,vigilance,1,2023-04-03,2,False,True
+3C7FD8BEE9FF,54,M,Turquie,Brésil,Sans emploi,Épargne,10175,9308,21,False,False,normal,0,2005-04-07,3,False,False
+6DD17CDAF0F6,25,F,Suisse,Royaume-Uni,Agriculture,Professionnel,22214,11037,4,False,False,normal,0,2022-04-03,0,False,True
+0F23B2245966,18,F,Myanmar,Colombie,Technologie,Courant,74042,63211,13,False,True,suspect,2,2013-04-05,3,False,True
+FF062936B6EA,51,F,Libye,Afghanistan,Immobilier,Courant,33032,38006,23,False,True,suspect,2,2003-04-08,2,True,False
+B0DAD67CF374,69,F,Turquie,Vietnam,Indépendant,Épargne,39623,21886,22,False,False,vigilance,1,2004-04-07,0,False,True
+8D5FF5789F7C,21,F,Suisse,Japon,Défense,Joint,61617,0,24,False,False,normal,0,2002-04-08,4,False,True
+7676E52033C6,78,F,Suisse,Royaume-Uni,Transport,Professionnel,29275,4302,17,False,False,vigilance,1,2009-04-06,2,True,True
+21951CD2B4EA,50,F,Japon,Colombie,Retraité,Joint,25625,10886,2,True,True,ppe,2,2024-04-02,0,False,True
+BBB5AF55F478,40,M,Corée du Nord,Yémen,Agriculture,Épargne,40392,43669,22,False,True,fraudeur,3,2004-04-07,6,False,False
+0B087E4F7D8D,52,M,Royaume-Uni,Égypte,Indépendant,Épargne,59522,23457,22,True,False,ppe,2,2004-04-07,2,False,True
+BA591CB33DA0,50,F,Suède,Mexique,Immobilier,Épargne,87634,47595,2,False,False,normal,0,2024-04-02,1,False,True
+088D0742EAFA,36,F,Pays-Bas,Australie,Industrie,Courant,49443,84614,16,False,False,vigilance,1,2010-04-06,1,False,True
+CEBED131ABD0,51,F,Venezuela,Iran,Défense,Courant,66920,53014,2,True,True,fraudeur,3,2024-04-02,5,True,True
+FB29332C6E3D,43,F,Canada,Vietnam,Immobilier,Épargne,48695,65565,1,False,False,normal,0,2025-04-02,2,False,True
+47A0A2C9E84F,67,F,Suède,Mexique,Sans emploi,Professionnel,13206,20053,9,False,False,vigilance,1,2017-04-04,2,False,False
+25EDDF07145F,60,M,Inde,Turquie,Conseil,Joint,50884,37540,15,True,False,normal,0,2011-04-06,3,False,True
+B2DE232CEB35,43,M,Suède,Canada,Transport,Épargne,44981,25566,24,False,False,normal,0,2002-04-08,3,False,True
+43583528BA5B,69,F,Vietnam,Mexique,Sans emploi,Joint,12523,5115,23,False,False,vigilance,1,2003-04-08,2,False,True
+0BCC62517804,67,F,France,Brésil,Sans emploi,Courant,12188,0,8,False,False,normal,0,2018-04-04,0,False,True
+9C25A8FF2C97,64,F,Suède,Pays-Bas,Agriculture,Professionnel,17610,9255,6,False,False,normal,0,2020-04-03,1,False,True
+5BDBD84607B8,67,M,Pays-Bas,Turquie,Indépendant,Épargne,40208,47605,17,True,False,ppe,2,2009-04-06,2,True,False
+A68B9275A093,44,F,Yémen,Yémen,Commerce,Professionnel,34003,29620,3,True,True,fraudeur,3,2023-04-03,6,False,True
+4CC79B3009F4,50,F,Allemagne,Pays-Bas,Transport,Professionnel,22422,31304,21,False,False,vigilance,1,2005-04-07,1,False,True
+A4B6777BD521,18,M,Myanmar,Syrie,Santé,Professionnel,38822,25487,22,False,True,suspect,2,2004-04-07,1,True,True
+5E28905E485F,34,M,Soudan,Venezuela,Technologie,Épargne,60969,32165,4,True,True,fraudeur,3,2022-04-03,6,False,True
+6E0018EF1F45,41,M,Libye,Afghanistan,Commerce,Courant,44548,38116,21,False,True,suspect,2,2005-04-07,1,True,False
+85F57B11595B,30,M,Australie,Égypte,Indépendant,Professionnel,41378,31850,15,False,False,normal,0,2011-04-06,2,False,True
+BC51CC87B4A5,30,F,Suède,Turquie,Transport,Joint,43417,40241,18,False,False,normal,0,2008-04-06,0,False,True
+12ACF9D646CD,68,F,Colombie,Suède,Santé,Professionnel,72714,46409,6,True,False,vigilance,1,2020-04-03,4,False,True
+47683C7195B3,66,M,Inde,Turquie,Agriculture,Joint,33357,15830,28,True,False,ppe,2,1998-04-09,0,False,True
+8C42B2BDB5F3,55,F,Australie,Colombie,Indépendant,Professionnel,45662,0,1,False,False,normal,0,2025-04-02,4,False,True
+D63BAFC7920D,52,M,Allemagne,Suisse,Commerce,Épargne,33516,38131,10,False,False,normal,0,2016-04-04,0,False,True
+686AD6D8347B,18,F,Libye,Soudan,Sans emploi,Professionnel,16779,7838,12,False,True,suspect,2,2014-04-05,1,False,False
+E4C97B7C5146,58,M,Allemagne,Suisse,Conseil,Épargne,64248,56738,1,False,True,normal,0,2025-04-02,1,False,True
+4A687CB51367,48,F,Afghanistan,Mexique,Indépendant,Épargne,36898,28378,23,True,True,fraudeur,3,2003-04-08,8,True,True
+B168C2A8B5A5,27,F,Mexique,Suède,Éducation,Joint,25044,37533,8,False,False,vigilance,1,2018-04-04,3,False,False
+B9963907A874,78,F,Vietnam,France,Indépendant,Professionnel,51264,80696,6,False,False,normal,0,2020-04-03,1,False,True
+070D4BB043B7,45,F,Royaume-Uni,Pays-Bas,Commerce,Épargne,48643,49698,15,False,False,normal,0,2011-04-06,1,False,True
+648EA4851F3D,66,M,France,Japon,Conseil,Courant,48482,43342,21,False,False,normal,0,2005-04-07,1,False,True
+01A49F0EDC9F,52,M,Pays-Bas,Australie,Indépendant,Épargne,37655,21867,27,False,False,normal,0,1999-04-09,1,False,True
+EAC399566EEF,33,M,Suède,France,Santé,Courant,52861,0,18,False,False,normal,0,2008-04-06,2,False,True
+7B7DD5EF87CA,19,M,Japon,Turquie,Commerce,Professionnel,38143,12638,14,False,False,normal,0,2012-04-05,0,False,False
+8A4A6F9FF1C3,28,F,Corée du Nord,Soudan,Technologie,Professionnel,61518,31138,8,False,True,suspect,2,2018-04-04,4,False,False
+C860829F330E,29,M,Afghanistan,Venezuela,Transport,Épargne,36227,9611,17,False,True,suspect,2,2009-04-06,1,False,False
+440C76489001,35,F,Pays-Bas,Suisse,Défense,Courant,43636,31092,16,False,False,normal,0,2010-04-06,1,False,True
+0F87977DA97E,42,M,Suède,Pays-Bas,Éducation,Joint,36376,13668,24,False,False,normal,0,2002-04-08,1,False,False
+1FAF43ACF9D7,40,F,Mexique,Brésil,Immobilier,Professionnel,69342,0,16,False,False,normal,0,2010-04-06,0,False,True
+9FAABDE50430,52,M,Égypte,Mexique,Éducation,Courant,27982,42198,18,False,False,vigilance,1,2008-04-06,2,False,True
+2B6977DA0E4C,52,M,France,Brésil,Immobilier,Joint,46277,27484,1,False,False,ppe,2,2025-04-02,0,True,True
+1A0D69F738AE,70,M,Mexique,Turquie,Finance,Joint,66435,66632,10,False,False,suspect,2,2016-04-04,2,True,True
+B85540E914AA,37,F,Russie,Iran,Indépendant,Courant,39253,28050,1,True,True,fraudeur,3,2025-04-02,4,True,False
+82ED174BC3E1,41,M,Iran,Iran,Finance,Joint,53332,14673,3,False,True,suspect,2,2023-04-03,3,True,False
+3011AF94D170,54,F,France,Pays-Bas,Éducation,Courant,32428,33668,14,True,False,ppe,2,2012-04-05,1,False,True
+4346C00153EB,18,F,Libye,Afghanistan,Transport,Professionnel,30818,37941,27,False,True,suspect,2,1999-04-09,3,False,False
+55176AAC544C,35,M,Canada,Australie,Technologie,Joint,64076,58488,17,False,False,vigilance,1,2009-04-06,0,False,True
+B7B299B9949A,70,F,Royaume-Uni,Mexique,Indépendant,Joint,35317,34248,15,False,False,vigilance,1,2011-04-06,2,False,True
+9F072C263294,41,M,Royaume-Uni,Japon,Retraité,Professionnel,24754,19864,25,False,False,normal,0,2001-04-08,0,False,True
+84F6B86FE89B,31,M,Myanmar,Syrie,Sans emploi,Courant,9682,14055,30,True,True,fraudeur,3,1996-04-09,1,False,True
+2E10D25402C8,18,F,Maroc,Colombie,Immobilier,Épargne,51251,16935,25,False,False,normal,0,2001-04-08,2,False,True
+A0621FC188B1,73,M,Brésil,Maroc,Indépendant,Joint,51598,5520,17,True,False,ppe,2,2009-04-06,1,True,True
+A3834A826749,65,M,Tunisie,Pays-Bas,Technologie,Épargne,90838,23319,23,True,False,ppe,2,2003-04-08,1,False,True
+9C0A863966CD,74,M,Égypte,Brésil,Arts,Professionnel,34746,19122,11,True,False,ppe,2,2015-04-05,1,True,False
+1536D1678649,64,F,Mexique,Tunisie,Retraité,Courant,26951,40735,3,True,False,ppe,2,2023-04-03,4,False,False
+A70F7CB5DF25,24,F,Corée du Nord,Myanmar,Éducation,Professionnel,32173,5561,11,False,True,suspect,2,2015-04-05,2,False,True
+BC73BDEECE20,60,M,Vietnam,Japon,Industrie,Joint,39986,28343,25,True,False,ppe,2,2001-04-08,2,False,False
+1A4217235A43,36,F,Corée du Nord,Soudan,Agriculture,Joint,33843,28740,28,True,True,fraudeur,3,1998-04-09,2,True,False
+B3839D03DE45,65,M,Égypte,Turquie,Santé,Courant,58525,96462,24,True,False,ppe,2,2002-04-08,3,False,True
+87859C918829,60,F,Inde,Égypte,Technologie,Joint,71234,62253,12,False,False,vigilance,1,2014-04-05,3,True,False
+AE61FEA24F6B,30,F,Brésil,Tunisie,Transport,Joint,36010,40714,11,False,False,vigilance,1,2015-04-05,1,True,True
+0AAD94AF71A8,27,M,Vietnam,Mexique,Sans emploi,Courant,10489,5247,7,False,False,vigilance,1,2019-04-04,2,False,True
+BD2A7CD6CE20,78,F,France,Suisse,Arts,Épargne,38754,12046,22,False,True,normal,0,2004-04-07,0,False,True
+B005FCDA4907,61,M,Canada,Suède,Commerce,Courant,26682,22350,22,False,False,ppe,2,2004-04-07,1,False,True
+8D7D4A3694FB,48,F,Brésil,Turquie,Éducation,Joint,45625,58081,18,False,False,normal,0,2008-04-06,2,False,True
+4E103489110C,49,M,Colombie,Turquie,Immobilier,Joint,84722,17641,22,False,False,ppe,2,2004-04-07,5,False,False
+1005AE11F150,68,F,Mexique,Égypte,Santé,Courant,53361,37833,15,True,False,ppe,2,2011-04-06,1,False,True
+B7B410C431EB,31,M,Afghanistan,Soudan,Immobilier,Professionnel,81777,65443,7,True,True,suspect,2,2019-04-04,2,False,True
+70EA04B88563,59,F,Russie,Soudan,Éducation,Joint,30191,3711,14,False,True,suspect,2,2012-04-05,2,False,True
+8B04F5F5EA9D,41,M,Brésil,Égypte,Finance,Joint,62671,60059,18,False,False,normal,0,2008-04-06,4,False,True
+FD83C88C7AC1,23,M,Pays-Bas,France,Arts,Joint,30139,14207,27,False,False,normal,0,1999-04-09,2,False,True
+5D8DA90EC119,70,F,Vietnam,Turquie,Santé,Joint,30217,24740,22,True,False,ppe,2,2004-04-07,3,False,False
+C2AECD0A4041,44,F,Inde,France,Défense,Professionnel,33189,18150,27,False,False,vigilance,1,1999-04-09,1,False,True
+5575C227CA0D,61,M,Brésil,France,Commerce,Courant,36206,39742,1,False,False,normal,0,2025-04-02,3,False,True
+4FAD52EE7B8C,28,F,Tunisie,Australie,Retraité,Joint,23406,23010,14,False,False,vigilance,1,2012-04-05,1,False,True
+0265CF8DA1AE,50,M,Suisse,Inde,Transport,Courant,28070,22062,29,True,False,ppe,2,1997-04-09,1,True,True
+3E6B2467D930,71,M,Suisse,Royaume-Uni,Agriculture,Courant,31551,27925,6,True,True,vigilance,1,2020-04-03,4,False,True
+301588453531,47,M,Colombie,Suisse,Retraité,Professionnel,25591,21923,13,True,False,ppe,2,2013-04-05,2,False,True
+460D03F11EF3,69,M,Russie,Syrie,Arts,Épargne,28898,48693,13,False,True,suspect,2,2013-04-05,0,False,False
+D8F7A819E3E4,77,M,Inde,Maroc,Retraité,Professionnel,28751,15925,4,False,False,normal,0,2022-04-03,1,False,True
+71B21CD698DC,49,M,Yémen,Libye,Arts,Courant,27278,25539,1,False,True,suspect,2,2025-04-02,4,False,False
+0EB1C7D4F532,50,M,Vietnam,Égypte,Finance,Courant,78382,90055,10,True,False,ppe,2,2016-04-04,2,False,False
+95C9583B2922,28,M,France,Australie,Agriculture,Courant,28777,43816,24,False,False,vigilance,1,2002-04-08,2,False,True
+061BBCFDB1CB,19,M,Australie,Suède,Immobilier,Professionnel,60072,77594,5,False,False,vigilance,1,2021-04-03,1,True,True
+B704987782D5,70,F,Vietnam,Australie,Éducation,Professionnel,53893,48822,14,True,False,ppe,2,2012-04-05,4,False,True
+5D3162C8A2C4,28,F,Maroc,Inde,Arts,Joint,30649,36010,7,False,False,vigilance,1,2019-04-04,3,False,True
+15E49EA0D1E5,54,M,Australie,Inde,Immobilier,Épargne,55437,23768,12,False,False,vigilance,1,2014-04-05,1,False,True
+843F4CCABE5D,75,M,Canada,Tunisie,Agriculture,Professionnel,30436,26629,12,True,False,ppe,2,2014-04-05,2,False,True
+F14A58B075C5,67,F,Suède,France,Immobilier,Professionnel,56371,52032,4,False,False,vigilance,1,2022-04-03,2,False,True
+3C01E399D59B,56,M,Maroc,Égypte,Commerce,Professionnel,38181,26510,17,False,False,normal,0,2009-04-06,2,False,True
+62CC3754E2D8,61,F,Brésil,Australie,Arts,Épargne,29573,0,14,True,False,vigilance,1,2012-04-05,3,True,True
+5A28B83B0A1A,28,F,Inde,Japon,Retraité,Courant,23129,17519,11,False,False,normal,0,2015-04-05,2,False,False
+16806AFE90B1,51,M,Syrie,Soudan,Transport,Courant,44794,28991,2,True,True,fraudeur,3,2024-04-02,4,True,False
+4D6637CEF983,69,F,Mexique,Vietnam,Immobilier,Courant,67952,31850,13,True,False,ppe,2,2013-04-05,1,False,False
+9FD5C88B19E6,36,M,Corée du Nord,Iran,Retraité,Courant,27807,20887,4,True,True,fraudeur,3,2022-04-03,1,False,False
+C69AF07D4B2F,47,M,Mexique,Japon,Commerce,Courant,35183,9175,24,True,False,ppe,2,2002-04-08,1,True,False
+029206C3144E,62,F,Tunisie,Canada,Retraité,Épargne,20569,20744,26,False,False,normal,0,2000-04-08,0,False,True
+A403AB3CCCAE,58,M,Brésil,Vietnam,Éducation,Joint,37075,25383,22,False,False,vigilance,1,2004-04-07,2,False,True
+B87F645DAAB8,63,M,Maroc,Australie,Technologie,Courant,33875,29518,12,True,False,normal,0,2014-04-05,3,False,True
+2F559B4B808C,30,M,Mexique,Colombie,Éducation,Professionnel,45020,27944,4,False,False,vigilance,1,2022-04-03,1,False,True
+62098FB4C1E5,32,F,Suède,Colombie,Défense,Épargne,48993,79213,12,False,False,vigilance,1,2014-04-05,2,False,True
+AD0D07407EE2,27,M,Pays-Bas,Japon,Éducation,Courant,34470,48316,29,False,False,normal,0,1997-04-09,4,True,True
+7D17C9305FFA,25,F,Suisse,Brésil,Défense,Épargne,50167,40487,18,False,False,vigilance,1,2008-04-06,1,False,True
+25F6DF74FA77,21,M,Pays-Bas,Maroc,Sans emploi,Épargne,9659,12763,13,False,False,normal,0,2013-04-05,0,False,True
+FBDF99CFD080,59,M,Allemagne,Allemagne,Commerce,Courant,27199,16132,4,False,False,vigilance,1,2022-04-03,3,False,True
+C88410443A1F,43,M,Russie,Russie,Transport,Professionnel,27553,13337,13,False,True,suspect,2,2013-04-05,1,True,True
+FF22F189D799,54,M,Allemagne,Vietnam,Indépendant,Joint,43977,11859,1,True,False,ppe,2,2025-04-02,1,False,True
+BA21461EC0F2,55,M,Turquie,Égypte,Défense,Joint,56832,38614,15,True,False,ppe,2,2011-04-06,2,False,True
+242B9B2AD2E7,64,M,Canada,Vietnam,Immobilier,Épargne,56256,37653,16,True,True,ppe,2,2010-04-06,1,True,True
+07DE4CB9B05A,51,M,Japon,Pays-Bas,Agriculture,Professionnel,32786,19008,6,False,False,normal,0,2020-04-03,0,False,True
+BF29E5CB2171,34,F,Vietnam,Maroc,Immobilier,Professionnel,47661,44222,15,False,False,vigilance,1,2011-04-06,0,False,False
+4F22CEAA55F6,35,M,Pays-Bas,Suède,Sans emploi,Joint,12434,16429,17,False,False,vigilance,1,2009-04-06,0,False,True
+30C3B56609D0,41,M,Brésil,Mexique,Commerce,Courant,36457,32378,24,False,False,normal,0,2002-04-08,1,False,False
+9658AD15732E,29,F,Colombie,Tunisie,Industrie,Joint,52558,43489,30,False,False,vigilance,1,1996-04-09,4,False,True
+4E07A2EABEA8,71,F,Tunisie,Turquie,Retraité,Professionnel,19231,7570,4,False,True,vigilance,1,2022-04-03,1,False,True
+0A7CC864EA1A,54,M,Colombie,Brésil,Retraité,Professionnel,18157,15683,18,True,False,ppe,2,2008-04-06,1,False,True
+A36568DEC375,49,F,Corée du Nord,Venezuela,Industrie,Courant,40277,507,1,True,True,suspect,2,2025-04-02,3,True,False
+81694F97BAE0,79,M,Libye,Russie,Arts,Épargne,23203,19468,18,False,True,suspect,2,2008-04-06,1,True,False
+A00CFCBD2F70,20,M,Japon,Mexique,Éducation,Joint,33243,24949,30,False,False,normal,0,1996-04-09,1,False,False
+DD901C99E02A,54,M,Canada,Australie,Transport,Professionnel,32200,29228,22,False,False,vigilance,1,2004-04-07,3,False,True
+6072B456CE2C,52,M,Inde,Suède,Finance,Joint,49709,49461,13,False,False,vigilance,1,2013-04-05,0,False,True
+107B2E8881D7,44,M,Inde,Brésil,Transport,Courant,36952,42299,15,False,False,vigilance,1,2011-04-06,1,False,True
+BDB7DEDC32D0,57,F,Suède,Allemagne,Agriculture,Joint,22503,8029,29,False,False,vigilance,1,1997-04-09,2,False,True
+0CDDEE1F1474,23,M,Allemagne,Tunisie,Santé,Courant,62376,59376,9,False,False,vigilance,1,2017-04-04,1,False,False
+59123B1F1920,65,M,Colombie,Égypte,Indépendant,Joint,36839,19012,2,False,False,normal,0,2024-04-02,2,False,True
+3C274C970310,74,M,Allemagne,Tunisie,Santé,Courant,40148,54680,26,True,False,ppe,2,2000-04-08,2,False,True
+421D05499C73,71,M,France,Pays-Bas,Agriculture,Professionnel,26852,26783,15,False,False,normal,0,2011-04-06,0,False,True
+D0ACDCE58CFA,72,F,Inde,Suède,Sans emploi,Courant,11212,12562,20,False,False,vigilance,1,2006-04-07,1,False,True
+00276071ECB5,60,M,Colombie,Japon,Éducation,Joint,28008,35257,10,True,False,ppe,2,2016-04-04,0,False,False
+782A6AD9A5D9,27,M,Brésil,Mexique,Santé,Courant,36042,37358,10,False,True,vigilance,1,2016-04-04,1,False,True
+01794E315232,79,F,Turquie,France,Finance,Épargne,59124,28631,15,False,False,vigilance,1,2011-04-06,0,False,True
+36DDF6477BBA,47,F,Inde,Égypte,Finance,Professionnel,51203,40031,21,True,False,ppe,2,2005-04-07,2,True,False
+EB77364F9B35,47,F,Australie,Inde,Défense,Joint,51067,74631,27,True,False,ppe,2,1999-04-09,3,False,True
+82680B7989D8,67,F,Mexique,Colombie,Immobilier,Joint,45270,9471,19,True,True,ppe,2,2007-04-07,4,False,True
+931AB01CC5D4,66,M,Vietnam,Tunisie,Éducation,Épargne,34269,4525,11,True,False,ppe,2,2015-04-05,2,False,False
+6301123E4352,25,F,Suisse,Turquie,Santé,Courant,31562,14009,28,False,False,normal,0,1998-04-09,3,False,True
+A64954168BE2,31,F,Afghanistan,Venezuela,Commerce,Épargne,39087,44553,9,True,True,fraudeur,3,2017-04-04,5,True,False
+763D8FD56D6C,55,M,Myanmar,Myanmar,Santé,Épargne,63934,69318,21,False,True,suspect,2,2005-04-07,3,False,True
+72543F850041,39,F,Royaume-Uni,Australie,Finance,Épargne,86697,36670,22,False,False,vigilance,1,2004-04-07,2,False,True
+8987026435A7,69,F,Suède,Royaume-Uni,Technologie,Courant,46374,46149,15,False,False,vigilance,1,2011-04-06,2,True,True
+D57D90D1DCF8,39,F,Égypte,Mexique,Santé,Professionnel,60094,27764,8,True,False,normal,0,2018-04-04,1,False,True
+BE46221070A5,77,F,Colombie,Allemagne,Retraité,Courant,23580,24035,17,False,False,vigilance,1,2009-04-06,3,False,True
+81E8E21E167B,34,M,Brésil,Australie,Commerce,Professionnel,35367,5495,11,False,False,normal,0,2015-04-05,0,False,True
+FCD02C819E0C,40,M,Allemagne,Égypte,Technologie,Joint,69032,22436,14,False,False,normal,0,2012-04-05,2,True,True
+D1CDADDDF08E,45,M,Turquie,Allemagne,Éducation,Courant,40835,57626,10,False,False,vigilance,1,2016-04-04,4,False,False
+64009ED2B8E0,62,F,Allemagne,France,Éducation,Joint,31886,28015,2,True,False,ppe,2,2024-04-02,1,True,True
+B5885A09BA53,56,M,Australie,Mexique,Commerce,Courant,45660,26490,11,True,False,ppe,2,2015-04-05,2,False,False
+2B14EDB32AEA,69,M,Afghanistan,Iran,Santé,Épargne,45877,53464,28,False,True,suspect,2,1998-04-09,1,False,True
+CDC55E843AB0,54,F,Australie,Égypte,Finance,Courant,71989,69921,20,True,False,ppe,2,2006-04-07,1,False,False
+65B3C1745705,72,F,Inde,Maroc,Commerce,Professionnel,41916,19544,15,False,False,suspect,2,2011-04-06,2,False,True
+E43338E83C4A,21,F,Pays-Bas,Suisse,Immobilier,Courant,65309,3220,29,False,False,vigilance,1,1997-04-09,5,False,True
+A1FC27BCA432,56,M,Turquie,Suisse,Indépendant,Joint,27808,24396,27,True,False,ppe,2,1999-04-09,0,True,True
+614CC0C576DA,55,M,Suisse,Suisse,Transport,Joint,30742,29058,10,False,False,normal,0,2016-04-04,1,False,True
+DB2C501100A0,60,F,Canada,Allemagne,Transport,Professionnel,49106,64636,18,False,False,normal,0,2008-04-06,1,False,True
+A36744CC0D87,66,F,Syrie,Russie,Retraité,Joint,25668,21424,7,False,True,suspect,2,2019-04-04,4,False,False
+EE3FF3E338CF,53,F,Tunisie,Mexique,Transport,Joint,42813,60076,24,False,False,suspect,2,2002-04-08,2,False,True
+007D76709C1A,54,F,Libye,Tunisie,Commerce,Professionnel,39845,0,5,True,True,fraudeur,3,2021-04-03,2,True,False
+6F39E94A85DA,20,F,Mexique,Suisse,Retraité,Courant,23390,10984,9,False,False,normal,0,2017-04-04,2,False,True
+B00F9CB3AD24,19,M,Inde,Turquie,Éducation,Joint,21776,23963,1,False,False,normal,0,2025-04-02,3,False,True
+B01C00E3B0DD,38,F,Égypte,Suisse,Technologie,Professionnel,35066,23560,15,False,False,normal,0,2011-04-06,1,False,True
+A075410216D4,48,F,Maroc,Colombie,Sans emploi,Courant,15944,15055,2,True,False,ppe,2,2024-04-02,1,False,False
+56D42AB5395D,52,M,Iran,Afghanistan,Conseil,Professionnel,55198,54593,28,True,True,fraudeur,3,1998-04-09,3,False,True
+73E46348D628,38,F,Australie,Royaume-Uni,Retraité,Joint,21656,22810,12,False,False,normal,0,2014-04-05,1,False,True
+4F4A636DE5A0,75,F,Brésil,France,Sans emploi,Épargne,9636,8474,12,False,False,normal,0,2014-04-05,0,False,True
+3976A7690B34,69,F,Australie,Australie,Immobilier,Joint,71659,51233,17,False,True,normal,0,2009-04-06,1,False,True
+1686B5147909,27,F,Corée du Nord,Afghanistan,Défense,Courant,47413,27460,8,True,True,fraudeur,3,2018-04-04,4,False,True
+3369592C90EB,51,M,Colombie,Maroc,Éducation,Épargne,30375,21143,11,False,False,vigilance,1,2015-04-05,6,False,True
+A955F671AC19,62,F,Pays-Bas,Royaume-Uni,Commerce,Professionnel,32462,53867,15,False,True,normal,0,2011-04-06,2,False,True
+89CE8ECFF195,32,M,Brésil,Brésil,Retraité,Épargne,26481,18838,27,False,False,normal,0,1999-04-09,0,False,True
+DE501012D0BD,80,M,Colombie,Canada,Finance,Joint,76357,60157,19,True,False,vigilance,1,2007-04-07,2,False,True
+C0F6E6272925,29,M,Russie,Venezuela,Conseil,Courant,65256,41369,2,True,True,fraudeur,3,2024-04-02,2,False,False
+46855E5F9C74,37,F,Soudan,Corée du Nord,Indépendant,Professionnel,53508,7857,18,True,True,fraudeur,3,2008-04-06,3,False,False
+45513CD4A6A0,78,F,Turquie,Brésil,Éducation,Professionnel,37589,14881,30,False,False,normal,0,1996-04-09,4,False,True
+AD747A1CE68E,23,F,Colombie,Inde,Finance,Joint,52638,48816,29,False,False,vigilance,1,1997-04-09,1,False,True
+E9D296C436F2,49,F,Syrie,Syrie,Immobilier,Joint,60196,55313,2,False,True,suspect,2,2024-04-02,2,True,True
+6C638540E726,64,F,Russie,Afghanistan,Commerce,Professionnel,36759,53224,14,False,True,suspect,2,2012-04-05,1,False,True
+84E51570EA4B,32,F,Inde,Pays-Bas,Défense,Épargne,47107,33052,6,False,False,normal,0,2020-04-03,1,False,True
+BAA9D643DF22,75,M,Iran,Iran,Santé,Courant,47099,30866,29,False,True,suspect,2,1997-04-09,3,False,False
+D09E347E08D1,51,F,Inde,Pays-Bas,Finance,Courant,64236,38412,27,False,False,vigilance,1,1999-04-09,2,False,False
+15F60E95E868,28,M,Russie,Russie,Immobilier,Professionnel,67971,56546,26,True,True,fraudeur,3,2000-04-08,5,True,False
+438521EE72EE,47,M,France,Inde,Indépendant,Professionnel,32771,44837,23,True,False,ppe,2,2003-04-08,2,False,True
+F8DECDBE5045,32,M,Venezuela,Venezuela,Finance,Professionnel,78229,86685,19,True,True,fraudeur,3,2007-04-07,4,False,True
+DDF9F72DD3F8,30,M,Suède,France,Sans emploi,Joint,8399,4102,29,True,False,vigilance,1,1997-04-09,3,False,True
+74C143BCADB2,57,M,Suisse,Turquie,Transport,Joint,34561,31009,21,False,False,vigilance,1,2005-04-07,3,False,False
+7B3A6393FA3D,49,F,Venezuela,Afghanistan,Arts,Professionnel,34417,16831,21,False,True,suspect,2,2005-04-07,2,True,False
+28B3B8FAE3E4,80,F,Syrie,Corée du Nord,Éducation,Joint,29947,32941,11,False,True,suspect,2,2015-04-05,0,False,True
+175739E9E996,67,F,Suède,Japon,Défense,Courant,45670,2009,16,False,False,vigilance,1,2010-04-06,1,False,True
+DDFBF6F9094B,34,F,Tunisie,Inde,Sans emploi,Joint,10541,7853,11,False,False,normal,0,2015-04-05,2,False,True
+0FCDF78D53C4,37,M,Allemagne,Égypte,Éducation,Épargne,48127,57752,14,False,False,normal,0,2012-04-05,2,False,True
+1455E92BB46F,19,M,Égypte,Tunisie,Indépendant,Professionnel,39958,32002,1,False,False,normal,0,2025-04-02,2,False,True
+1C5211D9736B,28,M,Australie,Maroc,Conseil,Épargne,56694,44394,18,False,False,vigilance,1,2008-04-06,3,False,True
+456F8BA1F3FF,25,F,Iran,Maroc,Arts,Courant,35492,33628,17,True,True,fraudeur,3,2009-04-06,6,True,True
+C2FA0B8FC8BB,35,F,Syrie,Corée du Nord,Indépendant,Professionnel,41492,51911,4,False,True,suspect,2,2022-04-03,0,True,True
+BA9518A95469,45,M,Allemagne,Tunisie,Santé,Joint,28013,37197,24,True,False,ppe,2,2002-04-08,2,False,True
+A68DBD7A4E88,37,M,France,Suisse,Industrie,Joint,34801,29012,15,False,False,vigilance,1,2011-04-06,2,False,True
+ECCDFFF1254A,76,M,Maroc,Mexique,Indépendant,Courant,51627,39278,18,False,False,normal,0,2008-04-06,1,False,True
+D13DD05415B4,63,F,Vietnam,Brésil,Santé,Courant,46070,23568,13,True,False,ppe,2,2013-04-05,2,False,False
+638D20C6C263,31,M,Canada,Royaume-Uni,Conseil,Épargne,49674,20540,16,False,False,normal,0,2010-04-06,3,False,True
+44C46D8A2944,49,F,Iran,Turquie,Industrie,Courant,54507,36129,14,False,True,suspect,2,2012-04-05,1,False,True
+4495E336B0AE,66,F,Australie,Tunisie,Agriculture,Épargne,31670,18885,26,False,False,normal,0,2000-04-08,1,False,True
+DDB3D1F9EE87,28,F,Corée du Nord,Corée du Nord,Transport,Courant,31648,29869,23,True,True,fraudeur,3,2003-04-08,3,False,True
+35B4E6EF2EC4,20,M,Pays-Bas,Colombie,Défense,Joint,51799,46899,14,False,False,vigilance,1,2012-04-05,2,False,True
+9839A664FC36,64,F,Maroc,Colombie,Défense,Professionnel,56575,39479,29,False,False,normal,0,1997-04-09,4,False,True
+1642269E475C,69,F,Australie,Vietnam,Retraité,Joint,9563,9835,23,False,False,vigilance,1,2003-04-08,2,False,False
+6045C66206A9,47,F,Myanmar,Yémen,Conseil,Épargne,36884,38427,16,True,True,fraudeur,3,2010-04-06,3,False,True
+715DD12BEAA1,48,M,Turquie,Maroc,Agriculture,Joint,25237,21697,15,True,True,ppe,2,2011-04-06,0,False,False
+82BD2CEC677D,77,F,France,Maroc,Commerce,Professionnel,41754,0,9,False,False,normal,0,2017-04-04,1,False,True
+E5B37568A781,49,F,Tunisie,Turquie,Technologie,Courant,56923,33287,24,True,False,ppe,2,2002-04-08,4,False,True
+F4ACDE170470,79,F,Suisse,Australie,Arts,Épargne,26205,21223,24,True,False,vigilance,1,2002-04-08,1,False,False
+E0AF2FCA71D3,60,M,Tunisie,Australie,Conseil,Courant,67011,77824,1,True,False,ppe,2,2025-04-02,2,False,True
+8F0151846ACE,33,F,Pays-Bas,Vietnam,Agriculture,Professionnel,15648,17806,13,False,False,normal,0,2013-04-05,2,False,False
+D8EE2DC0C977,78,M,Colombie,Turquie,Sans emploi,Joint,18027,14129,27,False,False,suspect,2,1999-04-09,1,False,False
+4B3263E5EE5E,29,F,Turquie,Turquie,Santé,Joint,51502,81001,28,False,False,vigilance,1,1998-04-09,4,False,False
+6979384A42EB,77,F,Canada,Turquie,Indépendant,Épargne,28870,9475,1,True,False,vigilance,1,2025-04-02,2,True,True
+422D3CFDFD76,56,F,France,Vietnam,Industrie,Joint,42843,57687,2,True,False,normal,0,2024-04-02,2,False,True
+6BB97E97430D,52,F,Turquie,Libye,Indépendant,Joint,42211,7714,30,True,False,fraudeur,3,1996-04-09,1,False,True
+2630D0DCE955,63,M,Suède,Brésil,Indépendant,Courant,43380,72812,6,True,False,vigilance,1,2020-04-03,4,True,True
+1692580DA968,59,F,Australie,Tunisie,Retraité,Épargne,29073,25570,24,False,False,vigilance,1,2002-04-08,2,False,True
+A816F349D81E,51,M,Yémen,Myanmar,Sans emploi,Épargne,11779,5240,22,True,True,fraudeur,3,2004-04-07,5,True,True
+F5354750C819,62,M,Australie,Maroc,Agriculture,Professionnel,34557,23612,14,False,False,normal,0,2012-04-05,2,False,True
+C4D0A0A9B590,23,M,Inde,Royaume-Uni,Technologie,Épargne,83410,75773,30,False,False,normal,0,1996-04-09,2,True,True
+79DC31F8DBD3,47,F,Turquie,Australie,Technologie,Épargne,58414,34493,29,False,False,normal,0,1997-04-09,1,False,True
+0416B61E5426,32,M,Brésil,Canada,Conseil,Professionnel,32760,24880,7,False,False,vigilance,1,2019-04-04,1,True,True
+E023A00A5559,46,M,Colombie,Mexique,Conseil,Épargne,54250,51298,21,False,False,vigilance,1,2005-04-07,3,False,True
+599194521276,31,F,Tunisie,Corée du Nord,Immobilier,Épargne,71448,84968,23,False,False,suspect,2,2003-04-08,1,True,True
+B6D3ED93F86C,49,F,Turquie,Colombie,Éducation,Courant,32705,28593,19,True,False,ppe,2,2007-04-07,2,False,False
+51CD2F2E4F68,39,M,Vietnam,Turquie,Immobilier,Professionnel,56387,72290,21,False,False,normal,0,2005-04-07,1,False,True
+222D8B7C22B1,67,F,Égypte,Suède,Transport,Professionnel,31034,10921,24,True,False,ppe,2,2002-04-08,2,False,True
+52825FF1A6AD,66,M,Japon,Brésil,Défense,Joint,38547,18617,29,False,False,normal,0,1997-04-09,1,False,True
+AB2065B8D34C,74,M,Maroc,Suède,Retraité,Épargne,19324,20896,23,False,False,vigilance,1,2003-04-08,1,True,True
+3CB2B85AC763,40,F,Corée du Nord,Iran,Éducation,Épargne,31463,34382,13,False,True,suspect,2,2013-04-05,0,True,True
+09DB9BBEEDB3,45,M,Australie,Égypte,Technologie,Professionnel,46353,20528,24,True,False,normal,0,2002-04-08,4,False,True
+BA6AF03197BC,76,F,Australie,Japon,Éducation,Courant,27882,34884,22,False,False,vigilance,1,2004-04-07,0,False,True
