@@ -339,4 +339,8 @@ def update_audit(n):
     finally: db_session.close()
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=8053)
+    port = int(os.environ.get("PORT", 8053))
+    app.run(debug=False, host='0.0.0.0', port=port)
+
+
+   
