@@ -1,7 +1,22 @@
+import os
 import pandas as pd
 from ORM_db_traducteur_SQL import SessionLocal, Client, engine, Base
 
-# 1. On s'assure que les tables vides sont bien créées dans PostgreSQL
+# ==========================================
+# --- GESTION DU CHEMIN DU FICHIER CSV ---
+# ==========================================
+
+# On récupère le dossier où se trouve ce script (le dossier 'backend')
+DOSSIER_BACKEND = os.path.dirname(os.path.abspath(__file__))
+
+# On construit le chemin vers le fichier CSV de manière "blindée"
+CHEMIN_CSV = os.path.join(DOSSIER_BACKEND, "data", "clients_static.csv")
+
+# ==========================================
+# --- LOGIQUE D'IMPORTATION ---
+# ==========================================
+
+# 1. On s'assure que les tables vides sont bien créées dans PostgreSQL (Neon)
 Base.metadata.create_all(bind=engine)
 
 def importer_clients():
@@ -13,11 +28,12 @@ def importer_clients():
             print(f"⚠️ La base contient déjà {nb_clients} clients. Importation annulée pour éviter les doublons.")
             return
 
-        print("⏳ Lecture du fichier CSV local...")
-        # Assure-toi que le chemin pointe bien vers ton dossier "data"
-        df = pd.read_csv("data/clients_static.csv")
+        print(f"⏳ Lecture du fichier CSV : {CHEMIN_CSV}")
+        
+        # On utilise le chemin absolu qu'on a calculé plus haut
+        df = pd.read_csv(CHEMIN_CSV)
 
-        print("🚀 Importation dans PostgreSQL en cours...")
+        print("🚀 Importation dans PostgreSQL (Neon Cloud) en cours...")
         
         # 3. On boucle sur chaque ligne du CSV
         for index, row in df.iterrows():
@@ -31,18 +47,15 @@ def importer_clients():
                 pays_residence=str(row['pays_residence']),
                 secteur_activite=str(row['secteur_activite']),
                 type_compte=str(row['type_compte'])
-                # (Si tu as d'autres colonnes dans la classe Client de ton ORM, ajoute-les ici)
             )
-            # On donne la traduction à SQLAlchemy
             db.add(nouveau_client)
 
         # 4. On valide l'envoi global vers la base de données
         db.commit()
-        print(f"✅ Succès ! {len(df)} clients ont été insérés dans PostgreSQL.")
-        print("🗑️ Vous pouvez maintenant vous passer du fichier clients_static.csv !")
+        print(f"✅ Succès ! {len(df)} clients ont été insérés dans le Cloud Neon.")
 
     except Exception as e:
-        db.rollback() # En cas de crash, on annule tout pour ne pas corrompre la base
+        db.rollback() 
         print(f"❌ Erreur lors de l'importation : {e}")
     finally:
         db.close()

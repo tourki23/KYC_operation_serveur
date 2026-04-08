@@ -5,18 +5,28 @@ from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 import uvicorn
 
-# Import de notre base de données
-from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
+# --- CONFIGURATION DES CHEMINS (BAZOOKA) ---
+# On récupère le dossier où se trouve ce fichier API.py
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Chargement artefacts IA
-with open("models/kyc_xgboost.pkl", "rb") as f: MODEL = pickle.load(f)
-with open("models/scaler.pkl", "rb") as f: SCALER = pickle.load(f)
-with open("models/features_list.json", "r") as f: FEATURES = json.load(f)
+# Import de notre base de données (Import relatif avec le point)
+try:
+    from .ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
+except ImportError:
+    from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
+
+# Chargement artefacts IA avec chemins absolus
+MODEL_PATH = os.path.join(BASE_DIR, "models", "kyc_xgboost.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "models", "scaler.pkl")
+FEATURES_PATH = os.path.join(BASE_DIR, "models", "features_list.json")
+
+with open(MODEL_PATH, "rb") as f: MODEL = pickle.load(f)
+with open(SCALER_PATH, "rb") as f: SCALER = pickle.load(f)
+with open(FEATURES_PATH, "r") as f: FEATURES = json.load(f)
 
 app = FastAPI()
 
 # --- VARIABLE GLOBALE POUR LE SIMULATEUR ---
-# Cette variable va garder en mémoire le "processus" du simulateur
 simulator_process = None
 
 def get_db():
@@ -43,7 +53,6 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
         client_dict = client_record.__dict__
         for f in FEATURES:
             if f in client_dict and client_dict[f] is not None: 
-                # On s'assure de bien convertir en float pour le modèle
                 feat[f] = float(client_dict[f])
     
     if "montant" in feat: 
@@ -54,7 +63,6 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
     prob = float(MODEL.predict_proba(SCALER.transform(df_input))[0][1])
     score = int(prob * 100)
     
-    # Règle métier : On ajoute une pénalité au lieu d'écraser
     if req.montant > 50000: 
         score = min(score + 82, 99) 
     elif req.montant > 15000: 
@@ -72,6 +80,9 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
     db.add(nouvelle_transaction)
     db.commit()
 
+    # Log console pour debug Docker
+    print(f"[{datetime.now().strftime('%H:%M:%S')}] {'🔴' if score >= 70 else '🟡' if score >= 40 else '🟢'} {decision} | ID: {req.client_id} | {req.montant:,.2f}€ | Score {score}")
+
     return {"score": score, "score_risque": score, "decision": decision}
 
 
@@ -82,22 +93,22 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
 @app.post("/simulator/start")
 def start_simulator():
     global simulator_process
-    # On vérifie si le simulateur tourne déjà pour ne pas en lancer deux en même temps
     if simulator_process is not None and simulator_process.poll() is None:
         return {"status": "Simulateur déjà en cours d'exécution."}
     
-    # On lance le script en arrière-plan (pour 10 heures : 36000 secondes)
-    # Assure-toi que "Transaction_simulator.py" est bien dans le même dossier
-    simulator_process = subprocess.Popen(["python", "Transaction_simulator.py", "--duration", "36000"])
+    # Correction du chemin pour le simulateur (Bazooka Path)
+    sim_script_path = os.path.join(BASE_DIR, "Transaction_simulator.py")
+    
+    # On lance le script
+    simulator_process = subprocess.Popen(["python", sim_script_path, "--duration", "36000"])
     
     return {"status": "🚀 Simulateur démarré avec succès !"}
 
 @app.post("/simulator/stop")
 def stop_simulator():
     global simulator_process
-    # On vérifie s'il y a bien un simulateur à arrêter
     if simulator_process is not None and simulator_process.poll() is None:
-        simulator_process.terminate() # On "tue" le processus proprement
+        simulator_process.terminate()
         simulator_process = None
         return {"status": "🛑 Simulateur arrêté."}
     

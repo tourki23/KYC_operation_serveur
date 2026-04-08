@@ -23,6 +23,7 @@ data/transactions_history.csv
 Dockerfile
 docker-compose.yml
 .dockerignore
-
 # Fichiers Markdown/Doc
 README.md
+#autres fichiers
+.env

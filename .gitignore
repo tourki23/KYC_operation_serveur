@@ -1,21 +1,21 @@
-# --- Environnements virtuels et Cache ---
+
+# --- Environnements virtuels ---
 .venv/
 venv/
 env/
+
+# --- Cache Python ---
 __pycache__/
-*.py[cod]
-*$py.class
+*.pyc
 
-# --- Dossiers de sauvegarde ---
-backups/
-
-# --- Sécurité et Secrets ---
+# --- SECRET (Le plus important) ---
 .env
-*.log
 
-# --- Docker ---
-postgres_data/
+# --- Données locales lourdes ou privées ---
+# On garde les modèles (.pkl) sur GitHub, mais on ignore les gros CSV de test si besoin
+# backend/data/*.csv
 
-# --- OS ---
+# --- Divers ---
 .DS_Store
-Thumbs.db
+# Autres
+neon_tech_passe.png
