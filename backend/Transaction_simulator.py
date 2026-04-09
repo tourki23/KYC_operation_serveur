@@ -7,11 +7,14 @@ from typing import Optional
 
 # Import de notre base de données
 from ORM_db_traducteur_SQL import SessionLocal, Client
-
-API_URL  = os.getenv("API_URL", "http://localhost:8000")
-PAYS_BAS_RISQUE  = ["France", "Allemagne", "Royaume-Uni", "Pays-Bas", "Suède"]
-PAYS_HAUT_RISQUE = ["Iran", "Corée du Nord", "Syrie", "Venezuela", "Russie"]
+# --- ADAPTATION POUR RENDER (Port Dynamique) ---
+# Le simulateur tourne SUR le même serveur que l'API, donc il utilise localhost
+# MAIS il doit utiliser le port que Render a attribué au serveur !
+port = os.getenv("PORT", "8000")
+API_URL = f"http://127.0.0.1:{port}"
 random.seed()
+
+PAYS_BAS_RISQUE  = ["France", "Allemagne", "Royaume-Uni", "Pays-Bas", "Suède"]
 
 class DriftDetector:
     def __init__(self, window: int = 100, threshold_sigma: float = 2.0):
