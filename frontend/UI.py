@@ -230,10 +230,10 @@ def control_simulator(n_start, n_stop):
     button_id = ctx.triggered[0]["prop_id"].split(".")[0]
     try:
         if button_id == "btn-start-sim":
-            res = requests.post(f"{API_URL}/simulator/start", timeout=5)
+            res = requests.post(f"{API_URL}/simulator/start", timeout=60)
             return res.json().get("status", "Signal envoyé.")
         elif button_id == "btn-stop-sim":
-            res = requests.post(f"{API_URL}/simulator/stop", timeout=5)
+            res = requests.post(f"{API_URL}/simulator/stop", timeout=60)
             return res.json().get("status", "Arrêt envoyé.")
     except Exception as e:
         return f"❌ API Injognable sur {API_URL}"
