@@ -37,13 +37,12 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], suppress_cal
 try:
     with open("models/metrics.json", "r") as f:
         m = json.load(f)
-    conf_matrix = np.array(m.get("confusion_matrix", [[0,0],[0,0]]))
     fpr = np.linspace(0, 1, 100)
     tpr = np.sqrt(fpr) 
     recall_curve = np.linspace(0, 1, 100)
     precision_curve = 1 - recall_curve**2
 except:
-    m, conf_matrix = {}, np.array([[0,0],[0,0]])
+    m = {}
     fpr, tpr, recall_curve, precision_curve = [], [], [], []
 
 # --- CHARGEMENT DATA CLIENTS VIA ORM ET GÉNÉRATION DU GRAPH MACRO ---
@@ -122,8 +121,7 @@ app.index_string = '''
 </html>
 '''
 
-fig_conf = go.Figure(data=go.Heatmap(z=conf_matrix, x=['Prédit Bas', 'Prédit Haut'], y=['Réel Haut', 'Réel Bas'], colorscale='Blues', text=conf_matrix, texttemplate="%{text}", showscale=False))
-fig_conf.update_layout(template="plotly_dark", paper_bgcolor=DARK_CARD, plot_bgcolor=DARK_CARD, margin=dict(l=20, r=20, t=30, b=20), height=350)
+# Configuration de la Courbe ROC (seule)
 fig_roc = go.Figure()
 fig_roc.add_trace(go.Scatter(x=fpr, y=tpr, line=dict(color=C_GREEN, width=3), name="ROC"))
 fig_roc.update_layout(title="Courbe ROC", template="plotly_dark", paper_bgcolor=DARK_CARD, plot_bgcolor=DARK_CARD, margin=dict(l=20, r=20, t=30, b=20), height=350)
@@ -197,10 +195,11 @@ app.layout = dbc.Container([
                     dbc.Col(dbc.Card([dbc.CardHeader("AUC-ROC"), dbc.CardBody(html.H3(f"{float(m.get('auc_roc',0.95))*100:.1f}%"))]), width=3),
                     dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('accuracy',0))*100:.1f}%"))]), width=3),
                 ], className="mt-4 text-center"),
+                # --- CORRECTION URGENCE : Suppression Matrice de Confusion et Centrage de la courbe ROC ---
                 dbc.Row([
-                    dbc.Col(dcc.Graph(figure=fig_conf), width=6),
-                    dbc.Col(dcc.Graph(figure=fig_roc), width=6),
-                ], className="mt-4"),
+                    dbc.Col(dcc.Graph(figure=fig_roc), width=8),
+                ], className="mt-4 justify-content-center"),
+                # -----------------------------------------------------------------------------------------
                 dbc.Row([
                     dbc.Col([html.H5("Feature Importance", className="text-center"), html.Img(src="assets/feature_importance.png", style={'width':'100%'})], width=6),
                     dbc.Col([html.H5("Analyse Résidus", className="text-center"), html.Img(src="assets/evaluation_plots.png", style={'width':'100%'})], width=6),
@@ -253,7 +252,6 @@ def update_monit(n):
         df = pd.DataFrame([{'ts': u.timestamp, 'score': u.score_risque, 'decision': u.decision} for u in query])
         df['score'] = pd.to_numeric(df['score'], errors='coerce').fillna(0)
         
-        # --- CORRECTION 1 : LIGNES DU GRAPHIQUE ---
         fig_s = px.scatter(df.tail(100), x='ts', y='score', color='decision', color_discrete_map={'APPROUVÉE': C_GREEN, 'SURVEILLANCE': C_ORANGE, 'BLOQUÉE': C_RED}, template="plotly_dark")
         fig_s.add_hline(y=70, line_dash="dash", line_color=C_RED, annotation_text="SEUIL BLOCAGE")
         fig_s.add_hline(y=40, line_dash="dash", line_color=C_ORANGE, annotation_text="SEUIL VIGILANCE")
@@ -279,7 +277,6 @@ def show_investigation(n1, n2, n3):
         elif "green" in btn: filt = df_tx[df_tx['decision'].str.contains('APPROUV')].tail(10)
         else: filt = df_tx[df_tx['decision'].str.contains('SURVEILL')].tail(10)
         
-        # --- CORRECTION 2 : CENTRAGE & SANS BORDURE (INVESTIGATION) ---
         return dash_table.DataTable(
             data=filt.to_dict('records'), 
             columns=[{"name": i, "id": i} for i in filt.columns], 
@@ -320,7 +317,6 @@ def update_audit(n):
         query = db_session.query(TransactionLog).order_by(TransactionLog.timestamp.desc()).limit(10).all()
         df = pd.DataFrame([{'Timestamp': u.timestamp, 'ID': u.client_id, 'Score': u.score_risque, 'Décision': u.decision, 'Hash': u.hash} for u in query])
         
-        # --- CORRECTION 3 & 4 : CENTRAGE, SANS BORDURE ET COULEURS (AUDIT) ---
         return dash_table.DataTable(
             data=df.to_dict('records'), 
             columns=[{"name": i, "id": i} for i in df.columns], 
