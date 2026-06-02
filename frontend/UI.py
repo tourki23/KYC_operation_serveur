@@ -122,11 +122,47 @@ app.index_string = '''
 </html>
 '''
 
-fig_conf = go.Figure(data=go.Heatmap(z=conf_matrix, x=['Prédit Bas', 'Prédit Haut'], y=['Réel Haut', 'Réel Bas'], colorscale='Blues', text=conf_matrix, texttemplate="%{text}", showscale=False))
-fig_conf.update_layout(template="plotly_dark", paper_bgcolor=DARK_CARD, plot_bgcolor=DARK_CARD, margin=dict(l=20, r=20, t=30, b=20), height=350)
-fig_roc = go.Figure()
-fig_roc.add_trace(go.Scatter(x=fpr, y=tpr, line=dict(color=C_GREEN, width=3), name="ROC"))
-fig_roc.update_layout(title="Courbe ROC", template="plotly_dark", paper_bgcolor=DARK_CARD, plot_bgcolor=DARK_CARD, margin=dict(l=20, r=20, t=30, b=20), height=350)
+# ==========================
+# MATRICE DE CONFUSION
+# ==========================
+
+TN = int(conf_matrix[0][0])
+FP = int(conf_matrix[0][1])
+FN = int(conf_matrix[1][0])
+TP = int(conf_matrix[1][1])
+
+text_matrix = [
+    [f"TN<br>{TN}", f"FP<br>{FP}"],
+    [f"FN<br>{FN}", f"TP<br>{TP}"]
+]
+
+fig_conf = go.Figure(
+    data=go.Heatmap(
+        z=conf_matrix,
+        x=[
+            f"Prédit Bas<br>({TN + FN})",
+            f"Prédit Haut<br>({FP + TP})"
+        ],
+        y=[
+            f"Réel Bas ({TN + FP})",
+            f"Réel Haut ({FN + TP})"
+        ],
+        colorscale="Blues",
+        text=text_matrix,
+        texttemplate="%{text}",
+        textfont={"size": 18},
+        showscale=False
+    )
+)
+
+fig_conf.update_layout(
+    title="Matrice de confusion",
+    template="plotly_dark",
+    paper_bgcolor=DARK_CARD,
+    plot_bgcolor=DARK_CARD,
+    margin=dict(l=20, r=20, t=50, b=20),
+    height=450
+)
 
 app.layout = dbc.Container([
     dbc.Row([
@@ -198,9 +234,10 @@ app.layout = dbc.Container([
                     dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('accuracy',0))*100:.1f}%"))]), width=3),
                 ], className="mt-4 text-center"),
                 dbc.Row([
-                    dbc.Col(dcc.Graph(figure=fig_conf), width=6),
-                    dbc.Col(dcc.Graph(figure=fig_roc), width=6),
+                    dbc.Col(
+                    dcc.Graph(figure=fig_conf,config={'displayModeBar': False}),width=12),
                 ], className="mt-4"),
+                
                 dbc.Row([
                     dbc.Col([html.H5("Feature Importance", className="text-center"), html.Img(src="assets/feature_importance.png", style={'width':'100%'})], width=6),
                     dbc.Col([html.H5("Analyse Résidus", className="text-center"), html.Img(src="assets/evaluation_plots.png", style={'width':'100%'})], width=6),
