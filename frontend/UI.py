@@ -76,30 +76,14 @@ try:
                                 xaxis_ticksuffix="%", margin=dict(l=10, r=60, t=10, b=10))
         fig_macro.update_traces(textposition='outside', cliponaxis=False)
 
-        urg = DF_CLIENTS_STATIC.head(5).copy()
-        urg['Montant'] = [f"{x:,} €" for x in [245000, 150000, 89000, 42000, 15000]][:len(urg)]
-        urg['Type'] = ["Virement Crypto", "Virement Offshore", "Retrait Suspect", "Virement Offshore", "Retrait Suspect"][:len(urg)]
-
-        urgence_table_init = dash_table.DataTable(
-            data=urg.to_dict('records'), 
-            columns=[
-                {"name": "ID Client", "id": "client_id"}, {"name": "Classe", "id": "profil_risque"}, 
-                {"name": "Montant Bloqué", "id": "Montant"}, {"name": "Opération", "id": "Type"}
-            ], 
-            style_data={'backgroundColor': '#111', 'color': C_RED, 'border': '1px solid #333'}, 
-            style_header={'backgroundColor': '#1a1a1a', 'color': 'white', 'fontWeight': 'bold', 'border': '1px solid #333'},
-            style_cell={'textAlign': 'left', 'padding': '8px'}
-        )
     else:
         DF_CLIENTS_STATIC = pd.DataFrame()
         fig_macro = go.Figure()
-        urgence_table_init = html.Div("Aucun client trouvé.")
 
 except Exception as e:
     print(f"ERREUR CHARGEMENT : {e}")
     DF_CLIENTS_STATIC = pd.DataFrame()
     fig_macro = go.Figure()
-    urgence_table_init = html.Div("Erreur de connexion base.")
 finally:
     db.close()
 
@@ -202,8 +186,7 @@ app.layout = dbc.Container([
                 html.H4("ANALYSE DES PROFILS ET PERSONAS (KYC 360)", className="text-white mt-4 mb-4"),
                 dbc.Row([
                     dbc.Col([
-                        dbc.Card([dbc.CardHeader("RÉPARTITION GLOBALE"), dcc.Graph(id='graph-main-bars', figure=fig_macro, config={'displayModeBar': False})], className="card-stats"),
-                        dbc.Card([dbc.CardHeader("🚨 CONTACT URGENCE", style={'color': C_RED}), html.Div(urgence_table_init, id='urgence-list')], className="card-stats mt-4")
+                        dbc.Card([dbc.CardHeader("RÉPARTITION GLOBALE"), dcc.Graph(id='graph-main-bars', figure=fig_macro, config={'displayModeBar': False})], className="card-stats")
                     ], width=4),
                     dbc.Col([
                         html.Div(id='detail-title', className="text-center mb-3"),
