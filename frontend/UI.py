@@ -140,13 +140,15 @@ fig_conf = go.Figure(
 )
 
 fig_conf.update_layout(
-    title="Matrice de confusion",
+    title=None,
     template="plotly_dark",
     paper_bgcolor=DARK_CARD,
     plot_bgcolor=DARK_CARD,
-    margin=dict(l=20, r=20, t=50, b=20),
-    height=450
+    margin=dict(l=20, r=20, t=20, b=20),
+    width=400,
+    height=400
 )
+fig_conf.update_yaxes(scaleanchor="x", scaleratio=1)
 
 app.layout = dbc.Container([
     dbc.Row([
@@ -208,23 +210,37 @@ app.layout = dbc.Container([
             ], className="p-3")
         ]),
 
+        # --- ONGLET 3 : PERFORMANCE MODÈLE ---
         dcc.Tab(label='📈 PERFORMANCE MODÈLE', value='perf', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
+                # --- 1. LIGNE DES KPIs ---
                 dbc.Row([
                     dbc.Col(dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('precision',0))*100:.1f}%"))]), width=3),
                     dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.1f}%"))]), width=3),
                     dbc.Col(dbc.Card([dbc.CardHeader("AUC-ROC"), dbc.CardBody(html.H3(f"{float(m.get('auc_roc',0.95))*100:.1f}%"))]), width=3),
                     dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('accuracy',0))*100:.1f}%"))]), width=3),
                 ], className="mt-4 text-center"),
-                dbc.Row([
-                    dbc.Col(
-                    dcc.Graph(figure=fig_conf,config={'displayModeBar': False}),width=12),
-                ], className="mt-4"),
                 
+                # --- 2. LIGNE COURBES D'ÉVALUATION (En haut) ---
                 dbc.Row([
-                    dbc.Col([html.H5("Feature Importance", className="text-center"), html.Img(src="assets/feature_importance.png", style={'width':'100%'})], width=6),
-                    dbc.Col([html.H5("Analyse Résidus", className="text-center"), html.Img(src="assets/evaluation_plots.png", style={'width':'100%'})], width=6),
-                ], className="mt-4")
+                    dbc.Col([
+                        html.H5("Analyse des Performances (ROC, Precision-Recall, Scores)", className="text-center mb-3 mt-4 text-white"), 
+                        html.Img(src="assets/evaluation_plots.png", style={'width':'100%', 'maxWidth': '1200px', 'display': 'block', 'margin': '0 auto', 'borderRadius': '5px'})
+                    ], width=12),
+                ], className="mt-4 mb-4"),
+
+                # --- 3. LIGNE FEATURE IMPORTANCE (Gauche) + MATRICE CARRÉE (Droite) ---
+                dbc.Row([
+                    dbc.Col([
+                        html.H5("Feature Importance (Gain Moyen)", className="text-center mb-3 text-white"), 
+                        html.Img(src="assets/feature_importance.png", style={'width':'100%', 'borderRadius': '5px'})
+                    ], width=7),
+                    dbc.Col([
+                        html.H5("Matrice de Confusion", className="text-center mb-3 text-white"),
+                        html.Div(dcc.Graph(figure=fig_conf, config={'displayModeBar': False}), className="d-flex justify-content-center")
+                    ], width=5, className="d-flex flex-column justify-content-center"),
+                ], className="mt-5 align-items-center mb-5")
+                
             ], className="p-3")
         ]),
 
