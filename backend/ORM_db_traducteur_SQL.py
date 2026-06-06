@@ -2,18 +2,27 @@ import os
 from sqlalchemy import create_engine, Column, String, Float, Integer
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-# URL de connexion corrigée
-DATABASE_URL = "postgresql://neondb_owner:npg_x8SXQCfl1Gke@ep-misty-poetry-alqsenyd-pooler.c-3.eu-central-1.aws.neon.tech/neondb?sslmode=require"
+# 1. On cherche la variable d'environnement (configurée sur GitHub ou Render)
+# Si elle n'existe pas, on bascule automatiquement sur SQLite (mode test)
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+if DATABASE_URL:
+    # Mode Production : On utilise ta vraie URL
+    engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+else:
+    # Mode Test / CI : On utilise SQLite en mémoire
+    print("⚠️ Mode Test/Offline détecté : utilisation de SQLite.")
+    engine = create_engine("sqlite:///:memory:", connect_args={"check_same_thread": False})
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
+# --- TES CLASSES RESTENT IDENTIQUES ---
 class Client(Base):
     __tablename__ = "clients"
-    
     client_id = Column(String, primary_key=True)
     age = Column(Integer)
+    # ... (le reste de tes colonnes)
     sexe = Column(String)
     pays_residence = Column(String)
     nationalite = Column(String)
