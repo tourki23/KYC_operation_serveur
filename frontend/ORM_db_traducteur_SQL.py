@@ -3,63 +3,74 @@ from sqlalchemy import create_engine, Column, String, Float, Integer
 from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 
-# ==========================================
-# --- CONFIGURATION DE LA CONNEXION ---
-# ==========================================
-
-# 1. MÉTHODE BAZOOKA POUR LE LOCAL
+# --- CONFIGURATION (Ne change pas, identique à l'original) ---
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env_path = os.path.join(BASE_DIR, ".env")
+if os.path.exists(env_path): load_dotenv(env_path)
 
-if os.path.exists(env_path):
-    print(f"🔍 Le radar pointe exactement sur ce fichier : {env_path}")
-    load_dotenv(env_path)
-else:
-    print("ℹ️ Aucun fichier .env détecté à la racine. Utilisation des variables système (Docker/Cloud).")
-
-# 2. Récupération et NETTOYAGE de l'URL
 DATABASE_URL = os.getenv("DATABASE_URL")
-
 if DATABASE_URL:
-    # On enlève les espaces et les guillemets (") ou (') qui font planter SQLAlchemy
     DATABASE_URL = DATABASE_URL.strip().strip('"').strip("'")
 else:
-    print("⚠️ DATABASE_URL non trouvée, utilisation de l'URL locale par défaut.")
     DATABASE_URL = "postgresql://postgres:dryres1@db:5432/kyc_db"
 
-# --- VÉRIFICATION DE SÉCURITÉ ---
-if "neon.tech" in DATABASE_URL:
-    print("✅ BINGO ! Connexion au Cloud NEON activée avec succès !")
-else:
-    print("🔗 Connexion établie sur la base de données locale ou Docker.")
-
-# 3. Création du moteur SQLAlchemy
-# On ajoute pool_pre_ping pour éviter les déconnexions intempestives avec le Cloud
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-
-# ==========================================
-# --- DÉFINITION DES TABLES (MODÈLES) ---
-# ==========================================
-
+# --- MODÈLES MIS À JOUR ---
 class Client(Base):
     __tablename__ = "clients"
     
+    # Identifiant
     client_id = Column(String, primary_key=True)
-    age = Column(Float)
-    revenu_annuel = Column(Float)
-    solde_moyen = Column(Float)
-    profil_risque = Column(String)
-    nationalite = Column(String)
+    
+    # Profil Civil
+    age = Column(Integer)
+    sexe = Column(String)
     pays_residence = Column(String)
+    nationalite = Column(String)
     secteur_activite = Column(String)
     type_compte = Column(String)
+    date_ouverture = Column(String)
+    
+    # Indicateurs Financiers
+    revenu_annuel = Column(Float)
+    solde_moyen = Column(Float)
+    anciennete_compte = Column(Integer)
+    
+    # Indicateurs KYC & Risque
+    est_ppe = Column(String)
+    pays_risque = Column(Integer)
+    profil_risque = Column(String)
+    score_risque_reel = Column(Integer)
+    nb_comptes_lies = Column(Integer)
+    litige_anterieur = Column(String)
+    kyc_valide = Column(String)
+    
+    # Comportement Transactionnel (Pour le modèle)
+    nb_transactions = Column(Integer)
+    montant_moyen = Column(Float)
+    montant_max = Column(Float)
+    montant_total = Column(Float)
+    montant_std = Column(Float)
+    montant_median = Column(Float)
+    nb_internationales = Column(Integer)
+    nb_pays_risques = Column(Integer)
+    nb_virements_intl = Column(Integer)
+    nb_crypto = Column(Integer)
+    nb_retraits = Column(Integer)
+    nb_smurfing = Column(Integer)
+    jours_actif = Column(Integer)
+    velocite_tx_par_jour = Column(Float)
+    ratio_international = Column(Float)
+    ratio_smurfing = Column(Float)
+    ratio_crypto = Column(Float)
+    ratio_intl_risque = Column(Float)
+    pays_residence_risque = Column(Integer)
 
 class TransactionLog(Base):
     __tablename__ = "transactions_history"
-    
     hash = Column(String, primary_key=True)
     timestamp = Column(String)
     client_id = Column(String)
