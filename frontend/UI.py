@@ -215,11 +215,11 @@ app.layout = dbc.Container([
             html.Div([
                 # --- 1. LIGNE DES KPIs ---
                 dbc.Row([
-                    dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.1f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('precision',0))*100:.1f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.1f}%"))])),
+                    dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.4f}%"))])),
+                    dbc.Col(dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('precision',0))*100:.4f}%"))])),
+                    dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.4f}%"))])),
                     dbc.Col(dbc.Card([dbc.CardHeader("AUC-ROC"), dbc.CardBody(html.H3(f"{float(m.get('auc_roc',0.95))*100:.1f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('accuracy',0))*100:.1f}%"))])),
+                    dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('accuracy',0))*100:.4f}%"))])),
                 ], className="mt-4 text-center"),
                 
                 # --- 2. LIGNE COURBES D'ÉVALUATION (En haut) ---
