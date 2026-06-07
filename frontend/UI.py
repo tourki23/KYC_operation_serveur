@@ -7,14 +7,12 @@ import plotly.graph_objects as go
 import os
 import json
 import numpy as np
-import requests # <-- Nécessaire pour envoyer l'ordre à l'API
+import requests
 
 # --- CONNEXION À L'ORM POSTGRESQL ---
 try:
-    # Pour le local (depuis la racine)
-    from .ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
+    from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
 except (ImportError, ValueError):
-    # Pour Docker (où le fichier est à la racine /app)
     from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
 
 # --- CONFIGURATION COULEURS OPS ---
@@ -24,37 +22,32 @@ C_RED = "#e74c3c"    # Blocked / Fraudeur
 DARK_PURE = "#000000"
 DARK_CARD = "#111111"
 
-# --- CONFIGURATION DE L'URL API (FORCE RENDER) ---
+# --- CONFIGURATION DE L'URL API ---
 API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000")
-
-# Petit nettoyage au cas où il y aurait un / à la fin
 if API_URL.endswith('/'):
     API_URL = API_URL[:-1]
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], suppress_callback_exceptions=True)
 
-# --- CHARGEMENT DES MÉTRIQUES (ONGLET PERFORMANCE) ---
-try:
-    with open("models/metrics.json", "r") as f:
-        m = json.load(f)
-    conf_matrix = np.array(m.get("confusion_matrix", [[0,0],[0,0]]))
-    fpr = np.linspace(0, 1, 100)
-    tpr = np.sqrt(fpr) 
-    recall_curve = np.linspace(0, 1, 100)
-    precision_curve = 1 - recall_curve**2
-except:
-    m, conf_matrix = {}, np.array([[0,0],[0,0]])
-    fpr, tpr, recall_curve, precision_curve = [], [], [], []
+# --- CHARGEMENT DES MÉTRIQUES (COMPARATIF XGB vs LOG) ---
+def load_metrics(model_name):
+    try:
+        with open(f"models/{model_name}_metrics.json", "r") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"⚠️ Erreur chargement {model_name}: {e}")
+        return {}
 
-# --- CHARGEMENT DATA CLIENTS VIA ORM ET GÉNÉRATION DU GRAPH MACRO ---
+m_xgb = load_metrics("XGBoost")
+m_log = load_metrics("LogisticRegression")
+
+# --- CHARGEMENT DATA CLIENTS ---
 db = SessionLocal()
 try:
     query_clients = db.query(Client).all()
     if query_clients:
         DF_CLIENTS_STATIC = pd.DataFrame([u.__dict__ for u in query_clients]).drop(columns=['_sa_instance_state'], errors='ignore')
         DF_CLIENTS_STATIC['client_id'] = DF_CLIENTS_STATIC['client_id'].astype(str)
-        
-        dropdown_options = [{'label': f"ID: {r['client_id']} - {r['pays_residence']}", 'value': str(r['client_id'])} for _, r in DF_CLIENTS_STATIC.iterrows()]
         
         df_macro = DF_CLIENTS_STATIC['profil_risque'].value_counts(normalize=True).reset_index()
         df_macro.columns = ['profil', 'percentage']
@@ -75,11 +68,9 @@ try:
                                 xaxis_title="Pourcentage (%)", yaxis_title=None, yaxis={'categoryorder':'total ascending'},
                                 xaxis_ticksuffix="%", margin=dict(l=10, r=60, t=10, b=10))
         fig_macro.update_traces(textposition='outside', cliponaxis=False)
-
     else:
         DF_CLIENTS_STATIC = pd.DataFrame()
         fig_macro = go.Figure()
-
 except Exception as e:
     print(f"ERREUR CHARGEMENT : {e}")
     DF_CLIENTS_STATIC = pd.DataFrame()
@@ -96,59 +87,14 @@ app.index_string = '''
             body { background-color: #000000 !important; font-family: 'Segoe UI', sans-serif; color: white; margin: 0; padding: 0; }
             .xtab { background-color: #080808 !important; color: #fff !important; border: none !important; }
             .xtab--selected { background-color: #003399 !important; font-weight: bold !important; border-bottom: 3px solid #0056b3 !important; }
-            .dash-spreadsheet-container .dash-spreadsheet-inner tr { background-color: #000000 !important; }
-            .dash-spreadsheet-container .dash-spreadsheet-inner td { background-color: #000000 !important; }
             .card { background-color: #111111 !important; border: 1px solid #333 !important; }
             .card-stats { background-color: #111111 !important; border: 1px solid #333 !important; border-radius: 10px; padding: 15px; margin-bottom: 10px; }
+            .metric-val { font-weight: bold; color: #ffffff; }
         </style>
     </head>
     <body>{%app_entry%}<footer>{%config%}{%scripts%}{%renderer%}</footer></body>
 </html>
 '''
-
-# ==========================
-# MATRICE DE CONFUSION
-# ==========================
-
-TN = int(conf_matrix[0][0])
-FP = int(conf_matrix[0][1])
-FN = int(conf_matrix[1][0])
-TP = int(conf_matrix[1][1])
-
-text_matrix = [
-    [f"TN<br>{TN}", f"FP<br>{FP}"],
-    [f"FN<br>{FN}", f"TP<br>{TP}"]
-]
-
-fig_conf = go.Figure(
-    data=go.Heatmap(
-        z=conf_matrix,
-        x=[
-            f"Prédit Bas<br>({TN + FN})",
-            f"Prédit Haut<br>({FP + TP})"
-        ],
-        y=[
-            f"Réel Bas ({TN + FP})",
-            f"Réel Haut ({FN + TP})"
-        ],
-        colorscale="Blues",
-        text=text_matrix,
-        texttemplate="%{text}",
-        textfont={"size": 18},
-        showscale=False
-    )
-)
-
-fig_conf.update_layout(
-    title=None,
-    template="plotly_dark",
-    paper_bgcolor=DARK_CARD,
-    plot_bgcolor=DARK_CARD,
-    margin=dict(l=20, r=20, t=20, b=20),
-    width=400,
-    height=400
-)
-fig_conf.update_yaxes(scaleanchor="x", scaleratio=1)
 
 app.layout = dbc.Container([
     dbc.Row([
@@ -164,6 +110,7 @@ app.layout = dbc.Container([
     ], className="my-4 pb-3 border-bottom", style={'borderColor': '#333'}),
 
     dcc.Tabs(id="tabs", value='monit', children=[
+        # --- TAB 1: MONITORING ---
         dcc.Tab(label='📊 MONITORING LIVE', value='monit', className='xtab', selected_className='xtab--selected', children=[
             dbc.Row([
                 dbc.Col(dbc.Button("▶️ START SIMULATION", id="btn-start-sim", color="success", className="fw-bold border border-success"), width="auto"),
@@ -183,6 +130,7 @@ app.layout = dbc.Container([
             html.Div(id='investigation-table', className="mt-4")
         ]),
 
+        # --- TAB 2: VISION 360 ---
         dcc.Tab(label='🔍 VISION CLIENT 360', value='360', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
                 html.H4("ANALYSE DES PROFILS ET PERSONAS (KYC 360)", className="text-white mt-4 mb-4"),
@@ -210,41 +158,48 @@ app.layout = dbc.Container([
             ], className="p-3")
         ]),
 
-        # --- ONGLET 3 : PERFORMANCE MODÈLE ---
+        # --- TAB 3: PERFORMANCE (MODIFIÉ POUR COMPARATIF) ---
         dcc.Tab(label='📈 PERFORMANCE MODÈLE', value='perf', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
-                # --- 1. LIGNE DES KPIs ---
                 dbc.Row([
-                    dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.4f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('precision',0))*100:.4f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.4f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("AUC-ROC"), dbc.CardBody(html.H3(f"{float(m.get('auc_roc',0.95))*100:.1f}%"))])),
-                    dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H3(f"{float(m.get('classification_report',{}).get('accuracy',0))*100:.4f}%"))])),
-                ], className="mt-4 text-center"),
-                
-                # --- 2. LIGNE COURBES D'ÉVALUATION (En haut) ---
-                dbc.Row([
+                    # --- COLONNE GAUCHE : XGBOOST ---
                     dbc.Col([
-                        html.H5("Analyse des Performances (ROC, Precision-Recall, Scores)", className="text-center mb-3 mt-4 text-white"), 
-                        html.Img(src="assets/evaluation_plots.png", style={'width':'100%', 'maxWidth': '1200px', 'display': 'block', 'margin': '0 auto', 'borderRadius': '5px'})
-                    ], width=12),
-                ], className="mt-4 mb-4"),
+                        html.Div([
+                            html.H3("MODÈLE : XGBOOST", className="text-center text-info mb-4", style={'letterSpacing': '2px'}),
+                            dbc.Row([
+                                dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H4(f"{float(m_xgb.get('accuracy',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
+                                dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H4(f"{float(m_xgb.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
+                                dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{float(m_xgb.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
+                            ]),
+                            html.Hr(style={'borderColor': '#444'}),
+                            html.H5("Importance des Variables (Gain)", className="text-muted mb-3"),
+                            html.Img(src="assets/XGBoost_fi.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
+                            html.H5("Évaluation (ROC / PR)", className="text-muted mt-4 mb-3"),
+                            html.Img(src="assets/XGBoost_evaluation.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
+                        ], className="p-2")
+                    ], width=6, style={'borderRight': '1px solid #333'}),
 
-                # --- 3. LIGNE FEATURE IMPORTANCE (Gauche) + MATRICE CARRÉE (Droite) ---
-                dbc.Row([
+                    # --- COLONNE DROITE : LOGISTIC REGRESSION ---
                     dbc.Col([
-                        html.H5("Feature Importance (Gain Moyen)", className="text-center mb-3 text-white"), 
-                        html.Img(src="assets/feature_importance.png", style={'width':'100%', 'borderRadius': '5px'})
-                    ], width=7),
-                    dbc.Col([
-                        html.H5("Matrice de Confusion", className="text-center mb-3 text-white"),
-                        html.Div(dcc.Graph(figure=fig_conf, config={'displayModeBar': False}), className="d-flex justify-content-center")
-                    ], width=5, className="d-flex flex-column justify-content-center"),
-                ], className="mt-5 align-items-center mb-5")
-                
+                        html.Div([
+                            html.H3("MODÈLE : LOGISTIC REGRESSION", className="text-center text-success mb-4", style={'letterSpacing': '2px'}),
+                            dbc.Row([
+                                dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H4(f"{float(m_log.get('accuracy',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
+                                dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H4(f"{float(m_log.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
+                                dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{float(m_log.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
+                            ]),
+                            html.Hr(style={'borderColor': '#444'}),
+                            html.H5("Coefficients des Variables", className="text-muted mb-3"),
+                            html.Img(src="assets/LogisticRegression_fi.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
+                            html.H5("Évaluation (ROC / PR)", className="text-muted mt-4 mb-3"),
+                            html.Img(src="assets/LogisticRegression_evaluation.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
+                        ], className="p-2")
+                    ], width=6)
+                ], className="mt-4")
             ], className="p-3")
         ]),
 
+        # --- TAB 4: AUDIT ---
         dcc.Tab(label='📜 REGISTRE D\'AUDIT', value='audit', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
                 html.H4("LEDGER D'AUDIT - DERNIERS ÉVÉNEMENTS SCELLÉS", className="text-white mt-4 mb-4"),
@@ -255,7 +210,7 @@ app.layout = dbc.Container([
     dcc.Interval(id='timer', interval=2000, n_intervals=0)
 ], fluid=True, style={'backgroundColor': DARK_PURE, 'minHeight': '100vh'})
 
-# --- CALLBACKS ---
+# --- CALLBACKS (SANS CHANGEMENT) ---
 @app.callback(
     Output("sim-status-msg", "children"),
     [Input("btn-start-sim", "n_clicks"), Input("btn-stop-sim", "n_clicks")],
@@ -290,7 +245,6 @@ def update_monit(n):
         df = pd.DataFrame([{'ts': u.timestamp, 'score': u.score_risque, 'decision': u.decision} for u in query])
         df['score'] = pd.to_numeric(df['score'], errors='coerce').fillna(0)
         
-        # --- CORRECTION 1 : LIGNES DU GRAPHIQUE ---
         fig_s = px.scatter(df.tail(100), x='ts', y='score', color='decision', color_discrete_map={'APPROUVÉE': C_GREEN, 'SURVEILLANCE': C_ORANGE, 'BLOQUÉE': C_RED}, template="plotly_dark")
         fig_s.add_hline(y=70, line_dash="dash", line_color=C_RED, annotation_text="SEUIL BLOCAGE")
         fig_s.add_hline(y=40, line_dash="dash", line_color=C_ORANGE, annotation_text="SEUIL VIGILANCE")
@@ -316,7 +270,6 @@ def show_investigation(n1, n2, n3):
         elif "green" in btn: filt = df_tx[df_tx['decision'].str.contains('APPROUV')].tail(10)
         else: filt = df_tx[df_tx['decision'].str.contains('SURVEILL')].tail(10)
         
-        # --- CORRECTION 2 : CENTRAGE & SANS BORDURE (INVESTIGATION) ---
         return dash_table.DataTable(
             data=filt.to_dict('records'), 
             columns=[{"name": i, "id": i} for i in filt.columns], 
@@ -357,7 +310,6 @@ def update_audit(n):
         query = db_session.query(TransactionLog).order_by(TransactionLog.timestamp.desc()).limit(10).all()
         df = pd.DataFrame([{'Timestamp': u.timestamp, 'ID': u.client_id, 'Score': u.score_risque, 'Décision': u.decision, 'Hash': u.hash} for u in query])
         
-        # --- CORRECTION 3 & 4 : CENTRAGE, SANS BORDURE ET COULEURS (AUDIT) ---
         return dash_table.DataTable(
             data=df.to_dict('records'), 
             columns=[{"name": i, "id": i} for i in df.columns], 
