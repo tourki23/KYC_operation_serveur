@@ -9,28 +9,31 @@ from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 
 # --- 1. SÉCURITÉ DES CHEMINS ---
-# Assure que le dossier parent est dans le path pour les imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# --- 2. INITIALISATION (OBLIGATOIRE) ---
+# --- 2. INITIALISATION ---
 app = FastAPI()
 
-# --- 3. IMPORTATIONS SÉCURISÉES ---
-# Si l'ORM crash (ex: mauvaise URL DB), on ne veut pas que tout le fichier API crash
+# --- 3. IMPORTATIONS ET SYNCHRONISATION DB ---
 try:
-    from backend.ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
+    # On importe aussi engine et Base pour forcer la création des tables
+    from backend.ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog, engine, Base
+    
+    # Création automatique des tables si elles n'existent pas
+    Base.metadata.create_all(bind=engine)
+    print("✅ Base de données prête : Tables vérifiées.")
     DB_AVAILABLE = True
-except ImportError as e:
-    print(f"⚠️ Attention : Import ORM impossible (test en mode isolé) : {e}")
+except Exception as e:
+    print(f"⚠️ Attention : Problème ORM/Base : {e}")
     DB_AVAILABLE = False
 
-# Chargement artefacts avec vérification
+# Chargement artefacts
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def load_file(path):
-    if os.path.exists(path):
+    try:
         with open(path, "rb" if path.endswith((".pkl", ".bin")) else "r") as f:
             return pickle.load(f) if path.endswith((".pkl", ".bin")) else json.load(f)
-    return None
+    except: return None
 
 MODEL = load_file(os.path.join(BASE_DIR, "models", "kyc_xgboost.pkl"))
 SCALER = load_file(os.path.join(BASE_DIR, "models", "scaler.pkl"))
@@ -42,17 +45,60 @@ class TransactionRequest(BaseModel):
     montant: float
 
 def get_db():
-    if not DB_AVAILABLE: return None
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+    if not DB_AVAILABLE: yield None
+    else:
+        db = SessionLocal()
+        try: yield db
+        finally: db.close()
 
 @app.post("/score")
 def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
-    # ... (Garde ton code actuel ici, il est bon) ...
-    return {"status": "success"}
+    # Initialisation features
+    feat = {f: 0.0 for f in FEATURES}
+    
+    # Lecture profil client
+    if db:
+        try:
+            client_record = db.query(Client).filter(Client.client_id == str(req.client_id)).first()
+            if client_record:
+                secteur_map = {"Commerce": 1.0, "Banque": 2.0, "Industrie": 3.0, "Services": 4.0}
+                type_map = {"Courant": 1.0, "Epargne": 0.0}
+                for f in FEATURES:
+                    if f == "secteur_encode": feat[f] = float(secteur_map.get(getattr(client_record, 'secteur_activite', None), 0.0))
+                    elif f == "type_compte_encode": feat[f] = float(type_map.get(getattr(client_record, 'type_compte', None), 0.0))
+                    elif hasattr(client_record, f): feat[f] = float(getattr(client_record, f)) if getattr(client_record, f) is not None else 0.0
+        except Exception as e:
+            print(f"DEBUG: Erreur lecture client : {e}")
+    
+    if "montant" in feat: feat["montant"] = float(req.montant)
+
+    # Inférence IA
+    score = 0
+    if MODEL and SCALER:
+        df_input = pd.DataFrame([feat])[FEATURES]
+        prob = float(MODEL.predict_proba(SCALER.transform(df_input))[0][1])
+        score = int(prob * 100)
+    
+    # Règles métier
+    if req.montant > 50000: score = min(score + 82, 99)
+    elif req.montant > 15000: score = min(score + 53, 75)
+    
+    decision = "BLOQUÉE" if score >= 70 else "SURVEILLANCE" if score >= 40 else "APPROUVÉE"
+    
+    # Sauvegarde sécurisée (NE FAIT PAS PLANTER L'API)
+    if db:
+        try:
+            ts = datetime.now(timezone.utc).isoformat()
+            hash_str = hashlib.sha256(f"{ts}{score}{req.client_id}".encode()).hexdigest()[:12]
+            nouvelle_transaction = TransactionLog(hash=hash_str, timestamp=ts, client_id=req.client_id, score_risque=score, decision=decision)
+            db.add(nouvelle_transaction)
+            db.commit()
+            print(f"✅ Transaction enregistrée : {hash_str}")
+        except Exception as e:
+            db.rollback()
+            print(f"❌ ERREUR DB (l'UI recevra le score quand même) : {e}")
+
+    return {"score": score, "score_risque": score, "decision": decision}
 
 @app.get("/health")
 def health():
