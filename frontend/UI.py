@@ -7,12 +7,14 @@ import plotly.graph_objects as go
 import os
 import json
 import numpy as np
-import requests
+import requests # <-- Nécessaire pour envoyer l'ordre à l'API
 
 # --- CONNEXION À L'ORM POSTGRESQL ---
 try:
-    from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
+    # Pour le local (depuis la racine)
+    from .ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
 except (ImportError, ValueError):
+    # Pour Docker (où le fichier est à la racine /app)
     from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog
 
 # --- CONFIGURATION COULEURS OPS ---
@@ -22,32 +24,35 @@ C_RED = "#e74c3c"    # Blocked / Fraudeur
 DARK_PURE = "#000000"
 DARK_CARD = "#111111"
 
-# --- CONFIGURATION DE L'URL API ---
+# --- CONFIGURATION DE L'URL API (FORCE RENDER) ---
 API_URL = os.environ.get("API_URL", "http://127.0.0.1:8000")
+
+# Petit nettoyage au cas où il y aurait un / à la fin
 if API_URL.endswith('/'):
     API_URL = API_URL[:-1]
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG], suppress_callback_exceptions=True)
 
-# --- CHARGEMENT DES MÉTRIQUES (COMPARATIF XGB vs LOG) ---
+# --- CHARGEMENT DES MÉTRIQUES (COMPARATIF) ---
 def load_metrics(model_name):
     try:
         with open(f"models/{model_name}_metrics.json", "r") as f:
             return json.load(f)
-    except Exception as e:
-        print(f"⚠️ Erreur chargement {model_name}: {e}")
+    except:
         return {}
 
 m_xgb = load_metrics("XGBoost")
 m_log = load_metrics("LogisticRegression")
 
-# --- CHARGEMENT DATA CLIENTS ---
+# --- CHARGEMENT DATA CLIENTS VIA ORM ET GÉNÉRATION DU GRAPH MACRO ---
 db = SessionLocal()
 try:
     query_clients = db.query(Client).all()
     if query_clients:
         DF_CLIENTS_STATIC = pd.DataFrame([u.__dict__ for u in query_clients]).drop(columns=['_sa_instance_state'], errors='ignore')
         DF_CLIENTS_STATIC['client_id'] = DF_CLIENTS_STATIC['client_id'].astype(str)
+        
+        dropdown_options = [{'label': f"ID: {r['client_id']} - {r['pays_residence']}", 'value': str(r['client_id'])} for _, r in DF_CLIENTS_STATIC.iterrows()]
         
         df_macro = DF_CLIENTS_STATIC['profil_risque'].value_counts(normalize=True).reset_index()
         df_macro.columns = ['profil', 'percentage']
@@ -68,9 +73,11 @@ try:
                                 xaxis_title="Pourcentage (%)", yaxis_title=None, yaxis={'categoryorder':'total ascending'},
                                 xaxis_ticksuffix="%", margin=dict(l=10, r=60, t=10, b=10))
         fig_macro.update_traces(textposition='outside', cliponaxis=False)
+
     else:
         DF_CLIENTS_STATIC = pd.DataFrame()
         fig_macro = go.Figure()
+
 except Exception as e:
     print(f"ERREUR CHARGEMENT : {e}")
     DF_CLIENTS_STATIC = pd.DataFrame()
@@ -87,6 +94,8 @@ app.index_string = '''
             body { background-color: #000000 !important; font-family: 'Segoe UI', sans-serif; color: white; margin: 0; padding: 0; }
             .xtab { background-color: #080808 !important; color: #fff !important; border: none !important; }
             .xtab--selected { background-color: #003399 !important; font-weight: bold !important; border-bottom: 3px solid #0056b3 !important; }
+            .dash-spreadsheet-container .dash-spreadsheet-inner tr { background-color: #000000 !important; }
+            .dash-spreadsheet-container .dash-spreadsheet-inner td { background-color: #000000 !important; }
             .card { background-color: #111111 !important; border: 1px solid #333 !important; }
             .card-stats { background-color: #111111 !important; border: 1px solid #333 !important; border-radius: 10px; padding: 15px; margin-bottom: 10px; }
             .metric-val { font-weight: bold; color: #ffffff; }
@@ -110,7 +119,6 @@ app.layout = dbc.Container([
     ], className="my-4 pb-3 border-bottom", style={'borderColor': '#333'}),
 
     dcc.Tabs(id="tabs", value='monit', children=[
-        # --- TAB 1: MONITORING ---
         dcc.Tab(label='📊 MONITORING LIVE', value='monit', className='xtab', selected_className='xtab--selected', children=[
             dbc.Row([
                 dbc.Col(dbc.Button("▶️ START SIMULATION", id="btn-start-sim", color="success", className="fw-bold border border-success"), width="auto"),
@@ -130,7 +138,6 @@ app.layout = dbc.Container([
             html.Div(id='investigation-table', className="mt-4")
         ]),
 
-        # --- TAB 2: VISION 360 ---
         dcc.Tab(label='🔍 VISION CLIENT 360', value='360', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
                 html.H4("ANALYSE DES PROFILS ET PERSONAS (KYC 360)", className="text-white mt-4 mb-4"),
@@ -158,48 +165,35 @@ app.layout = dbc.Container([
             ], className="p-3")
         ]),
 
-        # --- TAB 3: PERFORMANCE (MODIFIÉ POUR COMPARATIF) ---
+        # --- ONGLET 3 : PERFORMANCE MODÈLE (COMPARATIF) ---
         dcc.Tab(label='📈 PERFORMANCE MODÈLE', value='perf', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
                 dbc.Row([
                     # --- COLONNE GAUCHE : XGBOOST ---
                     dbc.Col([
-                        html.Div([
-                            html.H3("MODÈLE : XGBOOST", className="text-center text-info mb-4", style={'letterSpacing': '2px'}),
-                            dbc.Row([
-                                dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H4(f"{float(m_xgb.get('accuracy',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
-                                dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H4(f"{float(m_xgb.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
-                                dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{float(m_xgb.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
-                            ]),
-                            html.Hr(style={'borderColor': '#444'}),
-                            html.H5("Importance des Variables (Gain)", className="text-muted mb-3"),
-                            html.Img(src="assets/XGBoost_fi.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
-                            html.H5("Évaluation (ROC / PR)", className="text-muted mt-4 mb-3"),
-                            html.Img(src="assets/XGBoost_evaluation.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
-                        ], className="p-2")
-                    ], width=6, style={'borderRight': '1px solid #333'}),
+                        html.H3("XGBOOST", className="text-center text-primary mb-3"),
+                        dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H4(f"{m_xgb.get('accuracy',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H4(f"{m_xgb.get('weighted avg',{}).get('f1-score',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H4(f"{m_xgb.get('weighted avg',{}).get('precision',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{m_xgb.get('weighted avg',{}).get('recall',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        html.Img(src="assets/XGBoost_fi.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'}),
+                        html.Img(src="assets/XGBoost_evaluation.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'})
+                    ], width=6, className="border-end border-secondary"),
 
                     # --- COLONNE DROITE : LOGISTIC REGRESSION ---
                     dbc.Col([
-                        html.Div([
-                            html.H3("MODÈLE : LOGISTIC REGRESSION", className="text-center text-success mb-4", style={'letterSpacing': '2px'}),
-                            dbc.Row([
-                                dbc.Col(dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H4(f"{float(m_log.get('accuracy',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
-                                dbc.Col(dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H4(f"{float(m_log.get('classification_report',{}).get('weighted avg',{}).get('f1-score',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
-                                dbc.Col(dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{float(m_log.get('classification_report',{}).get('weighted avg',{}).get('recall',0))*100:.2f}%", className="metric-val"))]), width=12, className="mb-2"),
-                            ]),
-                            html.Hr(style={'borderColor': '#444'}),
-                            html.H5("Coefficients des Variables", className="text-muted mb-3"),
-                            html.Img(src="assets/LogisticRegression_fi.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
-                            html.H5("Évaluation (ROC / PR)", className="text-muted mt-4 mb-3"),
-                            html.Img(src="assets/LogisticRegression_evaluation.png", style={'width':'100%', 'borderRadius': '10px', 'border': '1px solid #333'}),
-                        ], className="p-2")
+                        html.H3("LOGISTIC REGRESSION", className="text-center text-success mb-3"),
+                        dbc.Card([dbc.CardHeader("ACCURACY"), dbc.CardBody(html.H4(f"{m_log.get('accuracy',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        dbc.Card([dbc.CardHeader("F1-SCORE"), dbc.CardBody(html.H4(f"{m_log.get('weighted avg',{}).get('f1-score',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H4(f"{m_log.get('weighted avg',{}).get('precision',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{m_log.get('weighted avg',{}).get('recall',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
+                        html.Img(src="assets/LogisticRegression_fi.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'}),
+                        html.Img(src="assets/LogisticRegression_evaluation.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'})
                     ], width=6)
                 ], className="mt-4")
             ], className="p-3")
         ]),
 
-        # --- TAB 4: AUDIT ---
         dcc.Tab(label='📜 REGISTRE D\'AUDIT', value='audit', className='xtab', selected_className='xtab--selected', children=[
             html.Div([
                 html.H4("LEDGER D'AUDIT - DERNIERS ÉVÉNEMENTS SCELLÉS", className="text-white mt-4 mb-4"),
@@ -210,7 +204,7 @@ app.layout = dbc.Container([
     dcc.Interval(id='timer', interval=2000, n_intervals=0)
 ], fluid=True, style={'backgroundColor': DARK_PURE, 'minHeight': '100vh'})
 
-# --- CALLBACKS (SANS CHANGEMENT) ---
+# --- CALLBACKS ---
 @app.callback(
     Output("sim-status-msg", "children"),
     [Input("btn-start-sim", "n_clicks"), Input("btn-stop-sim", "n_clicks")],
