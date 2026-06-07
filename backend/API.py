@@ -88,24 +88,25 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
     if "montant" in feat: feat["montant"] = float(req.montant)
 
     # 2. Inférence IA
-    score = 0
+    score_ia = 0
     if MODEL and SCALER:
         df_input = pd.DataFrame([feat])[FEATURES]
         prob = float(MODEL.predict_proba(SCALER.transform(df_input))[0][1])
-        score = int(prob * 100)
+        score_ia = int(prob * 100)
     
     # Règles métier
-    if req.montant > 50000: score = min(score + 82, 99)
-    elif req.montant > 15000: score = min(score + 53, 75)
+    score_risque = score_ia
+    if req.montant > 50000: score_risque = min(score_ia + 82, 99)
+    elif req.montant > 15000: score_risque = min(score_ia + 53, 75)
     
-    decision = "BLOQUÉE" if score >= 70 else "SURVEILLANCE" if score >= 40 else "APPROUVÉE"
+    decision = "BLOQUÉE" if score_risque >= 70 else "SURVEILLANCE" if score_risque >= 40 else "APPROUVÉE"
     ts = datetime.now(timezone.utc).isoformat()
-    hash_str = hashlib.sha256(f"{ts}{score}{req.client_id}".encode()).hexdigest()[:12]
+    hash_str = hashlib.sha256(f"{ts}{score_risque}{req.client_id}".encode()).hexdigest()[:12]
 
     # 3. Sauvegarde sécurisée
     if db:
         try:
-            nouvelle_transaction = TransactionLog(hash=hash_str, timestamp=ts, client_id=req.client_id, score_risque=score, decision=decision)
+            nouvelle_transaction = TransactionLog(hash=hash_str, timestamp=ts, client_id=req.client_id, score_risque=score_risque, decision=decision)
             db.add(nouvelle_transaction)
             db.commit()
             print(f"✅ Transaction enregistrée : {hash_str}")
@@ -113,7 +114,7 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
             db.rollback()
             print(f"❌ ERREUR DB : {e}")
 
-    return {"score": score, "score_risque": score, "decision": decision, "model": MODEL_NAME}
+    return {"score": score_ia, "score_risque": score_risque, "decision": decision, "model": MODEL_NAME}
 
 # --- ROUTES SIMULATEUR ---
 @app.post("/simulator/start")
