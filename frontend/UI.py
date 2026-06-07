@@ -177,7 +177,8 @@ app.layout = dbc.Container([
                         dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H4(f"{m_xgb.get('weighted avg',{}).get('precision',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
                         dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{m_xgb.get('weighted avg',{}).get('recall',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
                         html.Img(src="assets/XGBoost_fi.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'}),
-                        html.Img(src="assets/XGBoost_evaluation.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'})
+                        # IMAGE AVEC ID ET CURSEUR ZOOM
+                        html.Img(id="img-xgb-eval", src="assets/XGBoost_evaluation.png", n_clicks=0, style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px', 'cursor': 'zoom-in', 'transition': '0.3s'})
                     ], width=6, className="border-end border-secondary"),
 
                     # --- COLONNE DROITE : LOGISTIC REGRESSION ---
@@ -188,9 +189,16 @@ app.layout = dbc.Container([
                         dbc.Card([dbc.CardHeader("PRECISION"), dbc.CardBody(html.H4(f"{m_log.get('weighted avg',{}).get('precision',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
                         dbc.Card([dbc.CardHeader("RECALL"), dbc.CardBody(html.H4(f"{m_log.get('weighted avg',{}).get('recall',0)*100:.2f}%", className="metric-val"))], className="mb-2"),
                         html.Img(src="assets/LogisticRegression_fi.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'}),
-                        html.Img(src="assets/LogisticRegression_evaluation.png", style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px'})
+                        # IMAGE AVEC ID ET CURSEUR ZOOM
+                        html.Img(id="img-log-eval", src="assets/LogisticRegression_evaluation.png", n_clicks=0, style={'width':'100%', 'marginTop':'20px', 'borderRadius': '5px', 'cursor': 'zoom-in', 'transition': '0.3s'})
                     ], width=6)
-                ], className="mt-4")
+                ], className="mt-4"),
+                
+                # --- FENÊTRE MODAL POUR L'AGRANDISSEMENT ---
+                dbc.Modal([
+                    dbc.ModalBody(html.Img(id="modal-zoom-img", src="", style={'width': '100%', 'borderRadius': '5px'})),
+                ], id="modal-zoom", size="xl", is_open=False, centered=True)
+                
             ], className="p-3")
         ]),
 
@@ -318,6 +326,26 @@ def update_audit(n):
         )
     except: return ""
     finally: db_session.close()
+
+# --- NOUVEAU CALLBACK : ZOOM SUR LES GRAPHIQUES D'ÉVALUATION ---
+@app.callback(
+    [Output("modal-zoom", "is_open"), Output("modal-zoom-img", "src")],
+    [Input("img-xgb-eval", "n_clicks"), Input("img-log-eval", "n_clicks")],
+    prevent_initial_call=True
+)
+def toggle_modal_zoom(n_xgb, n_log):
+    ctx = callback_context
+    if not ctx.triggered:
+        return False, dash.no_update
+    
+    button_id = ctx.triggered[0]["prop_id"].split(".")[0]
+    
+    if button_id == "img-xgb-eval":
+        return True, "assets/XGBoost_evaluation.png"
+    elif button_id == "img-log-eval":
+        return True, "assets/LogisticRegression_evaluation.png"
+        
+    return False, dash.no_update
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8053))
