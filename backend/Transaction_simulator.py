@@ -3,17 +3,21 @@ import numpy as np
 from datetime import datetime
 from collections import deque
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import List
 
 # Import de notre base de données
-from ORM_db_traducteur_SQL import SessionLocal, Client
+try:
+    from ORM_db_traducteur_SQL import SessionLocal, Client
+except ImportError:
+    # Fallback pour éviter le crash si importé depuis un endroit différent
+    SessionLocal = None
+    Client = None
 
-# --- ADAPTATION RENDER : ON UTILISE L'URL PUBLIQUE ---
+# URL de ton API sur Render
 API_URL = os.getenv("API_URL", "https://kyc-operation-serveur.onrender.com")
 
 random.seed()
-
-PAYS_BAS_RISQUE  = ["France", "Allemagne", "Royaume-Uni", "Pays-Bas", "Suède"]
+PAYS_BAS_RISQUE = ["France", "Allemagne", "Royaume-Uni", "Pays-Bas", "Suède"]
 PAYS_HAUT_RISQUE = ["Iran", "Corée du Nord", "Syrie", "Venezuela", "Russie"]
 
 class DriftDetector:
@@ -81,14 +85,22 @@ def worker_client(client_id: str, interval: float, duration: float, stop_event: 
                     emoji = {"APPROUVÉE": "🟢", "SURVEILLANCE": "🟡", "BLOQUÉE": "🔴"}.get(decision, "⚪")
                     print(f"[{datetime.now().strftime('%H:%M:%S')}] {emoji} {decision:<12} | {client_id[:8]}... | {tx_data['montant']:>10,.2f}€ | Score {score}")
             else: stats.erreurs += 1
-        except: stats.erreurs += 1
+        except Exception: stats.erreurs += 1
         time.sleep(interval * random.uniform(0.7, 1.3))
 
-def get_client_ids_from_db():
-    db = SessionLocal()
-    try: return [record[0] for record in db.query(Client.client_id).all()]
-    except: return []
-    finally: db.close()
+def get_client_ids_from_db() -> List[str]:
+    # Liste de secours au cas où la DB ne répondrait pas
+    fallback_ids = ["00276071ECB5", "004D2A9549C5", "00688F117676", "007D76709C1A", "0111963D16BB"]
+    if SessionLocal is None or Client is None:
+        return fallback_ids
+    try:
+        db = SessionLocal()
+        ids = [record[0] for record in db.query(Client.client_id).all()]
+        db.close()
+        return ids if ids else fallback_ids
+    except Exception as e:
+        print(f"⚠️ Erreur récupération IDs DB ({e}), utilisation du fallback.")
+        return fallback_ids
 
 def main():
     parser = argparse.ArgumentParser()
@@ -97,20 +109,19 @@ def main():
     parser.add_argument("--duration", type=int, default=60)
     args = parser.parse_args()
 
-    print("🔄 Récupération des clients depuis PostgreSQL...")
+    print("🔄 Initialisation du simulateur...")
     client_ids = get_client_ids_from_db()
-    if not client_ids: client_ids = [f"CLIENT_{i:04d}" for i in range(100)]
-    
     selected = random.sample(client_ids, min(args.clients, len(client_ids)))
     stop_event = threading.Event()
 
-    print(f"▶️ Simulation : {args.clients} clients actifs pour {args.duration} secondes...")
+    print(f"▶️ Simulation : {len(selected)} clients actifs...")
     threads = [threading.Thread(target=worker_client, args=(cid, args.interval, args.duration, stop_event), daemon=True) for cid in selected]
     for t in threads: t.start()
 
     try:
         for t in threads: t.join()
-    except KeyboardInterrupt: stop_event.set()
+    except KeyboardInterrupt:
+        stop_event.set()
 
     print("\n✅ Fin du Simulateur.")
     stats.print_summary()
