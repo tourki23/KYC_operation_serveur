@@ -34,9 +34,26 @@ def load_file(path):
             return pickle.load(f) if path.endswith((".pkl", ".bin")) else json.load(f)
     except: return None
 
-MODEL = load_file(os.path.join(BASE_DIR, "models", "kyc_xgboost.pkl"))
-SCALER = load_file(os.path.join(BASE_DIR, "models", "scaler.pkl"))
 FEATURES = load_file(os.path.join(BASE_DIR, "models", "features_list.json"))
+
+# --- LOGIQUE DE CHARGEMENT : Adaptée à tes noms de fichiers ---
+# 1. On tente d'abord la Régression Logistique (qui respecte le format *_model.pkl)
+MODEL = load_file(os.path.join(BASE_DIR, "models", "LogisticRegression_model.pkl"))
+SCALER = load_file(os.path.join(BASE_DIR, "models", "LogisticRegression_scaler.pkl"))
+MODEL_NAME = "LogisticRegression"
+
+# 2. Si ça échoue, on bascule sur XGBoost (qui utilise tes noms de fichiers actuels)
+if MODEL is None or SCALER is None:
+    print("⚠️ LogisticRegression non trouvé, bascule sur XGBoost...")
+    MODEL = load_file(os.path.join(BASE_DIR, "models", "kyc_xgboost.pkl"))
+    SCALER = load_file(os.path.join(BASE_DIR, "models", "scaler.pkl"))
+    MODEL_NAME = "kyc_xgboost"
+
+# Log du résultat
+if MODEL and SCALER:
+    print(f"✅ MODÈLE CHARGÉ : {MODEL_NAME}")
+else:
+    print("❌ ERREUR CRITIQUE : Aucun modèle n'a pu être chargé.")
 
 # --- 4. ROUTES ---
 def get_db():
@@ -96,24 +113,8 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
             db.rollback()
             print(f"❌ ERREUR DB : {e}")
 
-    return {"score": score, "score_risque": score, "decision": decision}
-
-# --- ROUTES SIMULATEUR (CORRECTIVES) ---
-@app.post("/simulator/start")
-def start_simulator():
-    global simulator_process
-    sim_script_path = os.path.join(BASE_DIR, "Transaction_simulator.py")
-    simulator_process = subprocess.Popen(["python", sim_script_path, "--duration", "36000"])
-    return {"status": "🚀 Simulateur démarré."}
-
-@app.post("/simulator/stop")
-def stop_simulator():
-    global simulator_process
-    if simulator_process:
-        simulator_process.terminate()
-        return {"status": "🛑 Simulateur arrêté."}
-    return {"status": "Aucun simulateur en cours."}
+    return {"score": score, "score_risque": score, "decision": decision, "model": MODEL_NAME}
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {"status": "ok", "loaded_model": MODEL_NAME}
