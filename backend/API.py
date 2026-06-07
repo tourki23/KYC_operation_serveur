@@ -9,17 +9,18 @@ from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 
 # --- 1. SÉCURITÉ DES CHEMINS ---
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# On ajoute le dossier courant au path pour que Python trouve ORM_db_traducteur_SQL
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # --- 2. INITIALISATION ---
 app = FastAPI()
 
-# --- 3. IMPORTATIONS ET SYNCHRONISATION DB ---
+# --- 3. IMPORTATIONS CORRIGÉES ---
 try:
-    # On importe aussi engine et Base pour forcer la création des tables
-    from backend.ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog, engine, Base
+    # IMPORT DIRECT : On enlève 'backend.' car on est DÉJÀ dans le dossier backend
+    from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog, engine, Base
     
-    # Création automatique des tables si elles n'existent pas
+    # Création automatique des tables
     Base.metadata.create_all(bind=engine)
     print("✅ Base de données prête : Tables vérifiées.")
     DB_AVAILABLE = True
@@ -53,10 +54,8 @@ def get_db():
 
 @app.post("/score")
 def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
-    # Initialisation features
     feat = {f: 0.0 for f in FEATURES}
     
-    # Lecture profil client
     if db:
         try:
             client_record = db.query(Client).filter(Client.client_id == str(req.client_id)).first()
@@ -72,20 +71,17 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
     
     if "montant" in feat: feat["montant"] = float(req.montant)
 
-    # Inférence IA
     score = 0
     if MODEL and SCALER:
         df_input = pd.DataFrame([feat])[FEATURES]
         prob = float(MODEL.predict_proba(SCALER.transform(df_input))[0][1])
         score = int(prob * 100)
     
-    # Règles métier
     if req.montant > 50000: score = min(score + 82, 99)
     elif req.montant > 15000: score = min(score + 53, 75)
     
     decision = "BLOQUÉE" if score >= 70 else "SURVEILLANCE" if score >= 40 else "APPROUVÉE"
     
-    # Sauvegarde sécurisée (NE FAIT PAS PLANTER L'API)
     if db:
         try:
             ts = datetime.now(timezone.utc).isoformat()
@@ -96,7 +92,7 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
             print(f"✅ Transaction enregistrée : {hash_str}")
         except Exception as e:
             db.rollback()
-            print(f"❌ ERREUR DB (l'UI recevra le score quand même) : {e}")
+            print(f"❌ ERREUR DB : {e}")
 
     return {"score": score, "score_risque": score, "decision": decision}
 
