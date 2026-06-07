@@ -1,19 +1,38 @@
 import os
 from sqlalchemy import create_engine, Column, String, Float, Integer
 from sqlalchemy.orm import declarative_base, sessionmaker
+from dotenv import load_dotenv
 
-# 1. On cherche la variable d'environnement (configurée sur GitHub ou Render)
-# Si elle n'existe pas, on bascule automatiquement sur SQLite (mode test)
-DATABASE_URL = os.getenv("DATABASE_URL")
+# 1. Chargement critique du fichier .env
+# Cela garantit que DATABASE_URL est bien lu depuis ton fichier local
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env_path = os.path.join(BASE_DIR, ".env")
+if os.path.exists(env_path):
+    load_dotenv(env_path)
 
-if DATABASE_URL:
-    # Mode Production : On utilise ta vraie URL
-    engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+# 2. Logique de connexion robuste
+# On vérifie d'abord si on est sur GitHub Actions pour les tests
+if os.getenv("GITHUB_ACTIONS") == "true":
+    DATABASE_URL = "sqlite:///:memory:"
+    print("🚀 MODE TEST : SQLite en mémoire")
 else:
-    # Mode Test / CI : On utilise SQLite en mémoire
-    print("⚠️ Mode Test/Offline détecté : utilisation de SQLite.")
-    engine = create_engine("sqlite:///:memory:", connect_args={"check_same_thread": False})
+    # Récupération et NETTOYAGE crucial
+    DATABASE_URL = os.getenv("DATABASE_URL")
+    if DATABASE_URL:
+        DATABASE_URL = DATABASE_URL.strip().strip('"').strip("'")
+        print("🌐 MODE PROD : Connexion PostgreSQL activée")
+    else:
+        print("⚠️ DATABASE_URL non trouvée ! Passage en mode SQLite par défaut.")
+        DATABASE_URL = "sqlite:///:memory:"
 
+# 3. Création du moteur avec protection "Cloud" (pool_pre_ping)
+engine = create_engine(
+    DATABASE_URL, 
+    pool_pre_ping=True, 
+    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
+)
+
+# 4. Synchronisation automatique (Pour être sûr que la table existe)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
@@ -21,20 +40,19 @@ Base = declarative_base()
 class Client(Base):
     __tablename__ = "clients"
     client_id = Column(String, primary_key=True)
-    age = Column(Integer)
-    # ... (le reste de tes colonnes)
-    sexe = Column(String)
-    pays_residence = Column(String)
-    nationalite = Column(String)
-    secteur_activite = Column(String)
-    type_compte = Column(String)
-    date_ouverture = Column(String)
+    age = Column(Float)
     revenu_annuel = Column(Float)
     solde_moyen = Column(Float)
+    profil_risque = Column(String)
+    nationalite = Column(String)
+    pays_residence = Column(String)
+    secteur_activite = Column(String)
+    type_compte = Column(String)
+    sexe = Column(String)
+    date_ouverture = Column(String)
     anciennete_compte = Column(Integer)
     est_ppe = Column(String)
     pays_risque = Column(Integer)
-    profil_risque = Column(String)
     score_risque_reel = Column(Integer)
     nb_comptes_lies = Column(Integer)
     litige_anterieur = Column(String)
@@ -66,3 +84,7 @@ class TransactionLog(Base):
     client_id = Column(String)
     score_risque = Column(Integer)
     decision = Column(String)
+
+# --- LANCEMENT DE LA CRÉATION DES TABLES ---
+# Si la table n'existe pas dans Neon, cela va la créer automatiquement !
+Base.metadata.create_all(bind=engine)
