@@ -4,23 +4,22 @@ import pickle
 import json
 import hashlib
 import pandas as pd
+import subprocess
 from datetime import datetime, timezone
 from fastapi import FastAPI, Depends
 from pydantic import BaseModel
 
 # --- 1. SÉCURITÉ DES CHEMINS ---
-# On ajoute le dossier courant au path pour que Python trouve ORM_db_traducteur_SQL
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(BASE_DIR)
 
 # --- 2. INITIALISATION ---
 app = FastAPI()
+simulator_process = None 
 
-# --- 3. IMPORTATIONS CORRIGÉES ---
+# --- 3. IMPORTATIONS ET SYNCHRONISATION DB ---
 try:
-    # IMPORT DIRECT : On enlève 'backend.' car on est DÉJÀ dans le dossier backend
     from ORM_db_traducteur_SQL import SessionLocal, Client, TransactionLog, engine, Base
-    
-    # Création automatique des tables
     Base.metadata.create_all(bind=engine)
     print("✅ Base de données prête : Tables vérifiées.")
     DB_AVAILABLE = True
@@ -29,7 +28,6 @@ except Exception as e:
     DB_AVAILABLE = False
 
 # Chargement artefacts
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def load_file(path):
     try:
         with open(path, "rb" if path.endswith((".pkl", ".bin")) else "r") as f:
@@ -41,10 +39,6 @@ SCALER = load_file(os.path.join(BASE_DIR, "models", "scaler.pkl"))
 FEATURES = load_file(os.path.join(BASE_DIR, "models", "features_list.json"))
 
 # --- 4. ROUTES ---
-class TransactionRequest(BaseModel):
-    client_id: str
-    montant: float
-
 def get_db():
     if not DB_AVAILABLE: yield None
     else:
@@ -52,10 +46,15 @@ def get_db():
         try: yield db
         finally: db.close()
 
+class TransactionRequest(BaseModel):
+    client_id: str
+    montant: float
+
 @app.post("/score")
 def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
     feat = {f: 0.0 for f in FEATURES}
     
+    # 1. Lecture profil client
     if db:
         try:
             client_record = db.query(Client).filter(Client.client_id == str(req.client_id)).first()
@@ -71,21 +70,24 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
     
     if "montant" in feat: feat["montant"] = float(req.montant)
 
+    # 2. Inférence IA
     score = 0
     if MODEL and SCALER:
         df_input = pd.DataFrame([feat])[FEATURES]
         prob = float(MODEL.predict_proba(SCALER.transform(df_input))[0][1])
         score = int(prob * 100)
     
+    # Règles métier
     if req.montant > 50000: score = min(score + 82, 99)
     elif req.montant > 15000: score = min(score + 53, 75)
     
     decision = "BLOQUÉE" if score >= 70 else "SURVEILLANCE" if score >= 40 else "APPROUVÉE"
-    
+    ts = datetime.now(timezone.utc).isoformat()
+    hash_str = hashlib.sha256(f"{ts}{score}{req.client_id}".encode()).hexdigest()[:12]
+
+    # 3. Sauvegarde sécurisée
     if db:
         try:
-            ts = datetime.now(timezone.utc).isoformat()
-            hash_str = hashlib.sha256(f"{ts}{score}{req.client_id}".encode()).hexdigest()[:12]
             nouvelle_transaction = TransactionLog(hash=hash_str, timestamp=ts, client_id=req.client_id, score_risque=score, decision=decision)
             db.add(nouvelle_transaction)
             db.commit()
@@ -95,6 +97,22 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
             print(f"❌ ERREUR DB : {e}")
 
     return {"score": score, "score_risque": score, "decision": decision}
+
+# --- ROUTES SIMULATEUR (CORRECTIVES) ---
+@app.post("/simulator/start")
+def start_simulator():
+    global simulator_process
+    sim_script_path = os.path.join(BASE_DIR, "Transaction_simulator.py")
+    simulator_process = subprocess.Popen(["python", sim_script_path, "--duration", "36000"])
+    return {"status": "🚀 Simulateur démarré."}
+
+@app.post("/simulator/stop")
+def stop_simulator():
+    global simulator_process
+    if simulator_process:
+        simulator_process.terminate()
+        return {"status": "🛑 Simulateur arrêté."}
+    return {"status": "Aucun simulateur en cours."}
 
 @app.get("/health")
 def health():
