@@ -4,39 +4,35 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 
 # 1. Chargement critique du fichier .env
-# Cela garantit que DATABASE_URL est bien lu depuis ton fichier local
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env_path = os.path.join(BASE_DIR, ".env")
 if os.path.exists(env_path):
     load_dotenv(env_path)
 
 # 2. Logique de connexion robuste
-# On vérifie d'abord si on est sur GitHub Actions pour les tests
 if os.getenv("GITHUB_ACTIONS") == "true":
     DATABASE_URL = "sqlite:///:memory:"
     print("🚀 MODE TEST : SQLite en mémoire")
 else:
-    # Récupération et NETTOYAGE crucial
     DATABASE_URL = os.getenv("DATABASE_URL")
     if DATABASE_URL:
         DATABASE_URL = DATABASE_URL.strip().strip('"').strip("'")
         print("🌐 MODE PROD : Connexion PostgreSQL activée")
     else:
-        print("⚠️ DATABASE_URL non trouvée ! Passage en mode SQLite par défaut.")
+        print("⚠️ DATABASE_URL non trouvée ! Passage en mode SQLite.")
         DATABASE_URL = "sqlite:///:memory:"
 
-# 3. Création du moteur avec protection "Cloud" (pool_pre_ping)
+# 3. Création du moteur
 engine = create_engine(
     DATABASE_URL, 
     pool_pre_ping=True, 
     connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
 )
 
-# 4. Synchronisation automatique (Pour être sûr que la table existe)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-# --- TES CLASSES RESTENT IDENTIQUES ---
+# 4. Modèles (Colonne 'sexe' retirée)
 class Client(Base):
     __tablename__ = "clients"
     client_id = Column(String, primary_key=True)
@@ -48,7 +44,7 @@ class Client(Base):
     pays_residence = Column(String)
     secteur_activite = Column(String)
     type_compte = Column(String)
-    sexe = Column(String)
+    # sexe = Column(String)  <-- RETIRÉ
     date_ouverture = Column(String)
     anciennete_compte = Column(Integer)
     est_ppe = Column(String)
@@ -85,6 +81,5 @@ class TransactionLog(Base):
     score_risque = Column(Integer)
     decision = Column(String)
 
-# --- LANCEMENT DE LA CRÉATION DES TABLES ---
-# Si la table n'existe pas dans Neon, cela va la créer automatiquement !
+# Synchronisation finale
 Base.metadata.create_all(bind=engine)
