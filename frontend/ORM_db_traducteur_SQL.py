@@ -3,26 +3,33 @@ from sqlalchemy import create_engine, Column, String, Float, Integer
 from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 
-# 1. Chargement critique du fichier .env
+# ==========================================
+# 1. CHARGEMENT DE L'ENVIRONNEMENT
+# ==========================================
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 env_path = os.path.join(BASE_DIR, ".env")
 if os.path.exists(env_path):
     load_dotenv(env_path)
 
-# 2. Logique de connexion robuste
+# ==========================================
+# 2. LOGIQUE DE CONNEXION ROBUSTE
+# ==========================================
 if os.getenv("GITHUB_ACTIONS") == "true":
     DATABASE_URL = "sqlite:///:memory:"
     print("🚀 MODE TEST : SQLite en mémoire")
 else:
     DATABASE_URL = os.getenv("DATABASE_URL")
     if DATABASE_URL:
+        # Nettoyage vital pour éviter les crashs avec Neon
         DATABASE_URL = DATABASE_URL.strip().strip('"').strip("'")
         print("🌐 MODE PROD : Connexion PostgreSQL activée")
     else:
         print("⚠️ DATABASE_URL non trouvée ! Passage en mode SQLite.")
         DATABASE_URL = "sqlite:///:memory:"
 
-# 3. Création du moteur
+# ==========================================
+# 3. CRÉATION DU MOTEUR (AVEC PROTECTION CLOUD)
+# ==========================================
 engine = create_engine(
     DATABASE_URL, 
     pool_pre_ping=True, 
@@ -32,9 +39,12 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
-# 4. Modèles (Colonne 'sexe' retirée)
+# ==========================================
+# 4. DÉFINITION DES TABLES (AVEC TOUTES LES COLONNES POUR L'UI)
+# ==========================================
 class Client(Base):
     __tablename__ = "clients"
+    
     client_id = Column(String, primary_key=True)
     age = Column(Float)
     revenu_annuel = Column(Float)
@@ -44,8 +54,11 @@ class Client(Base):
     pays_residence = Column(String)
     secteur_activite = Column(String)
     type_compte = Column(String)
-    # sexe = Column(String)  <-- RETIRÉ
+    
+    # --- COLONNES RÉINTÉGRÉES POUR SÉCURISER L'INTERFACE (STATS) ---
+    sexe = Column(String)
     date_ouverture = Column(String)
+    
     anciennete_compte = Column(Integer)
     est_ppe = Column(String)
     pays_risque = Column(Integer)
@@ -81,5 +94,7 @@ class TransactionLog(Base):
     score_risque = Column(Integer)
     decision = Column(String)
 
-# Synchronisation finale
+# ==========================================
+# 5. SYNCHRONISATION FINALE
+# ==========================================
 Base.metadata.create_all(bind=engine)
