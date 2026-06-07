@@ -167,6 +167,9 @@ app.layout = dbc.Container([
 
         # --- ONGLET 3 : PERFORMANCE MODÈLE (COMPARATIF) ---
         dcc.Tab(label='📈 PERFORMANCE MODÈLE', value='perf', className='xtab', selected_className='xtab--selected', children=[
+            # INJECTION DE STYLE POUR FORCER LA LARGEUR DU MODAL
+            html.Style(".custom-modal-zoom .modal-dialog { max-width: 90vw !important; }"),
+            
             html.Div([
                 dbc.Row([
                     # --- COLONNE GAUCHE : XGBOOST ---
@@ -196,8 +199,8 @@ app.layout = dbc.Container([
                 
                 # --- FENÊTRE MODAL POUR L'AGRANDISSEMENT ---
                 dbc.Modal([
-                    dbc.ModalBody(html.Img(id="modal-zoom-img", src="", style={'width': '100%', 'borderRadius': '5px'})),
-                ], id="modal-zoom", size="xl", is_open=False, centered=True)
+                    dbc.ModalBody(html.Img(id="modal-zoom-img", src="", style={'width': '100%', 'height': 'auto', 'borderRadius': '5px'})),
+                ], id="modal-zoom", size="xl", is_open=False, centered=True, className="custom-modal-zoom")
                 
             ], className="p-3")
         ]),
