@@ -123,4 +123,44 @@ def start_simulator():
     global simulator_process
     
     # Vérification anti-doublon
-    if simulator_process
+    if simulator_process and simulator_process.poll() is None:
+        return {"status": "⚠️ Simulateur déjà en cours. Requête ignorée."}
+        
+    sim_script_path = os.path.join(BASE_DIR, "Transaction_simulator.py")
+    simulator_process = subprocess.Popen(["python", sim_script_path, "--duration", "36000"])
+    return {"status": "🚀 Simulateur démarré."}
+
+@app.post("/simulator/stop")
+def stop_simulator():
+    global simulator_process
+    if simulator_process:
+        simulator_process.terminate()
+        # On attend que le processus se termine proprement
+        simulator_process.wait()
+        simulator_process = None # On réinitialise la variable
+        return {"status": "🛑 Simulateur arrêté."}
+    return {"status": "Aucun simulateur en cours."}
+
+# --- ROUTE NETTOYAGE DB ---
+@app.post("/simulator/truncate")
+def truncate_history(db = Depends(get_db)):
+    if db:
+        try:
+            # Commande native PostgreSQL pour vider rapidement la table
+            db.execute(text("TRUNCATE TABLE transactions_history;"))
+            db.commit()
+            return {"status": "🧹 Base de données nettoyée avec succès."}
+        except Exception as e:
+            db.rollback()
+            # Fallback en DELETE si tu testes un jour en SQLite local
+            try:
+                db.execute(text("DELETE FROM transactions_history;"))
+                db.commit()
+                return {"status": "🧹 Base nettoyée (Delete fallback)."}
+            except Exception as fallback_e:
+                return {"error": str(fallback_e)}
+    return {"error": "Connexion DB impossible"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok", "loaded_model": MODEL_NAME}
