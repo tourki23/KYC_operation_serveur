@@ -1,4 +1,4 @@
-import random, time, argparse, threading, requests, os
+import random, time, argparse, threading, requests, os, signal # <-- NOUVEL IMPORT AJOUTÉ ICI
 import numpy as np
 from datetime import datetime
 from collections import deque
@@ -54,11 +54,19 @@ class GlobalStats:
             if "APPROUV" in decision: self.approuvees += 1
             elif "SURVEILL" in decision: self.surveillees += 1
             elif "BLOQU" in decision: self.bloquees += 1
+            
+            # Déclenchement automatique du nettoyage tous les 1500
+            if self.total > 0 and self.total % 1500 == 0:
+                try:
+                    requests.post(f"{API_URL}/simulator/truncate", timeout=10.0)
+                    print(f"\n🧹 [MAINTENANCE] {self.total} transactions. Nettoyage de la table Neon effectué.\n")
+                except Exception as e:
+                    print(f"\n⚠️ Échec du nettoyage DB : {e}\n")
 
     def print_summary(self):
         with self.lock:
             if self.total == 0: return
-            print(f"\n📊 RÉSUMÉ GLOBAL : 🟢 {self.approuvees} | 🟡 {self.surveillees} | 🔴 {self.bloquees} | ⚠️ {self.erreurs}\n")
+            print(f"\n📊 RÉSUMÉ GLOBAL : 🟢 {self.approuvees} | 🟡 {self.surveillees} | 🔴 {self.bloquees} | ⚠️️ {self.erreurs}\n")
 
 stats = GlobalStats()
 drift_detector = DriftDetector(window=100)
@@ -106,7 +114,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--clients", type=int, default=15)
     parser.add_argument("--interval", type=float, default=0.8)
-    parser.add_argument("--duration", type=int, default=60)
+    parser.add_argument("--duration", type=int, default=36000)
     args = parser.parse_args()
 
     print("🔄 Initialisation du simulateur...")
@@ -114,14 +122,33 @@ def main():
     selected = random.sample(client_ids, min(args.clients, len(client_ids)))
     stop_event = threading.Event()
 
-    print(f"▶️ Simulation : {len(selected)} clients actifs...")
-    threads = [threading.Thread(target=worker_client, args=(cid, args.interval, args.duration, stop_event), daemon=True) for cid in selected]
-    for t in threads: t.start()
-
-    try:
-        for t in threads: t.join()
-    except KeyboardInterrupt:
+    # --- NOUVEAUTÉ : Interception du bouton Stop de l'API ---
+    def signal_handler(signum, frame):
+        print("\n🛑 Signal d'arrêt reçu de l'API. Fermeture des threads en cours...")
         stop_event.set()
+
+    signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+    # --------------------------------------------------------
+
+    print(f"▶️ Simulation : {len(selected)} clients actifs...")
+    threads = [
+        threading.Thread(
+            target=worker_client, 
+            args=(cid, args.interval, args.duration, stop_event), 
+            daemon=True
+        ) for cid in selected
+    ]
+    
+    for t in threads: 
+        t.start()
+
+    # --- NOUVEAUTÉ : Boucle non-bloquante pour écouter l'API ---
+    while not stop_event.is_set():
+        time.sleep(0.5)
+        if not any(t.is_alive() for t in threads):
+            break
+    # -----------------------------------------------------------
 
     print("\n✅ Fin du Simulateur.")
     stats.print_summary()
