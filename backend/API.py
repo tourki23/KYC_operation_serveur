@@ -8,6 +8,7 @@ import subprocess
 from datetime import datetime, timezone
 from fastapi import FastAPI, Depends
 from pydantic import BaseModel
+from sqlalchemy import text  # <-- NOUVEL IMPORT AJOUTÉ ICI
 
 # --- 1. SÉCURITÉ DES CHEMINS ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -120,18 +121,6 @@ def scorer_transaction(req: TransactionRequest, db = Depends(get_db)):
 @app.post("/simulator/start")
 def start_simulator():
     global simulator_process
-    sim_script_path = os.path.join(BASE_DIR, "Transaction_simulator.py")
-    simulator_process = subprocess.Popen(["python", sim_script_path, "--duration", "36000"])
-    return {"status": "🚀 Simulateur démarré."}
-
-@app.post("/simulator/stop")
-def stop_simulator():
-    global simulator_process
-    if simulator_process:
-        simulator_process.terminate()
-        return {"status": "🛑 Simulateur arrêté."}
-    return {"status": "Aucun simulateur en cours."}
-
-@app.get("/health")
-def health():
-    return {"status": "ok", "loaded_model": MODEL_NAME}
+    
+    # Vérification anti-doublon
+    if simulator_process
